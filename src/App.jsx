@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './Header.jsx';
-import Home from './Home.jsx';
-import Projects from './Projects.jsx';
-import Contact from './Contact.jsx';
+import Header from './components/Header.jsx';
+import Home from './components/Home.jsx';
+import Projects from './components/Projects.jsx';
+import Contact from './components/Contact.jsx';
 import './css/styles.css';
+
 
 class App extends Component {
   render() {

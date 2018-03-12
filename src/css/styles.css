@@ -1,3 +1,32 @@
+
+/*---------------  CUSTOM FONT  -------------------*/
+
+@font-face {
+    font-family:'Print Char 21';
+    src: url('../fonts/Print Char 21.eot');
+  src: url('../fonts/Print Char 21.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Print Char 21.woff2') format('woff2'),
+    url('../fonts/Print Char 21.woff') format('woff'),
+    url('../fonts/Print Char 21.svg#Print Char 21') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+
+
+
+.homeText {
+  font-family:'Print Char 21';
+  font-size: 16px;
+}
+
+.piebri {
+  max-width: 384px;
+}
+
+/*---------------  NAV BAR STYLES  -------------------*/
+
 .link-unstyled {
   &,
   &:visited,
@@ -23,7 +52,7 @@
   }
 }
 
-/*---------------  NAV BAR STYLES  -------------------*/
+
 .Header {
   margin-bottom: 100px;
   border-bottom: 1px solid #5D5C5C;
