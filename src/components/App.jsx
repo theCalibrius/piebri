@@ -11,15 +11,18 @@ import '../css/styles.css';
 class App extends Component {
   render() {
     return (
-        <Router>
-          <div className="nav-bar">
+      <Router>
+        <div className="appContainer">
+          <div className="navBar">
             <Header></Header>
           </div>
-          <Route exact={true} path='/' component={Home} />
-          <Route path='/projects' component={Projects} />
-          <Route path='/contact' component={Contact} />
+          <div className="contentAreaContainer">
+            <Route exact={true} path='/' component={Home} />
+            <Route path='/projects' component={Projects} />
+            <Route path='/contact' component={Contact} />
           </div>
-        </Router>
+      </div>
+      </Router>
     );
   }
 }

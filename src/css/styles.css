@@ -6,15 +6,115 @@
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.app-container{
+.appContainer{
   display:grid;
   grid-template-columns:1fr;
   grid-template-rows:1fr 15fr;
+  grid-template-areas: 'navBar'
+                       'contentAreaContainer';
   height:100vh;
   width: 100vw;
 }
 
+.navBar{
+  grid-area: navBar;
+  display: grid;
+  grid-template-columns:1fr 8fr 1fr;
+  grid-template-areas: '...  navBarContent  ...';
+  background-color: #232D2D;
+}
 
+.navBarContent{
+  grid-area: navBarContent;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  display: flex;
+}
+
+.navLinks{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pageLinks{
+  display:flex;
+}
+
+.socialLinks{
+  display: flex;
+}
+
+.contentAreaContainer{
+  grid-area: contentAreaContainer;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr; 
+  grid-template-areas: '... contentArea ...';
+}
+
+
+.homepageContent{
+  grid-area: contentArea;
+  display: grid;
+  grid-template-areas: '... title ...'
+                       'leftKeywords mugShot rightKeywords'
+                       '... bottomKeywords ...'
+}
+
+.homepageContent li{
+  list-style-type: none;
+  font-family:'Print Char 21';
+  font-size: 1em;
+}
+
+.title{
+  grid-area: title;
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: 'Print Char 21';
+  font-size: 1.5em;
+}
+
+.leftKeywords{
+  grid-area: leftKeywords;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+}
+
+.rightKeywords{
+  grid-area: rightKeywords;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bottomKeywords{
+  grid-area: bottomKeywords;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mugShot{
+  grid-area: mugShot;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.projects-content{
+  grid-area: contentArea;
+}
+
+.contact-content{
+  grid-area: contentArea;
+}
 
 
 
@@ -36,18 +136,20 @@
 
 /*---------------  HOME PAGE STYLES -------------------*/
 
-.homeText {
-  font-family:'Print Char 21';
-  font-size: 16px;
+.piebri {
+  max-width: 384px;
+}
+
+/*.homeText {
+
 }
 
 .nameText {
-  font-family:'Print Char 21';
-  font-size: 22px;
-  margin-bottom: 60px;
-}
 
-ul.keywords {
+  margin-bottom: 60px;
+}*/
+
+/*ul.keywords {
   list-style-type: none;
   -webkit-padding-start:0;
 }
@@ -63,11 +165,9 @@ ul.keywords {
 
 .keywords li {
   margin-bottom:80px;
-}
+}*/
 
-.piebri {
-  max-width: 384px;
-}
+
 
 
 
@@ -102,19 +202,16 @@ ul.keywords {
 .linkedin {
   margin-right: 14px;
 }
-.header {
-  margin-bottom: 60px;
-  background-color: #232D2D;
-}
+
 
 .navText {
   font-family: "Source Code Pro", monospace;
   font-size: 16px;
 }
 
-.navLink {
+/*.navLink {
   margin-right: 20px;
-}
+}*/
 
 .blinking-cursor {
   margin-left: 5px;

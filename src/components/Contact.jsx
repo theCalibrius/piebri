@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 var Contact = (props) => (
-  
-
+  <div className="contact-content">
       <span>Contact</span>
 
       <form method="post">
@@ -22,7 +21,7 @@ var Contact = (props) => (
           <button type="submit">Submit</button>
         </p>
       </form> 
-
+  </div>
 
 );
 
