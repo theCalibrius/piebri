@@ -1,4 +1,64 @@
-.link-unstyled {
+.body {
+  padding:0;
+}
+
+
+/*---------------  CUSTOM FONT  -------------------*/
+
+@font-face {
+    font-family:'Print Char 21';
+    src: url('../fonts/Print Char 21.eot');
+    src: url('../fonts/Print Char 21.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Print Char 21.woff2') format('woff2'),
+    url('../fonts/Print Char 21.woff') format('woff'),
+    url('../fonts/Print Char 21.svg#Print Char 21') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+
+/*---------------  HOME PAGE STYLES -------------------*/
+
+.homeText {
+  font-family:'Print Char 21';
+  font-size: 16px;
+}
+
+.nameText {
+  font-family:'Print Char 21';
+  font-size: 22px;
+  margin-bottom: 60px;
+}
+
+ul.keywords {
+  list-style-type: none;
+  -webkit-padding-start:0;
+}
+
+.bottom li {
+  display:inline;
+  margin-right: 40px;
+}
+
+.bottom li.final {
+  margin-right:0;
+}
+
+.keywords li {
+  margin-bottom:80px;
+}
+
+.piebri {
+  max-width: 384px;
+}
+
+
+
+
+/*---------------  NAV BAR STYLES  -------------------*/
+
+/*.link-unstyled {
   &,
   &:visited,
   &:hover,
@@ -21,13 +81,14 @@
     padding: inherit;
     vertical-align: inherit;
   }
-}
+}*/
 
-/*---------------  NAV BAR STYLES  -------------------*/
-.Header {
-  margin-bottom: 100px;
-  border-bottom: 1px solid #5D5C5C;
-  padding-bottom: 10px;
+.linkedin {
+  margin-right: 14px;
+}
+.header {
+  margin-bottom: 60px;
+  background-color: #232D2D;
 }
 
 .navText {
@@ -45,7 +106,6 @@
   font-weight: 100;
   font-family: "Source Code Pro";
   font-size: 18px;
-  color: #2E3D48;
   -webkit-animation: 1.2s blink step-end infinite;
   -moz-animation: 1.2s blink step-end infinite;
   -ms-animation: 1.2s blink step-end infinite;
@@ -58,7 +118,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -67,7 +127,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -76,7 +136,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -85,7 +145,7 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
 
@@ -94,6 +154,6 @@
     color: transparent;
   }
   50% {
-    color: black;
+    color: white;
   }
 }
