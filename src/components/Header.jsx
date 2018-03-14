@@ -8,6 +8,8 @@ import {
 	NavItem,
 	NavLink
 } from 'reactstrap';
+import linkedin from '../img/linkedin_logo.png'
+import github from '../img/github_logo.png'
 
 var Header = (props) => (
   <Navbar className="header"  expand="md">
@@ -26,6 +28,12 @@ var Header = (props) => (
 	  <NavItem>
 	    <NavLink>
 	      <Link to='/contact' style={{ textDecoration: 'none', color: 'white' }}>   <span class="navText navLink">contact</span>  </Link>
+	    </NavLink>
+	  </NavItem>
+	  <NavItem>
+	    <NavLink>
+	      <a href="https://www.linkedin.com/in/piercebrian/"><img class="linkedin" src={linkedin} alt={"linkedin"} /></a>
+	      <a href="https://github.com/theCalibrius"><img class="github" src={github} alt={"github"} /></a>
 	    </NavLink>
 	  </NavItem>
     </Nav>
