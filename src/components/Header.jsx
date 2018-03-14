@@ -32,8 +32,8 @@ var Header = (props) => (
 	  </NavItem>
 	  <NavItem>
 	    <NavLink>
-	      <a href="https://www.linkedin.com/in/piercebrian/"><img class="linkedin" src={linkedin} alt={"linkedin"} /></a>
-	      <a href="https://github.com/theCalibrius"><img class="github" src={github} alt={"github"} /></a>
+	      <a href="https://www.linkedin.com/in/piercebrian/" target="_blank"><img class="linkedin" src={linkedin} alt={"linkedin"} /></a>
+	      <a href="https://github.com/theCalibrius" target="_blank"><img class="github" src={github} alt={"github"} /></a>
 	    </NavLink>
 	  </NavItem>
     </Nav>
