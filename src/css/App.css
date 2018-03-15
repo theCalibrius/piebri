@@ -33,10 +33,11 @@ body {
 .navBar{
   grid-area: navBar;
   display: grid;
-  max-height: 36px;
+  min-height: 40px;
   grid-template-columns: auto 810px auto;
   grid-template-areas: '...  navBarContent  ...';
   background-color: #232D2D;
+  margin-bottom:20px;
 }
 
 .contentAreaContainer{

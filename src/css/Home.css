@@ -4,7 +4,7 @@
 .homepageContent{
   grid-area: contentArea;
   display: grid;
-  grid-template-rows: 90px 428px 54px;
+  grid-template-rows: 100px 428px 20px;
   grid-template-areas: '............. title ..............'
                        'leftKeywords mugShot rightKeywords'
                        '......... bottomKeywords .........';
@@ -30,8 +30,9 @@
   display: flex;
   max-height: 428px;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: right;
+  padding: 70px 30px 70px;
 }
 
 .rightKeywords{
@@ -39,16 +40,19 @@
   display: flex;
   max-height: 428px;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 70px 30px 70px;
+
 }
 
 .bottomKeywords{
   grid-area: bottomKeywords;
   display: flex;
   flex-direction: row;
-  max-width: 428px;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
   
 }
 
