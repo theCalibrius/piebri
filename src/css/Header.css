@@ -1,0 +1,106 @@
+
+/*---------------  CSS GRID LAYOUT  -------------------*/
+
+.navBarContent{
+  grid-area: navBarContent;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoText{
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
+}
+
+.logoContainer{
+  display: flex;
+  min-width: 104px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoCursor{
+  min-height: 22px;
+}
+
+.navLinks{
+  min-width: 300px;
+  max-height: 22px;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1em;
+}
+
+.socialLinks{
+  display: flex;
+  justify-content: space-between;
+  min-width: 60px;
+}
+
+
+
+/*---------------  Blinking Cursor for Logo  -------------------*/
+
+.blinkingCursor {
+  font-size: 1.1em;
+  font-weight: 100;
+  transform:scale(1,1.4); /* W3C */
+  -webkit-transform:scale(1,1.4); /* Safari and Chrome */
+  -moz-transform:scale(1,1.4); /* Firefox */
+  -ms-transform:scale(1,1.4); /* IE 9 */
+  -o-transform:scale(1,1.4); /* Opera */
+  font-family: "Source Code Pro";
+  -webkit-animation: 1.2s blink step-end infinite;
+  -moz-animation: 1.2s blink step-end infinite;
+  -ms-animation: 1.2s blink step-end infinite;
+  -o-animation: 1.2s blink step-end infinite;
+  animation: 1.2s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}

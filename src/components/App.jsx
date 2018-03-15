@@ -5,7 +5,7 @@ import Header from './Header.jsx';
 import Home from './Home.jsx';
 import Projects from './Projects.jsx';
 import Contact from './Contact.jsx';
-import '../css/styles.css';
+import '../css/App.css';
 
 
 class App extends Component {

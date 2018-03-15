@@ -1,0 +1,66 @@
+
+/*---------------  CSS GRID LAYOUT  -------------------*/
+
+.homepageContent{
+  grid-area: contentArea;
+  display: grid;
+  grid-template-rows: 100px 475px 60px;
+  grid-template-areas: '............. title ..............'
+                       'leftKeywords mugShot rightKeywords'
+                       '......... bottomKeywords .........';
+}
+
+.homepageContent li{
+  list-style-type: none;
+  font-family:'Print Char 21';
+  font-size: 1em;
+}
+
+.title{
+  grid-area: title;
+  font-weight: 900;
+  display:flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-family: 'Print Char 21';
+  font-size: 1.5em;
+}
+
+.leftKeywords{
+  grid-area: leftKeywords;
+  display: flex;
+  max-height: 475px;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+}
+
+.rightKeywords{
+  grid-area: rightKeywords;
+  display: flex;
+  max-height: 475px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bottomKeywords{
+  grid-area: bottomKeywords;
+  display: flex;
+  flex-direction: row;
+  max-width: 475px;
+  justify-content: space-around;
+  align-items: flex-start;
+  
+}
+
+.mugShot{
+  grid-area: mugShot;
+  display: flex;
+  max-height: 475px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mugShot img {
+  max-width: 400px;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import piebri from '../img/piebri.png'
+import '../css/Home.css';
 
 
 
@@ -14,7 +14,7 @@ var Home = (props) => (
         <li>sql</li>
     </div>
     <div className="mugShot">
-      <img class="piebri" src={piebri} alt={"portrait"} />
+      <img className="piebri" src={piebri} alt={"portrait"} />
     </div>
     <div className="rightKeywords">
         <li>html/css</li>

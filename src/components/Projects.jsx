@@ -1,12 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import '../css/Projects.css';
 
 
 var Projects = (props) => (
-  <div className="projects-content">
-    <span>Projects</span>
-    
-    <span>ACCESS DENIED:  Whoops, looks like you're not logged in!</span>
+  <div className="projectsContent">
+    <div className='title'>Projects</div>
+    <div className="leftProjects">
+        <li>tableCRM</li>
+        <li>noComments</li>
+        <li>pieBri</li>
+        <li>wanderFund</li>
+        <li>dlmfIt</li>
+    </div>
+    <div className="rightProjects">
+        <li>enGauge</li>
+        <li>marvelShake</li>
+        <li>fitStop</li>
+        <li>talkRight</li>
+        <li>docAdemy</li>
+    </div>
   </div>
 );
 
