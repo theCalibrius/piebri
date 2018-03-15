@@ -1,0 +1,35 @@
+
+/*---------------  CSS GRID LAYOUT  -------------------*/
+
+.projectsContent{
+  grid-area: contentArea;
+  display: grid;
+  grid-template-rows: 90px 545px;
+  grid-template-areas: '......... title title title ..........'
+                       '... leftProjects ... rightProjects ...';
+}
+
+.projectsContent li{
+  list-style-type: none;
+  font-family: 'Print Char 21';
+  font-size: 0.9em;
+}
+
+.leftProjects{
+  grid-area: leftProjects;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+} 
+
+.rightProjects{
+  grid-area: rightProjects;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+}
+
+
+

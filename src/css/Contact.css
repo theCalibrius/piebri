@@ -1,0 +1,6 @@
+
+/*---------------  CSS GRID LAYOUT  -------------------*/
+
+.contact-content{
+  grid-area: contentArea;
+}
