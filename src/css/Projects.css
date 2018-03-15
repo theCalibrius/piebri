@@ -4,7 +4,7 @@
 .projectsContent{
   grid-area: contentArea;
   display: grid;
-  grid-template-rows: 100px 475px;
+  grid-template-rows: 90px 545px;
   grid-template-areas: '......... title title title ..........'
                        '... leftProjects ... rightProjects ...';
 }
@@ -12,7 +12,7 @@
 .projectsContent li{
   list-style-type: none;
   font-family: 'Print Char 21';
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .leftProjects{

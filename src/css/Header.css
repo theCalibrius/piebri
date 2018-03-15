@@ -11,12 +11,12 @@
 
 .logoText{
   font-family: "Source Code Pro", monospace;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .logoContainer{
   display: flex;
-  min-width: 104px;
+  min-width: 94px;
   justify-content: space-between;
   align-items: center;
 }
@@ -26,18 +26,22 @@
 }
 
 .navLinks{
-  min-width: 300px;
+  min-width: 270px;
   max-height: 22px;
   display: flex;
   justify-content: space-around;
   font-family: "Source Code Pro", monospace;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .socialLinks{
   display: flex;
   justify-content: space-between;
-  min-width: 60px;
+  min-width: 54px;
+}
+
+.socialLinks img{
+  width:18px;
 }
 
 
@@ -45,7 +49,7 @@
 /*---------------  Blinking Cursor for Logo  -------------------*/
 
 .blinkingCursor {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 100;
   transform:scale(1,1.4); /* W3C */
   -webkit-transform:scale(1,1.4); /* Safari and Chrome */
