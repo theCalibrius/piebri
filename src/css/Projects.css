@@ -4,7 +4,7 @@
 .projectsContent{
   grid-area: contentArea;
   display: grid;
-  grid-template-rows: 90px 545px;
+  grid-template-rows: 100px 500px;
   grid-template-areas: '......... title title title ..........'
                        '... leftProjects ... rightProjects ...';
 }
@@ -21,6 +21,8 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: right;
+  padding-top: 30px;
+  padding-bottom: 30px;
 } 
 
 .rightProjects{
@@ -29,6 +31,8 @@
   flex-direction: column;
   justify-content: space-around;
   text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 
