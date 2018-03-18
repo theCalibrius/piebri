@@ -38,3 +38,11 @@
 .contactFormFields input, .contactFormFields textarea{
   padding-left: 5px;
 }
+
+.nameInput{
+  position: relative;
+}
+
+.nameInput label{
+  position: absolute;
+}
