@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import jQuery from 'jquery';
-import 'jquery.terminal';
-
+import $ from 'jquery';
+import Terminal from './terminal.js';
 import '../css/Contact.css';
 
 
@@ -15,29 +14,22 @@ class Contact extends Component {
     }
   }
 
-  componentWillMount() {
-    jQuery(function($, undefined) {
-      $('#term_demo').terminal(function(command) {
-          if (command !== '') {
-              try {
-                  var result = window.eval(command);
-                  if (result !== undefined) {
-                      this.echo(new String(result));
-                  }
-              } catch(e) {
-                  this.error(new String(e));
-              }
-          } else {
-             this.echo('');
-          }
-      }, {
-          greetings: 'Javascript Interpreter',
-          name: 'js_demo',
-          height: 200,
-          prompt: 'js> '
+  componentDidMount() {
+    var myTerminal = new Terminal();
+    $(".terminalEmulator").append(myTerminal.html);
+    myTerminal.setBackgroundColor('#232D2D');
+    myTerminal.setHeight('400px');
+    myTerminal.input("What is your full name?", function (userInput) {
+      myTerminal.print("Thank you, " + userInput + "!");
+      myTerminal.input("What is your email address?", function (userInput) {
+        myTerminal.print("Is this correct?: " + userInput + "!");
+        myTerminal.input("What message would you like to send?", function (userInput) {
+          myTerminal.print("Is this correct?: " + userInput + "!");
+        });
       });
     });
   }
+
 
   render() {
     return(
@@ -53,7 +45,7 @@ class Contact extends Component {
               <button type="submit">Submit</button>
             </div>
           </form> 
-          <div id="term_demo" className="terminalEmulator">
+          <div  className="terminalEmulator">
           </div>
         </div>
       </div>

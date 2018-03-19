@@ -13,6 +13,7 @@
   grid-area: contactForm;
   display: flex;
   flex-direction: column;
+  padding-top: 70px;
   padding-left: 100px;
   padding-right: 100px;
 }
