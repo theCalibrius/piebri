@@ -43,3 +43,8 @@
 .contactForm form{
   display: none;
 }
+
+.Terminal{
+  font-family: "Print Char 21", monospace;
+  font-weight: 900;
+}

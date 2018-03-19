@@ -17,8 +17,10 @@ class Contact extends Component {
   componentDidMount() {
     var myTerminal = new Terminal();
     $(".terminalEmulator").append(myTerminal.html);
-    myTerminal.setBackgroundColor('#232D2D');
+    myTerminal.setBackgroundColor('#FCFCFC');
     myTerminal.setHeight('400px');
+    myTerminal.setTextSize('0.9em');
+    myTerminal.setTextColor('#232D2D');
     myTerminal.input("What is your full name?", function (userInput) {
       myTerminal.print("Thank you, " + userInput + "!");
       myTerminal.input("What is your email address?", function (userInput) {
