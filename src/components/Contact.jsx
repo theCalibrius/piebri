@@ -8,6 +8,9 @@ class Contact extends Component {
   constructor() {
     super();
     this.state= {
+      nameRight: false,
+      emailRight: false,
+      messageRight: false,
       name: '',
       email: '',
       message: ''
@@ -21,17 +24,63 @@ class Contact extends Component {
     myTerminal.setHeight('400px');
     myTerminal.setTextSize('0.9em');
     myTerminal.setTextColor('#232D2D');
-    myTerminal.input("What is your full name?", function (userInput) {
-      myTerminal.print("Thank you, " + userInput + "!");
-      myTerminal.input("What is your email address?", function (userInput) {
-        myTerminal.print("Is this correct?: " + userInput + "!");
-        myTerminal.input("What message would you like to send?", function (userInput) {
-          myTerminal.print("Is this correct?: " + userInput + "!");
-        });
+    myTerminal.input("What is your full name?", function(userInput) {
+      myTerminal.confirm("Is this correct: " + "\"" + userInput + "\"" + " ?", function(response) {
+        if ( response === true ) {
+          myTerminal.clear();
+          myTerminal.input("What is your email address?", function(userInput) {
+            myTerminal.confirm("Is this correct: " + "\"" + userInput + "\"" + " ?", function(response) {
+              if ( response === true ) {
+                myTerminal.clear();
+                myTerminal.input("What is your message?", function(userInput) {
+                  myTerminal.confirm("Is this correct: " + "\"" + userInput + "\"" + " ?", function(response) {
+                    if ( response === true ) {
+                      myTerminal.clear();
+                    }
+                  });
+                });
+              }
+            });
+          });
+        }
       });
     });
   }
+  
+  // var getName = () => {
+  //   myTerminal.input("What is your full name?", function (userInput) {
+  //     myTerminal.confirm("Is this correct?")
+  //   })
+  // }
 
+  // getName
+    // myTerminal.input('')
+    // if nameRight === true && nameText.length > 1
+      // this.state.name = nameText
+      // myTerminal.clear()
+      // getEmail
+    // else
+      // getName()
+  
+  // getEmail
+
+  // getMessage
+
+  // confirmAndSend
+
+  // displaySendConfirmation
+
+
+
+  // getName()
+  // myTerminal.clear()
+  // getEmail()
+  // myTerminal.clear()
+  // getMessage()
+  // myTerminal.clear()
+  // confirmAndSend()
+  // myTerminal.clear()
+  // displaySendConfirmation()
 
   render() {
     return(

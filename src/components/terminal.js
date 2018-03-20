@@ -57,18 +57,44 @@ var Terminal = (function () {
 				}, 1)
 			}
 		}
+
+		// I refactored this below function, because it was buggy, now users can't hit ENTER when asked to CONFIRM with y/n
 		inputField.onkeyup = function (e) {
-			if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
-				terminalObj._input.style.display = 'none'
-				var inputValue = inputField.value
-				if (shouldDisplayInput) terminalObj.print(inputValue)
-				terminalObj.html.removeChild(inputField)
-				if (typeof(callback) === 'function') {
+      if (PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
+        terminalObj._input.style.display = 'none';
+        var inputValue = inputField.value
+        terminalObj.html.removeChild(inputField);
+        if (typeof(callback) === 'function') {
 					if (PROMPT_TYPE === PROMPT_CONFIRM) {
-						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false)
-					} else callback(inputValue)
+						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
+					} else {
+					  callback(inputValue);	
+					}
 				}
-			}
+      } else if ( e.which === 13 && shouldDisplayInput ) {
+        terminalObj._input.style.display = 'none';
+        var inputValue = inputField.value
+        terminalObj.print(inputValue);
+        callback(inputValue);	
+      }
+      // ORIGINAL CODE THAT PRODUCED BUG WHEN USER HITS ENTER IN RESPONSE TO CONFIRMATION
+			// if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
+			// 	terminalObj._input.style.display = 'none'
+			// 	var inputValue = inputField.value
+			// 	if (shouldDisplayInput) {
+			// 	  terminalObj.print(inputValue);	
+			// 	}
+			// 	if ( (PROMPT_TYPE === PROMPT_CONFIRM) ) {
+			// 	  terminalObj.html.removeChild(inputField);
+			// 	}
+			// 	if (typeof(callback) === 'function') {
+			// 		if (PROMPT_TYPE === PROMPT_CONFIRM) {
+			// 			callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
+			// 		} else {
+			// 		  callback(inputValue);	
+			// 		}
+			// 	}
+			// }
 		}
 		if (firstPrompt) {
 			firstPrompt = false
