@@ -31,8 +31,9 @@ class Contact extends Component {
 
     var getUserName = () => {
       return new Promise((resolve) => {
+        myTerminal.clear();
         myTerminal.input("Please enter your name: ", (userInput) => {
-          myTerminal.confirm("Is this right: " + userInput + " ?", (response) => {
+          myTerminal.confirm("Correct? ", (response) => {
             if (response === true) {
               myTerminal.clear();
               this.setState({name: userInput});
@@ -49,7 +50,7 @@ class Contact extends Component {
     var getUserEmail = () => {
       return new Promise((resolve) => {
         myTerminal.input("Please enter your email: ", (userInput) => {
-          myTerminal.confirm("Is this correct " + userInput + " ?", (response) => {
+          myTerminal.confirm("Correct? ", (response) => {
             if (response === true) {
               myTerminal.clear();
               this.setState({email: userInput});
@@ -66,7 +67,7 @@ class Contact extends Component {
     var getUserMessage = () => {
       return new Promise((resolve) => {
         myTerminal.input("Please enter your message: ", (userInput) => {
-          myTerminal.confirm("Is this correct " + userInput + " ?", (response) => {
+          myTerminal.confirm("Correct? ", (response) => {
             if (response === true) {
               myTerminal.clear();
               this.setState({message: userInput});
@@ -81,25 +82,28 @@ class Contact extends Component {
     };
 
     var confirmAndSend = () => {
-      myTerminal.print("Name: " + this.state.name);
-      myTerminal.print("Email: " + this.state.email);
-      myTerminal.print("Message: " + this.state.message);
-      myTerminal.confirm("Send your message?", (response) => {
-        if (response === true) {
-          myTerminal.clear();
-          myTerminal.print("Your message has been sent!");
-          sendMessage();
-          return;
-        } else {
-          // re-render the component for a new Terminal session
-          console.log('this just before calling render ', this);
-          this.render();
-        }
+      return new Promise((resolve, reject) => {
+        myTerminal.print("Name: " + this.state.name);
+        myTerminal.print("Email: " + this.state.email);
+        myTerminal.print("Message: " + this.state.message);
+        myTerminal.confirm("Send your message?", (response) => {
+          if (response === true) {
+            myTerminal.clear();
+            resolve();
+          } else {
+            reject();
+          }
+        });
       });
     };
 
     var sendMessage = () => {
+      myTerminal.print("Your message has been sent!");
       alert("Message Sent: " + "\n" + this.state.name + '\n' + this.state.email + '\n' + this.state.message);
+    };
+
+    var gatherDataAndSend = () => {
+      getUserName().then(getUserEmail).then(getUserMessage).then(confirmAndSend).then(sendMessage, gatherDataAndSend);
     };
 
     getUserName = getUserName.bind(this);
@@ -107,17 +111,14 @@ class Contact extends Component {
     getUserMessage = getUserMessage.bind(this);
     confirmAndSend = confirmAndSend.bind(this);
     sendMessage = sendMessage.bind(this);
+    gatherDataAndSend = gatherDataAndSend.bind(this);
    
     var myTerminal = new Terminal();
     $(".terminalEmulator").append(myTerminal.html);
     configureTerminalWindow();
     
-    // var gatherDataAndSend = new Promise((resolve) => {
-    //   resolve();
-    // });
-
-
-    getUserName().then(getUserEmail).then(getUserMessage).then(confirmAndSend);
+    gatherDataAndSend();
+    
   }
     // getUserData = function
       // getUserName() {
