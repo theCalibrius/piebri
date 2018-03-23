@@ -1,6 +1,50 @@
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.contact-content{
+.contactContent{
   grid-area: contentArea;
+  display: grid;
+  grid-template-rows: 100px 500px;
+  grid-template-areas:    ' title '
+                       ' contactForm ';
+}
+
+.contactForm{
+  grid-area: contactForm;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.contactFormFields{
+  display: flex;
+  min-height: 480px;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.contactFormFields input, .contactFormFields textarea, .contactFormFields button{
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.9em;
+  color: white;
+  background-color: #232D2D;
+  border: none;
+}
+
+.contactFormFields input, .contactFormFields textarea{
+  padding-left: 5px;
+}
+
+.contactForm form{
+  display: none;
+}
+
+.Terminal{
+  font-family: "Print Char 21", monospace;
+  font-weight: 900;
 }
