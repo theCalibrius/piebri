@@ -23,12 +23,6 @@ class Contact extends Component {
       myTerminal.setTextColor('#232D2D');
     };
 
-    // var promisifiedFunctionCaller = (callbackFunction) => {
-    //   return new Promise() {
-
-    //   };
-    // }
-
     var getUserName = () => {
       return new Promise((resolve) => {
         myTerminal.clear();
@@ -99,7 +93,7 @@ class Contact extends Component {
 
     var sendMessage = () => {
       myTerminal.print("Your message has been sent!");
-      alert("Message Sent: " + "\n" + this.state.name + '\n' + this.state.email + '\n' + this.state.message);
+      console.log("Message Sent: " + "\n" + this.state.name + '\n' + this.state.email + '\n' + this.state.message);
     };
 
     var gatherDataAndSend = () => {
@@ -120,80 +114,6 @@ class Contact extends Component {
     gatherDataAndSend();
     
   }
-    // getUserData = function
-      // getUserName() {
-        // myTerminal.clear()
-        // myTerminal.input("Please enter your full name")
-          // myTerminal.confirm("Is this correct")
-            // if correct
-              // this.setState({ name: userInput})
-              // myTerminal.clear()
-              // return
-            // else
-              // myTerminal.clear()
-              // return getUserName()
-      // }
-
-    
-
-
-  //   myTerminal.input("What is your full name?", function(userInput) {
-  //     myTerminal.confirm("Is this correct: " + "\"" + userInput + "\"" + " ?", function(response) {
-  //       if ( response === true ) {
-  //         myTerminal.clear();
-  //         myTerminal.input("What is your email address?", function(userInput) {
-  //           myTerminal.confirm("Is this correct: " + "\"" + userInput + "\"" + " ?", function(response) {
-  //             if ( response === true ) {
-  //               myTerminal.clear();
-  //               myTerminal.input("What is your message?", function(userInput) {
-  //                 myTerminal.confirm("Is this correct: " + "\"" + userInput + "\"" + " ?", function(response) {
-  //                   if ( response === true ) {
-  //                     myTerminal.clear();
-  //                   }
-  //                 });
-  //               });
-  //             }
-  //           });
-  //         });
-  //       }
-  //     });
-  //   });
-  // }
-  
-  // var getName = () => {
-  //   myTerminal.input("What is your full name?", function (userInput) {
-  //     myTerminal.confirm("Is this correct?")
-  //   })
-  // }
-
-  // getName
-    // myTerminal.input('')
-    // if nameRight === true && nameText.length > 1
-      // this.state.name = nameText
-      // myTerminal.clear()
-      // getEmail
-    // else
-      // getName()
-  
-  // getEmail
-
-  // getMessage
-
-  // confirmAndSend
-
-  // displaySendConfirmation
-
-
-
-  // getName()
-  // myTerminal.clear()
-  // getEmail()
-  // myTerminal.clear()
-  // getMessage()
-  // myTerminal.clear()
-  // confirmAndSend()
-  // myTerminal.clear()
-  // displaySendConfirmation()
 
   render() {
     return(
