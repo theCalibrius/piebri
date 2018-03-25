@@ -42,19 +42,42 @@ class Contact extends Component {
       });
     }; 
 
+    var isEmailValid = (addressToValidate) => {
+      const access_key = '';
+
+      return new Promise((resolve) => {
+        axios.get('http://apilayer.net/api/check?access_key=' + access_key + '&email=' + addressToValidate)
+        .then((response) => {
+          console.log("response: ", response);
+          resolve(response.data.format_valid && response.data.mx_found)
+        }).catch((error) => {
+          console.log(error);
+          resolve(true);
+        });
+      });
+    };
+
     var getUserEmail = () => {
       return new Promise((resolve) => {
         myTerminal.input("Please enter your email: ", (userInput) => {
-          myTerminal.confirm("Correct? ", (response) => {
-            if (response === true) {
-              myTerminal.clear();
-              this.setState({email: userInput});
-              resolve();
+          isEmailValid(userInput).then((returnValue) => {
+            if (returnValue === true) {
+              myTerminal.confirm("Correct? ", (response) => {
+                if (response === true) {
+                  myTerminal.clear();
+                  this.setState({email: userInput});
+                  resolve();
+                } else {
+                  myTerminal.clear();
+                  getUserEmail().then(resolve);
+                }
+              });
             } else {
               myTerminal.clear();
+              myTerminal.print("Not a valid email address");
               getUserEmail().then(resolve);
             }
-          });
+          })
         });
       });  
     };
