@@ -46,7 +46,7 @@ class Contact extends Component {
       const access_key = process.env.REACT_APP_API_KEY;
       const api_endpoint = 'http://apilayer.net/api/check?access_key=';
       var email_to_validate = '&email=' + addressToValidate;
-
+      
       return new Promise((resolve) => {
         axios.post(api_endpoint + access_key + email_to_validate)
         .then((response) => {
