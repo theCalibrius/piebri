@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Terminal from './terminal.js';
+import axios from 'axios';
 import '../css/Contact.css';
 
 
@@ -91,9 +92,25 @@ class Contact extends Component {
       });
     };
 
+
     var sendMessage = () => {
-      myTerminal.print("Your message has been sent!");
-      console.log("Message Sent: " + "\n" + this.state.name + '\n' + this.state.email + '\n' + this.state.message);
+      const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+      console.log(ENDPOINT);
+      myTerminal.print("Sending Your Message...");
+      axios.post(ENDPOINT, {
+        "name": this.state.name,
+        "email": this.state.email,
+        "message": this.state.message
+      }).then((response) => {
+        myTerminal.clear();
+        myTerminal.print("Your message was succesfully sent.");
+        console.log('response: ', response);
+      }).catch((error) => {
+        myTerminal.clear();
+        myTerminal.print("There was an error sending your message.");
+        console.log('error: ', error);
+      })
+      
     };
 
     var gatherDataAndSend = () => {
