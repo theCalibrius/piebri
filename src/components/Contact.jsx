@@ -104,7 +104,7 @@ class Contact extends Component {
       }).then((response) => {
         myTerminal.clear();
         myTerminal.print("Your message was succesfully sent.");
-        console.log('response: ', response);})
+        console.log('response: ', response);
       }).catch((error) => {
         myTerminal.clear();
         myTerminal.print("There was an error sending your message.");
