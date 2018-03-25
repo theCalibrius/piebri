@@ -92,8 +92,10 @@ class Contact extends Component {
       });
     };
 
+
     var sendMessage = () => {
-      const ENDPOINT = process.env.ENDPOINT;
+      const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+      console.log(ENDPOINT);
       myTerminal.print("Sending Your Message...");
       axios.post(ENDPOINT, {
         "name": this.state.name,
@@ -102,12 +104,12 @@ class Contact extends Component {
       }).then((response) => {
         myTerminal.clear();
         myTerminal.print("Your message was succesfully sent.");
-        console.log('response: ', response);
-      }).catch((error) => {
-        myTerminal.clear();
-        myTerminal.print("There was an error sending your message.");
-        console.log('error: ', error);
-      })
+        console.log('response: ', response);})
+      // }).catch((error) => {
+      //   myTerminal.clear();
+      //   myTerminal.print("There was an error sending your message.");
+      //   console.log('error: ', error);
+      // })
       
     };
 
