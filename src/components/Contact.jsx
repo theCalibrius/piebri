@@ -105,11 +105,11 @@ class Contact extends Component {
         myTerminal.clear();
         myTerminal.print("Your message was succesfully sent.");
         console.log('response: ', response);})
-      // }).catch((error) => {
-      //   myTerminal.clear();
-      //   myTerminal.print("There was an error sending your message.");
-      //   console.log('error: ', error);
-      // })
+      }).catch((error) => {
+        myTerminal.clear();
+        myTerminal.print("There was an error sending your message.");
+        console.log('error: ', error);
+      })
       
     };
 
