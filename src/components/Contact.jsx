@@ -94,10 +94,8 @@ class Contact extends Component {
 
 
     var sendMessage = () => {
-      const ENDPOINT = process.env.REACT_APP_ENDPOINT;
-      console.log(ENDPOINT);
       myTerminal.print("Sending Your Message...");
-      axios.post(ENDPOINT, {
+      axios.post('https://u9udukv8j0.execute-api.us-east-1.amazonaws.com/prod/ContactFormLambda', {
         "name": this.state.name,
         "email": this.state.email,
         "message": this.state.message
