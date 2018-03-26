@@ -42,19 +42,43 @@ class Contact extends Component {
       });
     }; 
 
+    var isEmailValid = (addressToValidate) => {
+      console.log('address: ', addressToValidate );
+      return new Promise((resolve) => {
+        axios.post('https://7ljv2tt4yl.execute-api.us-east-1.amazonaws.com/prod/ValidateEmailAddress', {
+          address: addressToValidate 
+        })
+        .then((response) => {
+          console.log("response: ", response);
+          resolve(response.data.format_valid && response.data.mx_found)
+        }).catch((error) => {
+          console.log(error);
+          resolve(true);
+        });
+      });
+    };
+
     var getUserEmail = () => {
       return new Promise((resolve) => {
         myTerminal.input("Please enter your email: ", (userInput) => {
-          myTerminal.confirm("Correct? ", (response) => {
-            if (response === true) {
-              myTerminal.clear();
-              this.setState({email: userInput});
-              resolve();
+          isEmailValid(userInput).then((returnValue) => {
+            if (returnValue === true) {
+              myTerminal.confirm("Correct? ", (response) => {
+                if (response === true) {
+                  myTerminal.clear();
+                  this.setState({email: userInput});
+                  resolve();
+                } else {
+                  myTerminal.clear();
+                  getUserEmail().then(resolve);
+                }
+              });
             } else {
               myTerminal.clear();
+              myTerminal.print("Not a valid email address");
               getUserEmail().then(resolve);
             }
-          });
+          })
         });
       });  
     };
@@ -94,21 +118,19 @@ class Contact extends Component {
 
 
     var sendMessage = () => {
-      const ENDPOINT = process.env.REACT_APP_ENDPOINT;
-      console.log(ENDPOINT);
       myTerminal.print("Sending Your Message...");
-      axios.post(ENDPOINT, {
+      axios.post('https://u9udukv8j0.execute-api.us-east-1.amazonaws.com/prod/ContactFormLambda', {
         "name": this.state.name,
         "email": this.state.email,
         "message": this.state.message
       }).then((response) => {
         myTerminal.clear();
         myTerminal.print("Your message was succesfully sent.");
-        console.log('response: ', response);
+        // console.log('response: ', response);
       }).catch((error) => {
         myTerminal.clear();
         myTerminal.print("There was an error sending your message.");
-        console.log('error: ', error);
+        // console.log('error: ', error);
       })
       
     };
