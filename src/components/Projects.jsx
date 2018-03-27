@@ -8,9 +8,16 @@ class Projects extends Component {
   constructor() {
     super();
     this.state= {
-      
+      isVisible: false,
+      selectedProject: 'tableCRM'
     };
   } 
+
+  toggleModal = () => {
+    this.setState({
+      isVisible: !this.state.isVisible
+    });
+  }
 
   render() {
     return(
@@ -31,6 +38,10 @@ class Projects extends Component {
             <li>docAdemy</li>
         </div>
       </div>
+      <ProjectModal show={this.state.isVisible}
+        onClose={this.toggleModal}
+        selectedProject={this.selectedProject}>
+      </ProjectModal>
     );
   }
 }
