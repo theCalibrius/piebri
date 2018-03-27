@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import ProjectModal from './ProjectModal.jsx';
 import '../css/Projects.css';
 
 
 class Projects extends Component {
+
+  constructor() {
+    super();
+    this.state= {
+      
+    };
+  } 
+
   render() {
     return(
       <div className="projectsContent">

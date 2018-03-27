@@ -13,11 +13,11 @@ class ProjectModal extends Component {
   render() {
     return(
       <div className="modal">
-        <div className="projectTitle" title={this.state.selectedProject.title}></div>
+        <div className="projectTitle" title={this.props.selectedProject.title}></div>
         <div className="closeIcon"></div>
-        <div className="projectDescription" description={this.state.selectedProject.description}></div>
-        <div className="githubButton" gitHubURL={this.state.selectedProject.girHubLink}></div>
-        <div className="liveProjectButton" liveURL={this.state.selectedProject.liveURL}></div>
+        <div className="projectDescription" description={this.props.selectedProject.description}></div>
+        <div className="githubButton" gitHubURL={this.props.selectedProject.girHubLink}></div>
+        <div className="liveProjectButton" liveURL={this.props.selectedProject.liveURL}></div>
       </div>
       <div className="shadow"></div>
     );
