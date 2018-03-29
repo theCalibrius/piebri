@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import '../css/ProjectModal.css';
 
-class ProjectModal extends Component {
-
-  render() {
-    // render nothing if "show" prop is false
-    if( !this.props.show ) {
-      return null;
-    }
-
-    return(
+var ProjectModal = (props) => {
       <div className="modalWrapper">
+          <div className="shadow"></div>
           <div className="modal">
             <div className="titleArea">
               <div className="projectTitle" title={this.props.selectedProject.title}>{this.title}</div>
@@ -24,9 +17,6 @@ class ProjectModal extends Component {
           </div>
           <div className="shadow"></div>
       </div>
-      
-    );
-  }
 }
 
 

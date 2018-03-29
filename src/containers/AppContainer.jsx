@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Container } from 'flux/utils';
 
-import Header from './Header.jsx';
-import Home from './Home.jsx';
-import Projects from './Projects.jsx';
-import Contact from './Contact.jsx';
-import ProjectModal from './ProjectModal';
+import Header from '../components/Header.jsx';
+import Home from '../components/Home.jsx';
+import Projects from '../components/Projects.jsx';
+import Contact from '../components/Contact.jsx';
+import ProjectModal from '../components/ProjectModal';
 import ModalStore from '../data/ModalStore.js'
 import '../css/App.css';
 
@@ -28,12 +29,22 @@ class App extends Component {
   //     </Router>
   //   );
   // }
+  
+  static getStores() {
+    return [ModalStore];
+  }
+
+  static calculateState(prevState) {
+    return ModalStore.getState();
+  }
 
   render() {
-  var isModalVisible = this.props.isModalVisible;
+  var isModalVisible = this.state.isModalVisible;
 
-  var showModal = if ( isModalVisible ) {
-    return ( <ProjectModal {...props}></ProjectModal> );
+  var showModal = () => {
+    if ( isModalVisible ) {
+      return ( <ProjectModal ></ProjectModal> );
+    }
   }
 
   return(
