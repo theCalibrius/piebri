@@ -1,9 +1,21 @@
-.modal {
+.modalWrapper {
+  display: grid;
+  height:100%;
+  width: 100%;
 
 }
 
-.projectTitle {
+.modal {
+/*  display: grid;
+  grid-template-rows: 100px 500px 100px;
+  grid-template-areas:       'titleArea'
+                       'projectDescriptionArea'
+                            'buttonArea';*/
+  z-index: 1027;
+}
 
+.titleArea {
+  grid-area: titleArea;
 }
 
 .closeIcon {
@@ -11,7 +23,11 @@
 }
 
 .projectDescription {
+  grid-area: projectDescriptionArea;
+}
 
+.buttonArea {
+  grid-area: buttonArea;
 }
 
 .gitHubButton {
@@ -23,5 +39,10 @@
 }
 
 .shadow {
-  
+ z-index: 1000;
+ position: fixed;
+ width: 100%;
+ height: 100%;
+ background: #666666;
+ opacity: .50;
 }
