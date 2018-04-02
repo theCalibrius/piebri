@@ -1,4 +1,8 @@
-import { Dispatcher } from 'flux';
 
-export default new Dispatcher();
+
+
+// flux version below
+// import { Dispatcher } from 'flux';
+
+// export default new Dispatcher();
 
