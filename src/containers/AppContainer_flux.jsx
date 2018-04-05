@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import { Container } from 'flux/utils';
-import { connect } from 'react-redux';
+import { Container } from 'flux/utils';
 
 import Header from '../components/Header.jsx';
 import Home from '../components/Home.jsx';
@@ -67,5 +66,5 @@ class App extends Component {
 
 }
 
-export default connect(mapStateToProps, null)(App);
+export default App;
 
