@@ -31,13 +31,13 @@ class App extends Component {
   //   );
   // }
   
-  static getStores() {
-    return [ModalStore];
-  }
+  // static getStores() {
+  //   return [ModalStore];
+  // }
 
-  static calculateState(prevState) {
-    return ModalStore.getState();
-  }
+  // static calculateState(prevState) {
+  //   return ModalStore.getState();
+  // }
 
   render() {
   var isModalVisible = this.state.isModalVisible;
@@ -67,5 +67,5 @@ class App extends Component {
 
 }
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 

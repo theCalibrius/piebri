@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 
-import modal from './modalReducer.js';
+// import modal from './modalReducer.js';
 
-export default createStore(modal);
+// export default createStore(modal);
