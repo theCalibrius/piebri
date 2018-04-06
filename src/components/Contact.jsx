@@ -43,16 +43,15 @@ class Contact extends Component {
     }; 
 
     var isEmailValid = (addressToValidate) => {
-      console.log('address: ', addressToValidate );
       return new Promise((resolve) => {
         axios.post('https://7ljv2tt4yl.execute-api.us-east-1.amazonaws.com/prod/ValidateEmailAddress', {
           address: addressToValidate 
         })
         .then((response) => {
-          console.log("response: ", response);
+          // console.log("response: ", response);
           resolve(response.data.format_valid && response.data.mx_found)
         }).catch((error) => {
-          console.log(error);
+          // console.log(error);
           resolve(true);
         });
       });
