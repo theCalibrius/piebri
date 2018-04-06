@@ -19,18 +19,68 @@ class Projects extends Component {
         gitHubURL: 'http://www.gitHub.com',
         liveURL: 'http://www.live.com'
       },
-      allProjects: {
+      leftColumnProjects: {
         tableCRM: {
           title: 'tableCRM',
           description: 'Table based CRM project built in React',
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
           liveURL: 'https://github.com/theCalibrius/TableCRM'
         },
+        noComments: {
+          title: 'noComments',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        pieBri: {
+          title: 'pieBri',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        wanderFund: {
+          title: 'wanderFund',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        dlmfIt: {
+          title: 'dlmfIt',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        }
+      },
+      rightColumnProjects: {
         enGauge: {
           title: 'enGauge',
-          description: 'Relationship Tracker',
-          gitHubURL: 'https://github.com/theCalibrius/enGauged',
-          liveURL: 'https://github.com/theCalibrius/enGauged'
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        marvelShake: {
+          title: 'marvelShake',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        fitStop: {
+          title: 'fitStop',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        talkRight: {
+          title: 'talkRight',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        docAdemy: {
+          title: 'docAdemy',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
         }
       }
     };
@@ -39,8 +89,9 @@ class Projects extends Component {
     // this.updateCurrentProject = this.updateCurrentProject.bind(this);
   } 
 
-  onClick = (e) => {
+  onClick = (id, e) => {
     console.log('event: ', e);
+    console.log('id': id);
     this.setState({
       visible: true
     });
@@ -90,7 +141,10 @@ class Projects extends Component {
       <div className="projectsContent">
         <div className='title'>Projects</div>
         <div className="leftProjects">
-            <li onClick={this.onClick}>tableCRM</li>
+          {() => {
+
+          }}
+            <li onClick={(e) => {this.onClick(id, e)}}>tableCRM</li>
             <li>noComments</li>
             <li>pieBri</li>
             <li>wanderFund</li>
