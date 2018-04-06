@@ -16,8 +16,22 @@ class Projects extends Component {
       selectedProject: {
         title: 'tableCRM',
         description: 'Table based CRM project built in React',
-        gitHubURL: 'http://www.piebri.com',
-        liveURL: 'http://www.piebri.com'
+        gitHubURL: 'http://www.gitHub.com',
+        liveURL: 'http://www.live.com'
+      },
+      allProjects: {
+        tableCRM: {
+          title: 'tableCRM',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: 'https://github.com/theCalibrius/TableCRM'
+        },
+        enGauge: {
+          title: 'enGauge',
+          description: 'Relationship Tracker',
+          gitHubURL: 'https://github.com/theCalibrius/enGauged',
+          liveURL: 'https://github.com/theCalibrius/enGauged'
+        }
       }
     };
 
@@ -39,6 +53,11 @@ class Projects extends Component {
     });
   }
 
+  openLink = (e) => {
+    console.log('openLink event: ', e);
+    // window.open(this.state.currentProject[e]);
+  }
+
   // updateCurrentProject = (projectName) => {
   //   this.setState({selectedProject: {
   //       title: 'tableCRM',
@@ -50,10 +69,23 @@ class Projects extends Component {
 
  
   render() {
+                 
+    var getDescription = () => {
+      return (this.state.selectedProject.description);
+    }
+
+    var getLinkURL = (linkName) => {
+        return (this.state.selectedProject[linkName]);
+    }
+
+    getDescription = getDescription.bind(this);
+    getLinkURL = getLinkURL.bind(this);
+
     let footer = <div>
-                   <Button label="Yes" icon="fa-check" />
-                   <Button label ="No" icon="fa-close" />
+                   <Button label="GitHub" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}} icon="fa-check" />
+                   <Button label="Live App" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}} icon="fa-close" />
                  </div>
+
     return(
       <div className="projectsContent">
         <div className='title'>Projects</div>
@@ -71,8 +103,8 @@ class Projects extends Component {
             <li>talkRight</li>
             <li>docAdemy</li>
         </div>
-      <Dialog header="My Project" visible={this.state.visible} footer={footer} width="350px" modal={true} onHide={this.onHide}>
-        This is where I describe the project
+      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} width="350px" modal={true} onHide={this.onHide}>
+        {getDescription()}
       </Dialog>
       </div>
     );
