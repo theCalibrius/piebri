@@ -1,3 +1,57 @@
+
+.ui-dialog.ui-widget .ui-dialog-titlebar {
+  padding: 0px !important;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
+    font-size: 0.9em !important;
+    font-family: 'Print Char 21' !important;
+}
+
+.ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button {
+    border: 1px solid #232d2d !important;
+    border-radius: 4px !important;
+    margin-right: 4px;
+    color: #232d2d !important;
+    font-weight: 300 !important;
+    background: #FFFFFF !important;
+    -webkit-transition: border .2s;
+    -o-transition: border .2s;
+    transition: border .2s;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: "Print Char 21" !important;
+    font-size: 0.9em !important;
+}
+
+.ui-button:focus,
+.ui-button:enabled:hover,
+.ui-fileupload-choose:not(.ui-state-disabled):hover {
+  outline: 0 none;
+  font-weight: 900 !important;
+}
+
+.ui-widget-content {
+  border: none !important; 
+}
+
+.ui-dialog-content {
+  font-family: 'Print Char 21' !important;
+  font-size: 0.7em !important;
+}
+
+/*  .ui-button:focus a,
+  .ui-button:enabled:hover a,
+  .ui-fileupload-choose:not(.ui-state-disabled):hover a {
+    color: #212121; }
+
+.ui-button:enabled:active,
+.ui-fileupload-choose:not(.ui-state-disabled):active {
+  border-color: #bebebe;
+  background: #d6d6d6;
+  color: #212121; }*/
+
 /*.modalWrapper {
   display: grid;
   height:100%;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import ProjectModal from './ProjectModal.jsx';
 import { Dialog } from 'primereact/components/dialog/Dialog';
 import { Button } from 'primereact/components/button/Button';
+import '../css/ProjectModal.css'
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 import '../css/Projects.css';
@@ -135,8 +136,8 @@ class Projects extends Component {
     getLinkURL = getLinkURL.bind(this);
 
     let footer = <div>
-                   <Button label="GitHub" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}} icon="fa-check" />
-                   <Button label="Live App" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}} icon="fa-close" />
+                   <Button label="GitHub" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}}  />
+                   <Button label="Demo" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}}  />
                  </div>
     let leftColumnProjects = this.state.leftColumnProjects;
     let rightColumnProjects = this.state.rightColumnProjects;
@@ -160,7 +161,7 @@ class Projects extends Component {
         <div className="rightProjects">
           {rightProjects}
         </div>
-      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} width="350px" modal={true} onHide={this.onHide}>
+      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} minWidth="450px" minHeight="600px" dismissableMask="true" modal={true} onHide={this.onHide}>
         {getDescription()}
       </Dialog>
       </div>
