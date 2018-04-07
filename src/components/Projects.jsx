@@ -161,7 +161,7 @@ class Projects extends Component {
         <div className="rightProjects">
           {rightProjects}
         </div>
-      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} minWidth="450px" minHeight="600px" dismissableMask="true" modal={true} onHide={this.onHide}>
+      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} width="450px" height="500px" dismissableMask="true" modal={true} onHide={this.onHide}>
         {getDescription()}
       </Dialog>
       </div>
