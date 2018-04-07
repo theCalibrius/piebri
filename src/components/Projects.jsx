@@ -24,63 +24,63 @@ class Projects extends Component {
           title: 'tableCRM',
           description: 'Table based CRM project built in React',
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          liveURL: '#'
         },
         {
           title: 'noComments',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'A new kind of social network',
+          gitHubURL: 'https://github.com/theCalibrius/nocomments',
+          liveURL: '#'
         },
         {
           title: 'pieBri',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'Static site deployment with dynamic features supported by AWS Lambda',
+          gitHubURL: 'https://github.com/theCalibrius/piebri',
+          liveURL: 'http://www.piebri.com'
         },
         {
           title: 'wanderFund',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'A crowdfunding app for travel that matters',
+          gitHubURL: '#',
+          liveURL: 'http://www.wanderfund.com'
         },
         {
           title: 'dlmfIt',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'A serverless reminder app that sends scheduled SMS notifications to your phone',
+          gitHubURL: '#',
+          liveURL: '#'
         }
       ],
       rightColumnProjects: [
         {
           title: 'enGauge',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'Relationship Tracker App',
+          gitHubURL: 'https://github.com/theCalibrius/enGauged',
+          liveURL: '#'
         },
         {
           title: 'marvelShake',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'An interactive dance party starring Marvel characters',
+          gitHubURL: '#',
+          liveURL: '#'
         },
         {
           title: 'fitStop',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'A fitness app for guided workouts',
+          gitHubURL: 'https://github.com/theCalibrius/fit-stop',
+          liveURL: 'http://fit-stop.herokuapp.com/'
         },
         {
           title: 'talkRight',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'In Development',
+          gitHubURL: '#',
+          liveURL: '#'
         },
         {
           title: 'docAdemy',
-          description: 'Table based CRM project built in React',
-          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://github.com/theCalibrius/TableCRM'
+          description: 'In Development',
+          gitHubURL: '#',
+          liveURL: '#'
         }
       ]
     };
