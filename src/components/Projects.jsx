@@ -16,19 +16,86 @@ class Projects extends Component {
       selectedProject: {
         title: 'tableCRM',
         description: 'Table based CRM project built in React',
-        gitHubURL: 'http://www.piebri.com',
-        liveURL: 'http://www.piebri.com'
-      }
+        gitHubURL: 'http://www.gitHub.com',
+        liveURL: 'http://www.live.com'
+      },
+      leftColumnProjects: [
+        {
+          title: 'tableCRM',
+          description: 'Table based CRM project built in React',
+          gitHubURL: 'https://github.com/theCalibrius/TableCRM',
+          liveURL: '#'
+        },
+        {
+          title: 'noComments',
+          description: 'A new kind of social network',
+          gitHubURL: 'https://github.com/theCalibrius/nocomments',
+          liveURL: '#'
+        },
+        {
+          title: 'pieBri',
+          description: 'Static site deployment with dynamic features supported by AWS Lambda',
+          gitHubURL: 'https://github.com/theCalibrius/piebri',
+          liveURL: 'http://www.piebri.com'
+        },
+        {
+          title: 'wanderFund',
+          description: 'A crowdfunding app for travel that matters',
+          gitHubURL: '#',
+          liveURL: 'http://www.wanderfund.com'
+        },
+        {
+          title: 'dlmfIt',
+          description: 'A serverless reminder app that sends scheduled SMS notifications to your phone',
+          gitHubURL: '#',
+          liveURL: '#'
+        }
+      ],
+      rightColumnProjects: [
+        {
+          title: 'enGauge',
+          description: 'Relationship Tracker App',
+          gitHubURL: 'https://github.com/theCalibrius/enGauged',
+          liveURL: '#'
+        },
+        {
+          title: 'marvelShake',
+          description: 'An interactive dance party starring Marvel characters',
+          gitHubURL: '#',
+          liveURL: '#'
+        },
+        {
+          title: 'fitStop',
+          description: 'A fitness app for guided workouts',
+          gitHubURL: 'https://github.com/theCalibrius/fit-stop',
+          liveURL: 'http://fit-stop.herokuapp.com/'
+        },
+        {
+          title: 'talkRight',
+          description: 'In Development',
+          gitHubURL: '#',
+          liveURL: '#'
+        },
+        {
+          title: 'docAdemy',
+          description: 'In Development',
+          gitHubURL: '#',
+          liveURL: '#'
+        }
+      ]
     };
 
     this.onClick = this.onClick.bind(this);
     // this.updateCurrentProject = this.updateCurrentProject.bind(this);
   } 
 
-  onClick = (e) => {
+  onClick = (projectsColumn, projectIndex, e) => {
     console.log('event: ', e);
+    console.log('index': projectIndex);
+    console.log('column': projectsColumn);
     this.setState({
-      visible: true
+      visible: true,
+      selectedProject: this.state[projectsColumn][projectIndex]
     });
   }
 
@@ -37,6 +104,11 @@ class Projects extends Component {
     this.setState({
       visible: false
     });
+  }
+
+  openLink = (e) => {
+    console.log('openLink event: ', e);
+    // window.open(this.state.currentProject[e]);
   }
 
   // updateCurrentProject = (projectName) => {
@@ -50,29 +122,46 @@ class Projects extends Component {
 
  
   render() {
+                 
+    var getDescription = () => {
+      return (this.state.selectedProject.description);
+    }
+
+    var getLinkURL = (linkName) => {
+        return (this.state.selectedProject[linkName]);
+    }
+
+    getDescription = getDescription.bind(this);
+    getLinkURL = getLinkURL.bind(this);
+
     let footer = <div>
-                   <Button label="Yes" icon="fa-check" />
-                   <Button label ="No" icon="fa-close" />
+                   <Button label="GitHub" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}} icon="fa-check" />
+                   <Button label="Live App" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}} icon="fa-close" />
                  </div>
+    let leftColumnProjects = this.state.leftColumnProjects;
+    let rightColumnProjects = this.state.rightColumnProjects;
+
+     var leftProjects = leftColumnProjects.map((project, index) => {
+        let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
+        return (<li key={index} onClick={boundProjectClick}>{project.title}</li>);
+      });
+
+     var rightProjects = rightColumnProjects.map((project, index) => {
+        let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
+        return (<li key={index} onClick={boundProjectClick}>{project.title}</li>);
+      });
+
     return(
       <div className="projectsContent">
         <div className='title'>Projects</div>
         <div className="leftProjects">
-            <li onClick={this.onClick}>tableCRM</li>
-            <li>noComments</li>
-            <li>pieBri</li>
-            <li>wanderFund</li>
-            <li>dlmfIt</li>
+          {leftProjects}
         </div>
         <div className="rightProjects">
-            <li>enGauge</li>
-            <li>marvelShake</li>
-            <li>fitStop</li>
-            <li>talkRight</li>
-            <li>docAdemy</li>
+          {rightProjects}
         </div>
-      <Dialog header="My Project" visible={this.state.visible} footer={footer} width="350px" modal={true} onHide={this.onHide}>
-        This is where I describe the project
+      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} width="350px" modal={true} onHide={this.onHide}>
+        {getDescription()}
       </Dialog>
       </div>
     );
