@@ -135,9 +135,9 @@ class Projects extends Component {
     getDescription = getDescription.bind(this);
     getLinkURL = getLinkURL.bind(this);
 
-    let footer = <div>
-                   <Button label="GitHub" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}}  />
-                   <Button label="Demo" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}}  />
+    let footer = <div className="buttonContainer">
+                   <Button label="GitHub Repo" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}}  />
+                   <Button label="Live Site" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}}  />
                  </div>
     let leftColumnProjects = this.state.leftColumnProjects;
     let rightColumnProjects = this.state.rightColumnProjects;
