@@ -15,33 +15,35 @@ class Projects extends Component {
     this.state = {
       visible: false,
       selectedProject: {
-        title: 'tableCRM',
-        description: 'Table based CRM project built in React',
-        gitHubURL: 'http://www.gitHub.com',
-        liveURL: 'http://www.live.com'
+        title: '',
+        description: '',
+        technologies: [],
+        gitHubURL: '',
+        liveURL: '#'
       },
       leftColumnProjects: [
         {
           title: 'tableCRM',
-          description: 'Table based CRM project built in React',
+          description: 'CRM Application with an intuitive, table-based UI',
+          technologies: ['node.js', 'express', 'webpack', 'react', 'handsontable', 'highcharts', 'redux', 'jest', 'enzyme', 'mysql'],
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
           liveURL: '#'
         },
         {
           title: 'noComments',
-          description: 'A new kind of social network',
+          description: 'A minimalist social network application for sharing and viewing content.  Designed to mitigate the negative characteristics of social networks by focusing on sharing of ideas and content.  No likes, no messaging, no comments.',
           gitHubURL: 'https://github.com/theCalibrius/nocomments',
           liveURL: '#'
         },
         {
           title: 'pieBri',
-          description: 'Static site deployment with dynamic features supported by AWS Lambda',
+          description: 'Personal profile website with a retro UI.',
           gitHubURL: 'https://github.com/theCalibrius/piebri',
           liveURL: 'http://www.piebri.com'
         },
         {
           title: 'wanderFund',
-          description: 'A crowdfunding app for travel that matters',
+          description: 'A crowdfunding application for travel that matters',
           gitHubURL: '#',
           liveURL: 'http://www.wanderfund.com'
         },
@@ -55,13 +57,13 @@ class Projects extends Component {
       rightColumnProjects: [
         {
           title: 'enGauge',
-          description: 'Relationship Tracker App',
+          description: 'Relationship tracker application designed to help people have better relationships.',
           gitHubURL: 'https://github.com/theCalibrius/enGauged',
           liveURL: '#'
         },
         {
           title: 'marvelShake',
-          description: 'An interactive dance party starring Marvel characters',
+          description: 'An interactive dance party starring characters from the Marvel universe.',
           gitHubURL: '#',
           liveURL: '#'
         },
@@ -123,9 +125,25 @@ class Projects extends Component {
 
  
   render() {
-                 
+    let projectTechnologies = this.state.selectedProject.technologies;
     var getDescription = () => {
-      return (this.state.selectedProject.description);
+        var technologiesList = projectTechnologies.map((technology, index) => {
+        return (<li key={index} >{technology}</li>);
+      });
+      return (
+        <div className="projectModalContentWrapper">
+          <p className="descriptionHeader">Description:</p>
+          <p className="projectDescriptionContent">
+            {this.state.selectedProject.description}
+            <hr />
+          </p>
+          <div className="projectTechnologiesList">
+            {technologiesList}
+          </div>
+        </div>
+
+
+      );
     }
 
     var getLinkURL = (linkName) => {
@@ -141,7 +159,7 @@ class Projects extends Component {
                  </div>
     let leftColumnProjects = this.state.leftColumnProjects;
     let rightColumnProjects = this.state.rightColumnProjects;
-
+    
      var leftProjects = leftColumnProjects.map((project, index) => {
         let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
         return (<li key={index} onClick={boundProjectClick}>{project.title}</li>);
