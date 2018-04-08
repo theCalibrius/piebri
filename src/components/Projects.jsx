@@ -17,7 +17,11 @@ class Projects extends Component {
       selectedProject: {
         title: '',
         description: '',
-        technologies: [],
+        technologies: {
+          left: [],
+          center: [],
+          right: []
+        },
         gitHubURL: '',
         liveURL: '#'
       },
@@ -25,7 +29,11 @@ class Projects extends Component {
         {
           title: 'tableCRM',
           description: 'CRM Application with an intuitive, table-based UI',
-          technologies: ['node.js', 'express', 'webpack', 'react', 'handsontable', 'highcharts', 'redux', 'jest', 'enzyme', 'mysql'],
+          technologies: {
+            left: ['node.js', 'express', 'webpack'],
+            center: ['react', 'handsontable', 'highcharts'],
+            right: ['redux', 'jest/enzyme', 'mysql']
+          },
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
           liveURL: '#'
         },
@@ -127,9 +135,16 @@ class Projects extends Component {
   render() {
     let projectTechnologies = this.state.selectedProject.technologies;
     var getDescription = () => {
-        var technologiesList = projectTechnologies.map((technology, index) => {
+        var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
         return (<li key={index} >{technology}</li>);
       });
+        var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
+        return (<li key={index} >{technology}</li>);
+      });
+        var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
+        return (<li key={index} >{technology}</li>);
+      });
+
       return (
         <div className="projectModalContentWrapper">
           <p className="descriptionHeader">Description:</p>
@@ -138,11 +153,17 @@ class Projects extends Component {
             <hr />
           </p>
           <div className="projectTechnologiesList">
-            {technologiesList}
+            <div className="technologiesListLeftColumn">
+              {technologiesListLeftColumn}
+            </div>
+            <div className="technologiesListCenterColumn">
+              {technologiesListCenterColumn}
+            </div>
+            <div className="technologiesListRightColumn">
+              {technologiesListRightColumn}
+            </div>
           </div>
         </div>
-
-
       );
     }
 

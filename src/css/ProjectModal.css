@@ -22,7 +22,7 @@
 }*/
 
 
-#pr_id_6 {
+.ui-dialog {
   display: grid !important;
   grid-template-rows: 30px 410px 60px !important;
   grid-template-areas: ' modalTitleBox '
@@ -30,6 +30,12 @@
                        ' modalButtons  ';
   height: 500px;
   width: 450px;
+  border-radius: 4px !important;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
 }
 
 .ui-widget-header {
@@ -86,6 +92,7 @@
 
 .ui-dialog-footer {
   grid-area: modalButtons !important;
+  border-radius: 4px !important;
 }
 
 .buttonContainer {
@@ -138,6 +145,34 @@
   font-size: 0.7em !important;
 }
 
+.projectTechnologiesList {
+  display: grid;
+  grid-template-areas: 'leftColumn centerColumn rightColumn';
+}
+
+.technologiesListLeftColumn {
+  grid-area: leftColumn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.technologiesListCenterColumn {
+  grid-area: centerColumn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.technologiesListRightColumn {
+  grid-area: rightColumn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 /*  .ui-button:focus a,
   .ui-button:enabled:hover a,
   .ui-fileupload-choose:not(.ui-state-disabled):hover a {
