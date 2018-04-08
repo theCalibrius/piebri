@@ -14,6 +14,7 @@ class Projects extends Component {
     super();
     this.state = {
       visible: false,
+      class: null,
       selectedProject: {
         title: '',
         description: '',
@@ -97,7 +98,7 @@ class Projects extends Component {
     };
 
     this.onClick = this.onClick.bind(this);
-    // this.updateCurrentProject = this.updateCurrentProject.bind(this);
+    this.onHide = this.onHide.bind(this);
   } 
 
   onClick = (projectsColumn, projectIndex, e) => {
@@ -106,6 +107,7 @@ class Projects extends Component {
     console.log('column': projectsColumn);
     this.setState({
       visible: true,
+      modalClass: 'modalWrapper',
       selectedProject: this.state[projectsColumn][projectIndex]
     });
   }
@@ -113,51 +115,37 @@ class Projects extends Component {
   onHide = (e) => {
     console.log('onHide event: ', e);
     this.setState({
-      visible: false
+      visible: false,
+      modalClass: null
     });
   }
-
-  openLink = (e) => {
-    console.log('openLink event: ', e);
-    // window.open(this.state.currentProject[e]);
-  }
-
-  // updateCurrentProject = (projectName) => {
-  //   this.setState({selectedProject: {
-  //       title: 'tableCRM',
-  //       description: 'Table based CRM project built in React',
-  //       gitHubURL: 'http://www.piebri.com',
-  //       liveURL: 'http://www.piebri.com'
-  //   }})
-  // }
-
  
   render() {
     let projectTechnologies = this.state.selectedProject.technologies;
+
     var getDescription = () => {
         var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
-      });
+          return (<li key={index} >{technology}</li>);
+        });
         var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
-      });
+          return (<li key={index} >{technology}</li>);
+        });
         var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
-      });
-
+          return (<li key={index} >{technology}</li>);
+        });
       return (
         <div className="projectModalContentWrapper">
           <p className="descriptionHeader">Description:</p>
           <p className="projectDescriptionContent">
             {this.state.selectedProject.description}
-            <hr />
           </p>
+          <hr />
           <div className="projectTechnologiesList">
             <div className="technologiesListLeftColumn">
               {technologiesListLeftColumn}
             </div>
-            <div className="technologiesListCenterColumn">
-              {technologiesListCenterColumn}
+          <div className="technologiesListCenterColumn">
+            {technologiesListCenterColumn}
             </div>
             <div className="technologiesListRightColumn">
               {technologiesListRightColumn}
@@ -165,7 +153,7 @@ class Projects extends Component {
           </div>
         </div>
       );
-    }
+    };
 
     var getLinkURL = (linkName) => {
         return (this.state.selectedProject[linkName]);
@@ -200,9 +188,9 @@ class Projects extends Component {
         <div className="rightProjects">
           {rightProjects}
         </div>
-      <Dialog header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} width="450px" height="500px" dismissableMask="true" modal={true} onHide={this.onHide}>
-        {getDescription()}
-      </Dialog>
+        <Dialog className={this.state.modalClass} header={this.state.selectedProject.title} description={this.state.selectedProject.description} visible={this.state.visible} footer={footer} width="450px" height="500px" dismissableMask={true} modal={true} onHide={this.onHide}>
+          {getDescription()}
+        </Dialog>
       </div>
     );
   }

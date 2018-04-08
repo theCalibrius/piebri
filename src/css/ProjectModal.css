@@ -22,7 +22,7 @@
 }*/
 
 
-.ui-dialog {
+.modalWrapper {
   display: grid !important;
   grid-template-rows: 30px 410px 60px !important;
   grid-template-areas: ' modalTitleBox '
