@@ -69,19 +69,19 @@ class Projects extends Component {
         },
         {
           title: 'fitStop',
-          description: 'A fitness app for guided workouts',
+          description: 'A fitness application that guides users through timed workouts',
           gitHubURL: 'https://github.com/theCalibrius/fit-stop',
           liveURL: 'http://fit-stop.herokuapp.com/'
         },
         {
           title: 'talkRight',
-          description: 'In Development',
+          description: 'A mobile application that makes it easy to check facts relating to common conversation topics.',
           gitHubURL: '#',
           liveURL: '#'
         },
         {
           title: 'docAdemy',
-          description: 'In Development',
+          description: 'An innovative online learning platform focused on programming.',
           gitHubURL: '#',
           liveURL: '#'
         }
