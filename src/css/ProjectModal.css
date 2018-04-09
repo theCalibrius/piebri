@@ -42,13 +42,18 @@
   grid-area: modalTitleBox !important;
   display: grid !important;
   grid-template-columns: 25px 2fr 1fr 2fr 25px !important;
-  grid-template-rows: 4px 18px 4px;
-  grid-template-areas: ' modalCloseBox  .............  modalTitle  ........... .......... '
+  grid-template-rows: 6px 18px 6px;
+  grid-template-areas: ' .............  .............  modalTitle  ........... .......... '
                        ' modalCloseBox paddingLinesLeft modalTitle paddingLinesRight .... '
-                       ' modalCloseBox  .............  modalTitle  ........... .........  ';
+                       ' .............  .............  modalTitle  ........... .........  ';
   background: #FFFFFF !important;
   border-bottom: 1px solid #737373 !important;
   box-shadow: 0px 1px 1px #9E9E9E !important;
+}
+
+.fa-fw {
+  width: 25px !important;
+  height: 18px !important;
 }
 
 .ui-widget-header::before, .ui-helper-clearfix::before {
