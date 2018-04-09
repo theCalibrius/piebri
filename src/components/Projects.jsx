@@ -41,11 +41,21 @@ class Projects extends Component {
         {
           title: 'noComments',
           description: 'A minimalist social network application for sharing and viewing content.  Designed to mitigate the negative characteristics of social networks by focusing on sharing of ideas and content.  No likes, no messaging, no comments.',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: 'https://github.com/theCalibrius/nocomments',
           liveURL: '#'
         },
         {
           title: 'pieBri',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },          
           description: 'Personal profile website with a retro UI.',
           gitHubURL: 'https://github.com/theCalibrius/piebri',
           liveURL: 'http://www.piebri.com'
@@ -53,12 +63,22 @@ class Projects extends Component {
         {
           title: 'wanderFund',
           description: 'A crowdfunding application for travel that matters',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: '#',
           liveURL: 'http://www.wanderfund.com'
         },
         {
           title: 'dlmfIt',
           description: 'A serverless reminder app that sends scheduled SMS notifications to your phone',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: '#',
           liveURL: '#'
         }
@@ -67,30 +87,55 @@ class Projects extends Component {
         {
           title: 'enGauge',
           description: 'Relationship tracker application designed to help people have better relationships.',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: 'https://github.com/theCalibrius/enGauged',
           liveURL: '#'
         },
         {
           title: 'marvelShake',
           description: 'An interactive dance party starring characters from the Marvel universe.',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: '#',
           liveURL: '#'
         },
         {
           title: 'fitStop',
           description: 'A fitness application that guides users through timed workouts',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: 'https://github.com/theCalibrius/fit-stop',
           liveURL: 'http://fit-stop.herokuapp.com/'
         },
         {
           title: 'talkRight',
           description: 'A mobile application that makes it easy to check facts relating to common conversation topics.',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: '#',
           liveURL: '#'
         },
         {
           title: 'docAdemy',
           description: 'An innovative online learning platform focused on programming.',
+          technologies: {
+            left: [],
+            center: [],
+            right: []
+          },
           gitHubURL: '#',
           liveURL: '#'
         }
@@ -171,12 +216,12 @@ class Projects extends Component {
     
      var leftProjects = leftColumnProjects.map((project, index) => {
         let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
-        return (<li key={index} onClick={boundProjectClick}>{project.title}</li>);
+        return (<li key={index} onClick={boundProjectClick}><span className="projectListItem">{project.title}</span></li>);
       });
 
      var rightProjects = rightColumnProjects.map((project, index) => {
         let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
-        return (<li key={index} onClick={boundProjectClick}>{project.title}</li>);
+        return (<li key={index} onClick={boundProjectClick}><span className="projectListItem">{project.title}</span></li>);
       });
 
     return(
