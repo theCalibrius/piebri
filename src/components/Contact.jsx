@@ -157,18 +157,8 @@ class Contact extends Component {
     return(
       <div className="contactContent">
         <div className="title">Contact</div>
-        <div className="contactForm">
-          <form name="contactForm" netflify netlify-honeypot="bot-field" method="post">
-            <div className="contactFormFields">
-              <input type="hidden" name="form-name" value="contact"  />
-              <input type="text" placeholder="name~: " name="Name"/>
-              <input type="email" placeholder="e-mail~: " name="E-mail"/>
-              <textarea type="text" placeholder="message~: " name="Message"></textarea>
-              <button type="submit">Submit</button>
-            </div>
-          </form> 
-          <div className="terminalEmulator">
-          </div>
+        <div className="contactForm"> 
+          <div className="terminalEmulator"></div>
         </div>
       </div>
     );

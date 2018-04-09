@@ -29,55 +29,55 @@ class Projects extends Component {
       leftColumnProjects: [
         {
           title: 'tableCRM',
-          description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project made use of various technologies including those below.',
+          description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js', 'express', 'webpack'],
-            center: ['react', 'handsontable', 'highcharts'],
-            right: ['redux', 'jest/enzyme', 'mysql']
+            left: ['node.js', 'express', 'webpack', 'AWS'],
+            center: ['react', 'handsontable', 'highcharts' 'docker'],
+            right: ['redux', 'jest/enzyme', 'mysql', '']
           },
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
           liveURL: '#'
         },
         {
           title: 'noComments',
-          description: 'A minimalist social network application for sharing and viewing content.  Designed to mitigate the negative characteristics of social networks by focusing on sharing of ideas and content.  No likes, no messaging, no comments.',
+          description: 'A minimalist social network application.  Mitigates the negatives of social networks by focusing on sharing of ideas and content.  No likes, no messaging, no comments.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: ['node.js'],
+            center: ['angular', 'typescript'],
+            right: ['mongodb']
           },
           gitHubURL: 'https://github.com/theCalibrius/nocomments',
           liveURL: '#'
         },
         {
-          title: 'pieBri',
+          title: 'pieBri',         
+          description: 'Personal profile website with a retro UI.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
-          },          
-          description: 'Personal profile website with a retro UI.',
+            left: ['node.js'],
+            center: ['react', 'ES6 javascript'],
+            right: ['lambda']
+          }, 
           gitHubURL: 'https://github.com/theCalibrius/piebri',
           liveURL: 'http://www.piebri.com'
         },
         {
           title: 'wanderFund',
-          description: 'A crowdfunding application for travel that matters',
+          description: 'A crowdfunding application for travel that matters.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: [''],
+            center: [''],
+            right: ['']
           },
           gitHubURL: '#',
           liveURL: 'http://www.wanderfund.com'
         },
         {
           title: 'dlmfIt',
-          description: 'A serverless reminder app that sends scheduled SMS notifications to your phone',
+          description: 'A serverless reminder app that sends scheduled SMS notifications to your phone.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: [''],
+            center: [''],
+            right: ['']
           },
           gitHubURL: '#',
           liveURL: '#'
@@ -86,55 +86,55 @@ class Projects extends Component {
       rightColumnProjects: [
         {
           title: 'enGauge',
-          description: 'Relationship tracker application designed to help people have better relationships.',
+          description: 'Relationship tracker application designed to help people have better relationships.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: ['node.js'],
+            center: ['angular', 'typescript'],
+            right: ['mongodb']
           },
           gitHubURL: 'https://github.com/theCalibrius/enGauged',
           liveURL: '#'
         },
         {
           title: 'marvelShake',
-          description: 'An interactive dance party starring characters from the Marvel universe.',
+          description: 'An interactive dance party starring characters from the Marvel universe.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: ['jQuery'],
+            center: ['javascript'],
+            right: ['chai/mocha']
           },
           gitHubURL: '#',
           liveURL: '#'
         },
         {
           title: 'fitStop',
-          description: 'A fitness application that guides users through timed workouts',
+          description: 'A fitness application that guides users through timed workouts.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: ['node.js'],
+            center: ['react', 'ES6 javascript'],
+            right: ['mongodb']
           },
           gitHubURL: 'https://github.com/theCalibrius/fit-stop',
           liveURL: 'http://fit-stop.herokuapp.com/'
         },
         {
           title: 'talkRight',
-          description: 'A mobile application that makes it easy to check facts relating to common conversation topics.',
+          description: 'A mobile application that makes it easy to check facts relating to common conversation topics.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: [''],
+            center: [''],
+            right: ['']
           },
           gitHubURL: '#',
           liveURL: '#'
         },
         {
           title: 'docAdemy',
-          description: 'An innovative online learning platform focused on programming.',
+          description: 'An innovative online learning platform focused on programming.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [],
-            center: [],
-            right: []
+            left: [''],
+            center: [''],
+            right: ['']
           },
           gitHubURL: '#',
           liveURL: '#'

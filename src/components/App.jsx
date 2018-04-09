@@ -5,8 +5,6 @@ import Header from './Header.jsx';
 import Home from './Home.jsx';
 import Projects from './Projects.jsx';
 import Contact from './Contact.jsx';
-import ProjectModal from './ProjectModal';
-import ModalStore from '../data/ModalStore.js'
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 import 'font-awesome/css/font-awesome.css';

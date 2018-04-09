@@ -60,9 +60,10 @@ var Terminal = (function () {
 
 		// I refactored this below function, because it was buggy, now users can't hit ENTER when asked to CONFIRM with y/n
 		inputField.onkeyup = function (e) {
+			var inputValue;
       if (PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
         terminalObj._input.style.display = 'none';
-        var inputValue = inputField.value
+        inputValue = inputField.value
         terminalObj.html.removeChild(inputField);
         if (typeof(callback) === 'function') {
 					if (PROMPT_TYPE === PROMPT_CONFIRM) {
@@ -73,7 +74,7 @@ var Terminal = (function () {
 				}
       } else if ( e.which === 13 && shouldDisplayInput ) {
         terminalObj._input.style.display = 'none';
-        var inputValue = inputField.value
+        inputValue = inputField.value
         terminalObj.print(inputValue);
         callback(inputValue);	
       }
