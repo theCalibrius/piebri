@@ -31,9 +31,9 @@ class Projects extends Component {
           title: 'tableCRM',
           description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js', 'express', 'webpack', 'AWS'],
-            center: ['react', 'handsontable', 'highcharts', 'docker'],
-            right: ['redux', 'jest/enzyme', 'mysql', '']
+            left: ['node.js', 'express', 'webpack', 'AWS', ''],
+            center: ['react', 'handsontable', 'highcharts', 'docker', 'REST api'],
+            right: ['redux', 'jest/enzyme', 'mysql', 'travisCI', '']
           },
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
           liveURL: '#'
@@ -42,9 +42,9 @@ class Projects extends Component {
           title: 'noComments',
           description: 'A minimalist social network application.  Mitigates the negatives of social networks by focusing on sharing of ideas and content.  No likes, no messaging, no comments.',
           technologies: {
-            left: ['node.js'],
+            left: ['node.js', 'REST api'],
             center: ['angular', 'typescript'],
-            right: ['mongodb']
+            right: ['mongodb', '']
           },
           gitHubURL: 'https://github.com/theCalibrius/nocomments',
           liveURL: '#'
@@ -53,9 +53,9 @@ class Projects extends Component {
           title: 'pieBri',         
           description: 'Personal profile website with a retro UI.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js'],
+            left: ['node.js', 'cssGrid'],
             center: ['react', 'ES6 javascript'],
-            right: ['lambda']
+            right: ['lambda', 'flexBox']
           }, 
           gitHubURL: 'https://github.com/theCalibrius/piebri',
           liveURL: 'http://www.piebri.com'
@@ -88,9 +88,9 @@ class Projects extends Component {
           title: 'enGauge',
           description: 'Relationship tracker application designed to help people have better relationships.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js'],
+            left: ['node.js', 'REST api'],
             center: ['angular', 'typescript'],
-            right: ['mongodb']
+            right: ['mongodb', '']
           },
           gitHubURL: 'https://github.com/theCalibrius/enGauged',
           liveURL: '#'
@@ -110,9 +110,9 @@ class Projects extends Component {
           title: 'fitStop',
           description: 'A fitness application that guides users through timed workouts.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js'],
+            left: ['node.js', 'REST api'],
             center: ['react', 'ES6 javascript'],
-            right: ['mongodb']
+            right: ['mongodb', '']
           },
           gitHubURL: 'https://github.com/theCalibrius/fit-stop',
           liveURL: 'http://fit-stop.herokuapp.com/'
