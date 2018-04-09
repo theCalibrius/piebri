@@ -1,3 +1,207 @@
+
+
+/*
+.appContainer{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:1fr 20fr;
+  grid-template-areas: 'navBar'
+                       'contentAreaContainer';
+  height:100vh;
+  width: 100vw;
+}
+
+.navBar{
+  grid-area: navBar;
+  display: grid;
+  min-height: 40px;
+  grid-template-columns: auto 810px auto;
+  grid-template-areas: '...  navBarContent  ...';
+  background-color: #232D2D;
+  margin-bottom:20px;
+}*/
+
+
+.modalWrapper {
+  display: grid !important;
+  grid-template-rows: 30px 410px 60px !important;
+  grid-template-areas: ' modalTitleBox '
+                       ' modalContent  '
+                       ' modalButtons  ';
+  height: 500px;
+  width: 450px;
+  border-radius: 4px !important;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+  -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+}
+
+.ui-widget-header {
+  grid-area: modalTitleBox !important;
+  display: grid !important;
+  grid-template-columns: 25px 2fr 1fr 2fr 25px !important;
+  grid-template-rows: 4px 18px 4px;
+  grid-template-areas: ' modalCloseBox  .............  modalTitle  ........... .......... '
+                       ' modalCloseBox paddingLinesLeft modalTitle paddingLinesRight .... '
+                       ' modalCloseBox  .............  modalTitle  ........... .........  ';
+  background: #FFFFFF !important;
+}
+
+.ui-widget-header::before, .ui-helper-clearfix::before {
+ content: "" !important;
+ background-image: linear-gradient(to bottom,#232d2d, #232d2d 50%, #FFFFFF, #FFFFFF 50%) !important;
+ background-size: 100% 2px !important;
+ background-position: top 2px bottom 2px !important;
+ grid-area: paddingLinesLeft !important;
+ display: flex !important;
+ flex-direction: row !important;
+ /*flex-shrink:125px;*/
+}
+
+.ui-widget-header::after, .ui-helper-clearfix::after {
+ content: "" !important;
+ background-image: linear-gradient(to bottom,#232d2d, #232d2d 50%, #FFFFFF, #FFFFFF 50%) !important;
+ background-size: 100% 2px !important;
+ grid-area: paddingLinesRight !important;
+ display: flex !important;
+ flex-direction: row !important;
+ /*flex-shrink: 125px;*/
+}
+
+.ui-dialog-titlebar-close {
+  grid-area: modalCloseBox !important;
+}
+
+.ui-dialog-title {
+  grid-area: modalTitle !important;
+  padding-right: 8px;
+  padding-left: 8px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  /*flex-grow: 140px !important;*/
+}
+
+.ui-dialog-content {
+  grid-area: modalContent !important;
+  display: grid;
+  height: 400px;
+  padding-right: 25px !important;
+  padding-left: 25px !important;
+}
+
+.ui-dialog-footer {
+  grid-area: modalButtons !important;
+  border-radius: 4px !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar {
+  padding: 0px !important;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
+    font-size: 0.9em !important;
+    font-family: 'Print Char 21' !important;
+}
+
+.ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button {
+    border: 1px solid #232d2d !important;
+    border-radius: 4px !important;
+    color: #232d2d !important;
+    background: #FFFFFF !important;
+    -webkit-transition: background .2s;
+    -o-transition: background .2s;
+    transition: background .2s;
+    -webkit-transition: color .2s;
+    -o-transition: color .2s;
+    transition: color .2s;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: "Print Char 21" !important;
+    font-size: 0.9em !important;
+}
+
+.ui-button:focus,
+.ui-button:enabled:hover,
+.ui-fileupload-choose:not(.ui-state-disabled):hover {
+  outline: 0 none;
+  color: #FFFFFF !important;
+  background: #232d2d !important;
+}
+
+.ui-widget-content {
+  border: none !important; 
+}
+
+.ui-dialog-content {
+  font-family: 'Print Char 21' !important;
+  font-size: 0.9em !important;
+}
+
+.projectTechnologiesList {
+  display: grid;
+  height: 60%;
+  grid-template-areas: 'leftColumn centerColumn rightColumn';
+  /*border-bottom: thin solid #232d2d !important;*/
+}
+
+.technologiesListLeftColumn {
+  grid-area: leftColumn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /*border-right: thin solid #232d2d;*/
+}
+
+.technologiesListCenterColumn {
+  grid-area: centerColumn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /*border-right: thin solid #232d2d;*/
+}
+
+.technologiesListRightColumn {
+  grid-area: rightColumn;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.projectDescriptionContent {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-around;
+  border-bottom: thin solid #232d2d;
+  line-height: 1.5em ;
+}
+
+/*  .ui-button:focus a,
+  .ui-button:enabled:hover a,
+  .ui-fileupload-choose:not(.ui-state-disabled):hover a {
+    color: #212121; }
+
+.ui-button:enabled:active,
+.ui-fileupload-choose:not(.ui-state-disabled):active {
+  border-color: #bebebe;
+  background: #d6d6d6;
+  color: #212121; }*/
+
 /*.modalWrapper {
   display: grid;
   height:100%;
