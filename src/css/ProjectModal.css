@@ -51,8 +51,8 @@
 
 .ui-widget-header::before, .ui-helper-clearfix::before {
  content: "" !important;
- background-image: linear-gradient(to bottom,#232d2d, #232d2d 50%, #FFFFFF, #FFFFFF 50%) !important;
- background-size: 100% 2px !important;
+ background-image: linear-gradient(to bottom, #9E9E9E, #9E9E9E 50%, #FFFFFF, #FFFFFF 50%) !important;
+ background-size: 100% 3px !important;
  background-position: top 2px bottom 2px !important;
  grid-area: paddingLinesLeft !important;
  display: flex !important;
@@ -62,8 +62,8 @@
 
 .ui-widget-header::after, .ui-helper-clearfix::after {
  content: "" !important;
- background-image: linear-gradient(to bottom,#232d2d, #232d2d 50%, #FFFFFF, #FFFFFF 50%) !important;
- background-size: 100% 2px !important;
+ background-image: linear-gradient(to bottom, #9E9E9E, #9E9E9E 50%, #FFFFFF, #FFFFFF 50%) !important;
+ background-size: 100% 3px !important;
  grid-area: paddingLinesRight !important;
  display: flex !important;
  flex-direction: row !important;
@@ -146,7 +146,7 @@
 
 .ui-dialog-content {
   font-family: 'Print Char 21' !important;
-  font-size: 0.9em !important;
+  font-size: 0.8em !important;
 }
 
 .projectTechnologiesList {
@@ -188,7 +188,7 @@
   height: 150px;
   justify-content: space-around;
   border-bottom: thin solid #232d2d;
-  line-height: 1.5em ;
+  line-height: 2em ;
 }
 
 /*  .ui-button:focus a,
