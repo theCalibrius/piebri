@@ -87,12 +87,16 @@
 .ui-dialog-content {
   grid-area: modalContent !important;
   display: grid;
-  height: 420px;
+  height: 400px;
+  padding-right: 25px !important;
+  padding-left: 25px !important;
 }
 
 .ui-dialog-footer {
   grid-area: modalButtons !important;
   border-radius: 4px !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
 }
 
 .buttonContainer {
@@ -142,12 +146,14 @@
 
 .ui-dialog-content {
   font-family: 'Print Char 21' !important;
-  font-size: 0.7em !important;
+  font-size: 0.9em !important;
 }
 
 .projectTechnologiesList {
   display: grid;
+  height: 60%;
   grid-template-areas: 'leftColumn centerColumn rightColumn';
+  /*border-bottom: thin solid #232d2d !important;*/
 }
 
 .technologiesListLeftColumn {
@@ -156,6 +162,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  /*border-right: thin solid #232d2d;*/
 }
 
 .technologiesListCenterColumn {
@@ -164,6 +171,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  /*border-right: thin solid #232d2d;*/
 }
 
 .technologiesListRightColumn {
@@ -173,6 +181,16 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.projectDescriptionContent {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-around;
+  border-bottom: thin solid #232d2d;
+  line-height: 1.5em ;
+}
+
 /*  .ui-button:focus a,
   .ui-button:enabled:hover a,
   .ui-fileupload-choose:not(.ui-state-disabled):hover a {

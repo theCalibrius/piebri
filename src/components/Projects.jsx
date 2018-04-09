@@ -29,7 +29,7 @@ class Projects extends Component {
       leftColumnProjects: [
         {
           title: 'tableCRM',
-          description: 'CRM Application with an intuitive, table-based UI',
+          description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project made use of various technologies including those below.',
           technologies: {
             left: ['node.js', 'express', 'webpack'],
             center: ['react', 'handsontable', 'highcharts'],
@@ -135,11 +135,11 @@ class Projects extends Component {
         });
       return (
         <div className="projectModalContentWrapper">
-          <p className="descriptionHeader">Description:</p>
-          <p className="projectDescriptionContent">
+
+          <div className="projectDescriptionContent">
             {this.state.selectedProject.description}
-          </p>
-          <hr />
+          </div>
+          
           <div className="projectTechnologiesList">
             <div className="technologiesListLeftColumn">
               {technologiesListLeftColumn}
