@@ -13,6 +13,7 @@
   list-style-type: none;
   font-family: 'Print Char 21';
   font-size: 0.9em;
+  cursor: pointer;
 }
 
 .leftProjects{
@@ -35,5 +36,17 @@
   padding-bottom: 30px;
 }
 
+.projectListItem {
+  display: inline;
+  padding: 4px;
+  border: thin solid #FFFFFF;
+  border-radius: 4px;
+}
+
+.projectListItem:hover {
+  color: #FFFFFF;
+  background: #232d2d;
+  border: thin solid #232d2d;
+}
 
 
