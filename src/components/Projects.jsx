@@ -32,7 +32,7 @@ class Projects extends Component {
           description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project utilizes various technologies including those below.',
           technologies: {
             left: ['node.js', 'express', 'webpack', 'AWS'],
-            center: ['react', 'handsontable', 'highcharts' 'docker'],
+            center: ['react', 'handsontable', 'highcharts', 'docker'],
             right: ['redux', 'jest/enzyme', 'mysql', '']
           },
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
