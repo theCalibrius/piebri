@@ -112,6 +112,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: space-around !important;
+  color: #4A4A4A !important;
   /*flex-grow: 140px !important;*/
 }
 
@@ -156,9 +157,9 @@
    /* -webkit-transition: background .2s;
     -o-transition: background .2s;
     transition: background .2s;*/
-/*    -webkit-transition: color .2s;
+    -webkit-transition: color .2s;
     -o-transition: color .2s;
-    transition: color .2s;*/
+    transition: color .2s;
 }
 
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
@@ -170,7 +171,7 @@
 .ui-button:enabled:hover,
 .ui-fileupload-choose:not(.ui-state-disabled):hover {
   outline: 0 none;
-  /*color: #FFFFFF !important;*/
+  color: #232d2d !important;
 /*  background: #F0F0F0 !important;*/
   box-shadow: inset 0 0 1px 1px #C7C7C7 !important;
 }
@@ -226,62 +227,7 @@
   line-height: 2em ;
 }
 
-/*  .ui-button:focus a,
-  .ui-button:enabled:hover a,
-  .ui-fileupload-choose:not(.ui-state-disabled):hover a {
-    color: #212121; }
-
-.ui-button:enabled:active,
-.ui-fileupload-choose:not(.ui-state-disabled):active {
-  border-color: #bebebe;
-  background: #d6d6d6;
-  color: #212121; }*/
-
-/*.modalWrapper {
-  display: grid;
-  height:100%;
-  width: 100%;
-
+.projectModalContentWrapper {
+  color: #4A4A4A !important;
 }
 
-.modal {
-  display: grid;
-  grid-template-rows: 100px 500px 100px;
-  grid-template-areas:       'titleArea'
-                       'projectDescriptionArea'
-                            'buttonArea';
-  z-index: 1027;
-}
-
-.titleArea {
-  grid-area: titleArea;
-}
-
-.closeIcon {
-
-}
-
-.projectDescription {
-  grid-area: projectDescriptionArea;
-}
-
-.buttonArea {
-  grid-area: buttonArea;
-}
-
-.gitHubButton {
-
-}
-
-.liveProjectButton {
-
-}
-
-.shadow {
- z-index: 1000;
- position: fixed;
- width: 100%;
- height: 100%;
- background: #666666;
- opacity: .50;
-}*/
