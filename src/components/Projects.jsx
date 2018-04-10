@@ -31,9 +31,9 @@ class Projects extends Component {
           title: 'tableCRM',
           description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js', 'express', 'webpack', 'AWS', '_'],
+            left: ['node.js', 'express', 'webpack', 'aws', '-'],
             center: ['react', 'handsontable', 'highcharts', 'docker', 'REST api'],
-            right: ['redux', 'jest/enzyme', 'mysql', 'travisCI', '_']
+            right: ['redux', 'jest/enzyme', 'mysql', 'travisCI', 'ES6']
           },
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
           liveURL: '#'
@@ -44,7 +44,7 @@ class Projects extends Component {
           technologies: {
             left: ['node.js', 'REST api'],
             center: ['angular', 'typescript'],
-            right: ['mongodb', '']
+            right: ['mongodb', '-']
           },
           gitHubURL: 'https://github.com/theCalibrius/nocomments',
           liveURL: '#'
@@ -53,9 +53,9 @@ class Projects extends Component {
           title: 'pieBri',         
           description: 'Personal profile website with a retro UI.  This project utilizes various technologies including those below.',
           technologies: {
-            left: ['node.js', 'cssGrid'],
-            center: ['react', 'ES6 javascript'],
-            right: ['lambda', 'flexBox']
+            left: ['node.js', 'cssGrid', '-'],
+            center: ['react', 'ES6', 'flexBox'],
+            right: ['lambda', 'aws ses', '-']
           }, 
           gitHubURL: 'https://github.com/theCalibrius/piebri',
           liveURL: 'http://www.piebri.com'
@@ -64,9 +64,9 @@ class Projects extends Component {
           title: 'wanderFund',
           description: 'A crowdfunding application for travel that matters.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [''],
-            center: [''],
-            right: ['']
+            left: ['PHP', '-'],
+            center: ['jQuery', 'sql'],
+            right: ['javascript', '-']
           },
           gitHubURL: '#',
           liveURL: 'http://www.wanderfund.com'
@@ -75,9 +75,9 @@ class Projects extends Component {
           title: 'dlmfIt',
           description: 'A serverless reminder app that sends scheduled SMS notifications to your phone.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [''],
-            center: [''],
-            right: ['']
+            left: ['node.js', 'angular'],
+            center: ['lambda', '-'],
+            right: ['aws sns', '-']
           },
           gitHubURL: '#',
           liveURL: '#'
@@ -90,7 +90,7 @@ class Projects extends Component {
           technologies: {
             left: ['node.js', 'REST api'],
             center: ['angular', 'typescript'],
-            right: ['mongodb', '']
+            right: ['mongodb', '-']
           },
           gitHubURL: 'https://github.com/theCalibrius/enGauged',
           liveURL: '#'
@@ -111,8 +111,8 @@ class Projects extends Component {
           description: 'A fitness application that guides users through timed workouts.  This project utilizes various technologies including those below.',
           technologies: {
             left: ['node.js', 'REST api'],
-            center: ['react', 'ES6 javascript'],
-            right: ['mongodb', '']
+            center: ['react', 'ES6'],
+            right: ['mongodb', '-']
           },
           gitHubURL: 'https://github.com/theCalibrius/fit-stop',
           liveURL: 'http://fit-stop.herokuapp.com/'
@@ -121,9 +121,9 @@ class Projects extends Component {
           title: 'talkRight',
           description: 'A mobile application that makes it easy to check facts relating to common conversation topics.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [''],
-            center: [''],
-            right: ['']
+            left: ['node.js', '-'],
+            center: ['angular', 'lambda'],
+            right: ['ionic', '-']
           },
           gitHubURL: '#',
           liveURL: '#'
@@ -132,9 +132,9 @@ class Projects extends Component {
           title: 'docAdemy',
           description: 'An innovative online learning platform focused on programming.  This project utilizes various technologies including those below.',
           technologies: {
-            left: [''],
-            center: [''],
-            right: ['']
+            left: ['-'],
+            center: ['-'],
+            right: ['-']
           },
           gitHubURL: '#',
           liveURL: '#'
@@ -208,8 +208,8 @@ class Projects extends Component {
     getLinkURL = getLinkURL.bind(this);
 
     let footer = <div className="buttonContainer">
-                   <Button label="GitHub Repo" onClick={() => {window.open(getLinkURL('gitHubURL'), "_blank")}}  />
-                   <Button label="Live Site" onClick={() => {window.open(getLinkURL('liveURL'), "_blank")}}  />
+                   <Button label="GitHub Repo" onClick={() => {if (getLinkURL('gitHubURL') !== '#') {window.open(getLinkURL('gitHubURL'), "_blank")}}}  />
+                   <Button label="Live Site" onClick={() => {if (getLinkURL('liveURL') !== '#') {window.open(getLinkURL('liveURL'), "_blank")}}}  />
                  </div>
     let leftColumnProjects = this.state.leftColumnProjects;
     let rightColumnProjects = this.state.rightColumnProjects;

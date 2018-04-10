@@ -13,7 +13,6 @@
   list-style-type: none;
   font-family: 'Print Char 21';
   font-size: 0.9em;
-  cursor: pointer;
 }
 
 .leftProjects{
@@ -41,6 +40,7 @@
   padding: 4px;
   border: thin solid #FFFFFF;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .projectListItem:hover {
