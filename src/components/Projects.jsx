@@ -36,7 +36,7 @@ class Projects extends Component {
             right: ['redux', 'jest/enzyme', 'mysql', 'travisCI', 'ES6']
           },
           gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-          liveURL: 'https://intense-tundra-17858.herokuapp.com/'
+          liveURL: 'https://intense-tundra-17858.herokuapp.com/dashboard'
         },
         {
           title: 'noComments',
