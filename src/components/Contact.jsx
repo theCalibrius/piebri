@@ -48,10 +48,8 @@ class Contact extends Component {
           address: addressToValidate 
         })
         .then((response) => {
-          // console.log("response: ", response);
           resolve(response.data.format_valid && response.data.mx_found)
         }).catch((error) => {
-          // console.log(error);
           resolve(true);
         });
       });
@@ -125,11 +123,9 @@ class Contact extends Component {
       }).then((response) => {
         myTerminal.clear();
         myTerminal.print("Your message was succesfully sent.");
-        // console.log('response: ', response);
       }).catch((error) => {
         myTerminal.clear();
         myTerminal.print("There was an error sending your message.");
-        // console.log('error: ', error);
       })
       
     };
