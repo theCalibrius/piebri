@@ -12,13 +12,13 @@
 
 .homepageContent li{
   list-style-type: none;
-  font-family:'Print Char 21';
+  font-family: 'Print Char 21';
   font-size: 0.9em;
 }
 
 .title{
   grid-area: title;
-  display:flex;
+  display: flex;
   justify-content: space-around;
   align-items: flex-end;
   font-family: 'Print Char 21';
