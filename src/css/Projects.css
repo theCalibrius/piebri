@@ -44,8 +44,6 @@
 }
 
 .projectListItem:hover {
-  /*color: #FFFFFF;*/
-  /*background: #232d2d;*/
   border: thin solid #232d2d;
 }
 

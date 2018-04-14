@@ -30,30 +30,6 @@ class App extends Component {
     );
   }
 
-//   render() {
-//   var isModalVisible = this.props.isModalVisible;
-
-//   var showModal = if ( isModalVisible ) {
-//     return ( <ProjectModal {...props}></ProjectModal> );
-//   }
-
-//   return(
-//     <Router>
-//             <div className="appContainer">
-//               {showModal}
-//               <div className="navBar">
-//                 <Header></Header>
-//               </div>
-//               <div className="contentAreaContainer">
-//                 <Route exact={true} path='/' component={Home} />
-//                 <Route path='/projects' component={Projects} />
-//                 <Route path='/contact' component={Contact} />
-//               </div>
-//           </div>
-//     </Router>
-//   )
-// }
-
 }
 
 export default App;

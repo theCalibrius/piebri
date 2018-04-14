@@ -3,7 +3,7 @@
 
 .navBarContent{
   grid-area: navBarContent;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -41,7 +41,7 @@
 }
 
 .socialLinks img{
-  width:18px;
+  width: 18px;
 }
 
 
@@ -51,11 +51,11 @@
 .blinkingCursor {
   font-size: 1em;
   font-weight: 100;
-  transform:scale(1,1.4); /* W3C */
-  -webkit-transform:scale(1,1.4); /* Safari and Chrome */
-  -moz-transform:scale(1,1.4); /* Firefox */
-  -ms-transform:scale(1,1.4); /* IE 9 */
-  -o-transform:scale(1,1.4); /* Opera */
+  transform: scale(1,1.4); /* W3C */
+  -webkit-transform: scale(1,1.4); /* Safari and Chrome */
+  -moz-transform: scale(1,1.4); /* Firefox */
+  -ms-transform: scale(1,1.4); /* IE 9 */
+  -o-transform: scale(1,1.4); /* Opera */
   font-family: "Source Code Pro";
   -webkit-animation: 1.2s blink step-end infinite;
   -moz-animation: 1.2s blink step-end infinite;
