@@ -147,9 +147,6 @@ class Projects extends Component {
   } 
 
   onClick = (projectsColumn, projectIndex, e) => {
-    console.log('event: ', e);
-    console.log('index': projectIndex);
-    console.log('column': projectsColumn);
     this.setState({
       visible: true,
       modalClass: 'modalWrapper',
@@ -158,7 +155,6 @@ class Projects extends Component {
   }
 
   onHide = (e) => {
-    console.log('onHide event: ', e);
     this.setState({
       visible: false,
       modalClass: null
