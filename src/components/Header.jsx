@@ -11,7 +11,7 @@ var Header = (props) => (
       <div className="logo">
         <div className="logoContainer">
           <div className="logoText">piebri:~$</div>
-          <div className="logoCursor"><span className="blinkingCursor">🁢</span></div>
+          <div className="logoCursor"><span className="blinkingCursor">&#x1f062;</span></div>
         </div>
       </div>
     </Link>
