@@ -10,6 +10,18 @@
                        '......... bottomKeywords .........';
 }
 
+@media (max-width: 800px) {
+  .homepageContent{
+    grid-area: contentArea;
+    display: grid;
+    grid-template-rows: 100px 420px 420px 20px;
+    grid-template-areas: '............. title title ...................'
+                         '............ mugShot mugShot ................'
+                         '........ leftKeywords rightKeywords .........'
+                         '...... bottomKeywords bottomKeywords ........';
+  }
+}
+
 .homepageContent li{
   list-style-type: none;
   font-family: 'Print Char 21';
@@ -34,13 +46,29 @@
   padding: 75px 30px 50px;
 }
 
+@media (max-width: 800px) {
+  .leftKeywords{
+    padding: 0px 20px 120px 0px;
+    font-size: 1.2em;
+    text-align: center;
+  }
+}
+
 .rightKeywords{
   grid-area: rightKeywords;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 75px 30px 50px;
+  padding: 75px 0px 50px;
 
+}
+
+@media (max-width: 800px) {
+  .rightKeywords{
+    font-size: 1.2em;
+    padding: 0px 0px 120px 20px;
+    text-align: center;
+  }
 }
 
 .bottomKeywords{
@@ -49,11 +77,19 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 20px;
   padding-right: 20px;
   padding-left: 20px;
-  
 }
+
+@media (max-width: 800px) {
+  .bottomKeywords{
+    margin-top: -100px;
+    padding-top: 0px;
+    font-size: 1.2em;
+  }
+}
+
 
 .mugShot{
   grid-area: mugShot;
