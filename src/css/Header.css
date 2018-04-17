@@ -44,7 +44,28 @@
   width: 18px;
 }
 
+.condensedNavMenu{
+  display: none;
+}
 
+@media (max-width: 600px){
+  .condensedNavMenu{
+    display: flex;
+    min-width: 40px;
+    justify-content: space-around;
+  }
+  .navMenuIcon{
+    color: #FFFFFF;
+    height: 18px;
+  }
+  .navLinks{
+    display: none;
+  }
+
+  .navBarContent{
+    
+  }
+}
 
 /*---------------  Blinking Cursor for Logo  -------------------*/
 
