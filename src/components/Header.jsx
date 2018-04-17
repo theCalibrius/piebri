@@ -34,9 +34,6 @@ class Header extends Component {
 
     return (
       <div className="navBarContent">
-        <div className="navMenuIconContainer">
-          <span className="navMenuIcon fa fa-bars" onClick={this.onClick}/>
-        </div>
         <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
           <div className="logo">
             <div className="logoContainer">
@@ -53,8 +50,10 @@ class Header extends Component {
             <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer"><img className="github" src={github} alt={"github"} /></a>
           </div>
         </div>
+        <div className="navMenuIconContainer">
+          <span className="navMenuIcon fa fa-bars" onClick={this.onClick}/>
+        </div>
        <Sidebar visible={this.state.visible} baseZIndex={1000000} onHide={this.onHide} position="top">
-         <p></p>
          <div className="modalSidebarContainer" onClick={this.onHide}>
            <Link to='/projects' style={{ textDecoration: 'none', color: 'white' }}>projects</Link>
            <Link to='/contact' style={{ textDecoration: 'none', color: 'white' }}>contact</Link>

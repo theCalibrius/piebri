@@ -81,13 +81,6 @@
     align-items: center;
   }
 
-  .navBarContent{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-  }
-
   .ui-sidebar-top{
     background: #232d2d !important;
     color: #FFFFFF !important;
@@ -100,6 +93,7 @@
   .ui-widget-content a {
     color: #FFFFFF !important;
     text-decoration: none !important;
+    font-family: "Source Code Pro", monospace !important;
   }
 }
 
