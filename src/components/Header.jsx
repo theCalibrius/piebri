@@ -31,47 +31,6 @@ class Header extends Component {
   }
 
   render() {
-    
-    // let MenuComponent = withRouter(({ history }) => {
-    //   let navItems = [ {
-    //       label: 'projects', command: () => { history.push('/projects') }
-    //     }, {
-    //       label: 'projects', command: () => { history.push('/contact') }
-    //     }, {
-    //       label: 'gitHub profile', url: 'https://github.com/theCalibrius'
-    //     }, {
-    //       label: 'linkedIn profile', url: 'https://www.linkedin.com/in/piercebrian/'
-    //   }];
-      
-    //   return (
-    //     <Menu model={navItems} popup={true} ref={el => this.menu = el}/>
-    //   );
-    // });
-    
-    // let goToProjects = withRouter(({ history }) => (
-    //   function() {
-    //     history.push('/projects');
-    //   }
-    // ));
-
-    //  let goToContact = withRouter(({ history }) => (
-    //   function() {
-    //     history.push('/contact');
-    //   }
-    // ));
-
-   /*
-<Menu model={navItems} popup={true} ref={el => this.menu = el}/>
-*/
-    // let navItems = [ {
-    //       label: 'projects', command:() => {withRouter(({ history }) => (history.push('/projects')))}
-    //     }, {
-    //       label: 'contact', command: () => {withRouter(({ history }) => (history.push('/projects')))} 
-    //     }, {
-    //       label: 'gitHub profile', url: 'https://github.com/theCalibrius'
-    //     }, {
-    //       label: 'linkedIn profile', url: 'https://www.linkedin.com/in/piercebrian/'
-    //   }];
 
     return (
       <div className="navBarContent">
