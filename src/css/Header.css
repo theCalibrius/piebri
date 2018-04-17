@@ -44,11 +44,63 @@
   width: 18px;
 }
 
+.navMenuIcon.fa{
+  display: none;
+}
 
+.navMenuIconContainer{
+  display: none;
+}
+
+@media (max-width: 600px){
+  .navMenuIconContainer{
+    display: flex;
+  }
+
+  .navMenuIcon.fa{
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #FFFFFF;
+    height: 100%;
+  }
+
+  .fa-bars::before{
+    font-size: 1.3em;
+  }
+
+  .navLinks{
+    display: none;
+  }
+
+  .modalSidebarContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+  }
+
+  .ui-sidebar-top{
+    background: #232d2d !important;
+    color: #FFFFFF !important;
+  }
+
+  .ui-sidebar-close{
+    color: #FFFFFF !important;
+  }
+
+  .ui-widget-content a {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-family: "Source Code Pro", monospace !important;
+  }
+}
 
 /*---------------  Blinking Cursor for Logo  -------------------*/
 
 .blinkingCursor {
+  margin-left: 10px;
   font-size: 1em;
   font-weight: 100;
   transform: scale(1,1.4); /* W3C */
