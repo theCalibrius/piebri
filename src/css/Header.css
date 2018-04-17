@@ -44,26 +44,62 @@
   width: 18px;
 }
 
-.condensedNavMenu{
+.navMenuIcon.fa{
+  display: none;
+}
+
+.navMenuIconContainer{
   display: none;
 }
 
 @media (max-width: 600px){
-  .condensedNavMenu{
+  .navMenuIconContainer{
     display: flex;
-    min-width: 40px;
-    justify-content: space-around;
   }
-  .navMenuIcon{
+
+  .navMenuIcon.fa{
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
     color: #FFFFFF;
-    height: 18px;
+    height: 100%;
   }
+
+  .fa-bars::before{
+    font-size: 1.3em;
+  }
+
   .navLinks{
     display: none;
   }
 
+  .modalSidebarContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+  }
+
   .navBarContent{
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .ui-sidebar-top{
+    background: #232d2d !important;
+    color: #FFFFFF !important;
+  }
+
+  .ui-sidebar-close{
+    color: #FFFFFF !important;
+  }
+
+  .ui-widget-content a {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
   }
 }
 
