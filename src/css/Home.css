@@ -14,11 +14,22 @@
   .homepageContent{
     grid-area: contentArea;
     display: grid;
-    grid-template-rows: 100px 420px 420px 20px;
-    grid-template-areas: '............. title title ...................'
-                         '............ mugShot mugShot ................'
-                         '........ leftKeywords rightKeywords .........'
-                         '...... bottomKeywords bottomKeywords ........';
+    grid-template-rows: 100px 420px 420px;
+    grid-template-areas: '................. title title title ...................'
+                         '.............. mugShot mugShot mugShot ................'
+                         '........ leftKeywords bottomKeywords rightKeywords .........'                  
+  }
+}
+
+@media (max-width: 600px) {
+  .homepageContent{
+    grid-area: contentArea;
+    display: grid;
+    grid-template-rows: 100px 360px 420px;
+    grid-template-areas: '................. title title title ...................'
+                         '.............. mugShot mugShot mugShot ................'
+                         '........ leftKeywords bottomKeywords rightKeywords .........'
+                         
   }
 }
 
@@ -37,6 +48,18 @@
   font-size: 1.35em;
 }
 
+.mugShot{
+  grid-area: mugShot;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+.mugShot img {
+  max-width: 360px;
+}
+
 .leftKeywords{
   grid-area: leftKeywords;
   display: flex;
@@ -46,14 +69,6 @@
   padding: 75px 30px 50px;
 }
 
-@media (max-width: 800px) {
-  .leftKeywords{
-    padding: 0px 20px 120px 0px;
-    font-size: 1.2em;
-    text-align: center;
-  }
-}
-
 .rightKeywords{
   grid-area: rightKeywords;
   display: flex;
@@ -61,14 +76,6 @@
   justify-content: space-between;
   padding: 75px 0px 50px;
 
-}
-
-@media (max-width: 800px) {
-  .rightKeywords{
-    font-size: 1.2em;
-    padding: 0px 0px 120px 20px;
-    text-align: center;
-  }
 }
 
 .bottomKeywords{
@@ -82,23 +89,75 @@
   padding-left: 20px;
 }
 
+
 @media (max-width: 800px) {
+  .leftKeywords{
+    padding: 0px 0px 180px 100px;
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .rightKeywords{
+    font-size: 0.9em;
+    padding: 0px 100px 180px 0px;
+    text-align: center;
+  }
+
   .bottomKeywords{
-    margin-top: -100px;
+    /*margin-top: -100px;*/
     padding-top: 0px;
-    font-size: 1.2em;
+    font-size: 0.9em;
+    grid-area: bottomKeywords;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin-bottom: 180px;
+  }
+
+  .mugShot{
+    max-width: 600px;
+    padding-top: 40px;
+  }
+
+  .title{
+    max-width: 600px;
+    font-size: 1.35em;
   }
 }
 
 
-.mugShot{
-  grid-area: mugShot;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding-top: 60px;
-}
+@media (max-width: 600px) {
+  .leftKeywords{
+    padding: 40px 0px 180px 20px;
+    font-size: 0.8em;
+    text-align: center;
+  }
 
-.mugShot img {
-  max-width: 360px;
+  .rightKeywords{
+    font-size: 0.8em;
+    padding: 40px 20px 180px 0px;
+    text-align: center;
+  }
+
+  .bottomKeywords{
+    /*margin-top: -100px;*/
+    padding-top: 0px;
+    font-size: 0.8em;
+    grid-area: bottomKeywords;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin-bottom: 180px;
+    padding-top: 40px;
+  }
+
+  .mugShot{
+    max-width: 420px;
+    padding-top: 40px;
+  }
+
+  .title{
+    max-width: 420px;
+    font-size: 1.2em;
+  }
 }
