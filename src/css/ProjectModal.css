@@ -16,17 +16,53 @@
   -moz-background-clip: padding-box !important;
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .modalWrapper{
     top: 50px !important;
   }
 }
 
+@media (max-width: 668px) {
+
+  .modalWrapper{
+    top: 50px !important;
+    width: 60% !important;
+    min-width: 360px !important;
+    left: 20% !important;
+  }
+}
+
+@media (max-height: 420px) {
+    .modalWrapper {
+      grid-template-rows: 1fr 8fr 1fr !important;
+      top: 10% !important;
+      width: 90% !important;
+      left: 5% !important;
+      height: 80% !important;
+    }
+    
+    .projectTechnologiesList {
+      height: 65% !important;
+    }
+
+    .projectDescriptionContent {
+      height: 45% !important;
+    }
+
+    .ui-dialog-content {
+      height: 90% !important;
+      padding: 0px 25px 0px 25px !important;
+    }
+
+    .ui-dialog-footer {
+      padding: 0px !important;
+    }
+  }
+
 @media (max-width: 420px) {
   .modalWrapper{
-    width: 360px !important;
-    left: 7.5px !important;
+    width: 22.5em !important;
+    left: 0.45em !important;
   }
 
   .ui-dialog-content {
