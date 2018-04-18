@@ -47,4 +47,18 @@
   border: thin solid #232d2d;
 }
 
+@media (max-width: 420px) {
+  .projectsContent {
+    grid-template-rows: 60px 500px;
+  }
+
+  .rightProjects {
+    padding-left: 10px;
+  }
+
+  .leftProjects {
+    padding-right: 10px;
+  }
+}
+
 
