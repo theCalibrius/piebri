@@ -49,7 +49,12 @@
   font-weight: 900;
 }
 
-@media (max-width: 420px) {
+
+@media (max-width: 420px) {  
+  .contactContent{
+    grid-template-rows: 60px 500px;
+  }
+
   .contactForm{
     padding-left: 10px;
     padding-right: 10px;
