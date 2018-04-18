@@ -16,7 +16,6 @@
   -moz-background-clip: padding-box !important;
 }
 
-
 @media (max-width: 600px) {
   .modalWrapper{
     top: 50px !important;
