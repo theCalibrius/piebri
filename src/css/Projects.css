@@ -47,4 +47,14 @@
   border: thin solid #232d2d;
 }
 
+@media (max-width: 420px) {
+  .rightProjects {
+    padding-left: 10px;
+  }
+
+  .leftProjects {
+    padding-right: 10px;
+  }
+}
+
 
