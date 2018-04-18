@@ -16,6 +16,18 @@
   -moz-background-clip: padding-box !important;
 }
 
+@media (max-width: 420px) {
+  .modalWrapper{
+    width: 360px !important;
+    left: 7.5px !important;
+  }
+
+  .ui-dialog-content {
+    font-family: "Print Char 21" !important;
+    font-size: 0.7em !important;
+  }
+}
+
 .ui-widget-header {
   grid-area: modalTitleBox !important;
   display: grid !important;
@@ -27,6 +39,10 @@
   background: #FFFFFF !important;
   border-bottom: 1px solid #737373 !important;
   box-shadow: 0px 1px 1px #9E9E9E !important;
+}
+
+.ui-dialog-titlebar-icon {
+  color: #636363 !important;
 }
 
 .ui-dialog-titlebar-icon:hover {
@@ -144,9 +160,11 @@
   border: none !important; 
 }
 
-.ui-dialog-content {
-  font-family: 'Print Char 21' !important;
-  font-size: 0.8em !important;
+@media (min-width: 421px) {
+  .ui-dialog-content {
+    font-family: "Print Char 21" !important;
+    font-size: 0.7em !important;
+  }
 }
 
 .projectTechnologiesList {

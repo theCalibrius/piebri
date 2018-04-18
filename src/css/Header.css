@@ -53,14 +53,18 @@
 }
 
 @media (max-width: 600px){
+
+  .logoContainer{
+    margin-left: 6px;
+  }
+
   .navMenuIconContainer{
     display: flex;
   }
 
   .navMenuIcon.fa{
     display: inline;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-right: 6px;
     color: #FFFFFF;
     height: 100%;
   }
@@ -90,7 +94,7 @@
     color: #FFFFFF !important;
   }
 
-  .ui-widget-content a {
+  .ui-sidebar a {
     color: #FFFFFF !important;
     text-decoration: none !important;
     font-family: "Source Code Pro", monospace !important;

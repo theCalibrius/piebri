@@ -80,6 +80,15 @@ body {
   }
 }
 
+@media (max-width: 420px) {
+  .contentAreaContainer{
+    grid-area: contentAreaContainer;
+    display: grid;
+    max-height: 720px;
+    grid-template-columns: auto 360px auto; 
+    grid-template-areas: '... contentArea ...';
+  }
+}
 
 
 

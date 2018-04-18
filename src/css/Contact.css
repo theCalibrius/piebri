@@ -48,3 +48,10 @@
   font-family: "Print Char 21", monospace;
   font-weight: 900;
 }
+
+@media (max-width: 420px) {
+  .contactForm{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
