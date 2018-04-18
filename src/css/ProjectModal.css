@@ -19,12 +19,12 @@
 @media (max-width: 420px) {
   .modalWrapper{
     width: 360px !important;
-    margin-left: 7.5px;
-    margin-right: 7.5px;
+    left: 7.5px !important;
   }
 
   .ui-dialog-content {
-    font-size: 0.6em !important;
+    font-family: "Print Char 21" !important;
+    font-size: 0.7em !important;
   }
 }
 
@@ -160,9 +160,11 @@
   border: none !important; 
 }
 
-.ui-dialog-content {
-  font-family: 'Print Char 21' !important;
-  font-size: 0.8em !important;
+@media (min-width: 421px) {
+  .ui-dialog-content {
+    font-family: "Print Char 21" !important;
+    font-size: 0.7em !important;
+  }
 }
 
 .projectTechnologiesList {
