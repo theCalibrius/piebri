@@ -50,13 +50,13 @@ class Projects extends Component {
           liveURL: '#'
         },
         {
-          title: 'pieBri',         
+          title: 'pieBri',
           description: 'Personal profile website with a retro UI.  This project utilizes various technologies including those below.',
           technologies: {
             left: ['node.js', 'cssGrid', '-'],
             center: ['react', 'ES6', 'flexBox'],
             right: ['lambda', 'aws ses', '-']
-          }, 
+          },
           gitHubURL: 'https://github.com/theCalibrius/piebri',
           liveURL: 'http://www.piebri.com'
         },
@@ -144,7 +144,7 @@ class Projects extends Component {
 
     this.onClick = this.onClick.bind(this);
     this.onHide = this.onHide.bind(this);
-  } 
+  }
 
   onClick = (projectsColumn, projectIndex, e) => {
     this.setState({
@@ -160,7 +160,7 @@ class Projects extends Component {
       modalClass: null
     });
   }
- 
+
   render() {
     let projectTechnologies = this.state.selectedProject.technologies;
 
@@ -176,11 +176,9 @@ class Projects extends Component {
         });
       return (
         <div className="projectModalContentWrapper">
-
           <div className="projectDescriptionContent">
             {this.state.selectedProject.description}
           </div>
-          
           <div className="projectTechnologiesList">
             <div className="technologiesListLeftColumn">
               {technologiesListLeftColumn}
@@ -204,25 +202,56 @@ class Projects extends Component {
     getLinkURL = getLinkURL.bind(this);
 
     let footer = <div className="buttonContainer">
-                   <Button label="GitHub Repo" onClick={() => {if (getLinkURL('gitHubURL') !== '#') {window.open(getLinkURL('gitHubURL'), "_blank")}}}  />
-                   <Button label="Live Site" onClick={() => {if (getLinkURL('liveURL') !== '#') {window.open(getLinkURL('liveURL'), "_blank")}}}  />
+                   <Button
+                     label="GitHub Repo"
+                     onClick={() => {
+                       if (getLinkURL('gitHubURL') !== '#') {
+                         window.open(getLinkURL('gitHubURL'), "_blank");
+                       }
+                     }}
+                   />
+                   <Button
+                     label="Live Site"
+                     onClick={() => {
+                       if (getLinkURL('liveURL') !== '#') {
+                         window.open(getLinkURL('liveURL'), "_blank");
+                       }
+                     }}
+                   />
                  </div>
     let leftColumnProjects = this.state.leftColumnProjects;
     let rightColumnProjects = this.state.rightColumnProjects;
-    
-     var leftProjects = leftColumnProjects.map((project, index) => {
-        let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
-        return (<li key={index} onClick={boundProjectClick}><span className="projectListItem">{project.title}</span></li>);
-      });
 
-     var rightProjects = rightColumnProjects.map((project, index) => {
-        let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
-        return (<li key={index} onClick={boundProjectClick}><span className="projectListItem">{project.title}</span></li>);
-      });
+    /**
+     * Below usage of index as key is appropriate for the situation:
+     * https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
+     */
+
+    var leftProjects = leftColumnProjects.map((project, index) => {
+      let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
+      return(
+             <li key={index} onClick={boundProjectClick}>
+               <span className="projectListItem">
+                 {project.title}
+               </span>
+             </li>
+            );
+    });
+
+    var rightProjects = rightColumnProjects.map((project, index) => {
+      let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
+      return(
+             <li key={index} onClick={boundProjectClick}>
+               <span className="projectListItem">
+                 {project.title}
+               </span>
+             </li>
+            );
+    });
 
     return(
       <div className="projectsContent">
-        <div className='title'>Projects</div>
+        <div className="title">Projects</div>
         <div className="leftProjects">
           {leftProjects}
         </div>

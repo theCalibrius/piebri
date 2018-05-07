@@ -16,7 +16,7 @@ class Contact extends Component {
   }
 
   componentDidMount() {
-    
+
     var configureTerminalWindow = () => {
       myTerminal.setBackgroundColor('#FCFCFC');
       myTerminal.setHeight('400px');
@@ -40,12 +40,12 @@ class Contact extends Component {
           });
         });
       });
-    }; 
+    };
 
     var isEmailValid = (addressToValidate) => {
       return new Promise((resolve) => {
         axios.post('https://7ljv2tt4yl.execute-api.us-east-1.amazonaws.com/prod/ValidateEmailAddress', {
-          address: addressToValidate 
+          address: addressToValidate
         })
         .then((response) => {
           resolve(response.data.format_valid && response.data.mx_found)
@@ -77,7 +77,7 @@ class Contact extends Component {
             }
           })
         });
-      });  
+      });
     };
 
     var getUserMessage = () => {
@@ -93,7 +93,7 @@ class Contact extends Component {
               getUserMessage().then(resolve);
             }
           });
-        });  
+        });
       });
     };
 
@@ -113,7 +113,6 @@ class Contact extends Component {
       });
     };
 
-
     var sendMessage = () => {
       myTerminal.print("Sending Your Message...");
       axios.post('https://u9udukv8j0.execute-api.us-east-1.amazonaws.com/prod/ContactFormLambda', {
@@ -127,7 +126,7 @@ class Contact extends Component {
         myTerminal.clear();
         myTerminal.print("There was an error sending your message.");
       })
-      
+
     };
 
     var gatherDataAndSend = () => {
@@ -140,20 +139,20 @@ class Contact extends Component {
     confirmAndSend = confirmAndSend.bind(this);
     sendMessage = sendMessage.bind(this);
     gatherDataAndSend = gatherDataAndSend.bind(this);
-   
+
     var myTerminal = new Terminal();
     $(".terminalEmulator").append(myTerminal.html);
     configureTerminalWindow();
-    
+
     gatherDataAndSend();
-    
+
   }
 
   render() {
     return(
       <div className="contactContent">
         <div className="title">Contact</div>
-        <div className="contactForm"> 
+        <div className="contactForm">
           <div className="terminalEmulator"></div>
         </div>
       </div>

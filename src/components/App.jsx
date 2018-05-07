@@ -18,14 +18,14 @@ class App extends Component {
       <Router>
         <div className="appContainer">
           <div className="navBar">
-            <Header></Header>
+            <Header />
           </div>
           <div className="contentAreaContainer">
-            <Route exact={true} path='/' component={Home} />
-            <Route path='/projects' component={Projects} />
-            <Route path='/contact' component={Contact} />
+            <Route exact={true} path="/" component={Home} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/contact" component={Contact} />
           </div>
-      </div>
+        </div>
       </Router>
     );
   }
@@ -33,4 +33,3 @@ class App extends Component {
 }
 
 export default App;
-
