@@ -165,15 +165,16 @@ class Projects extends Component {
     let projectTechnologies = this.state.selectedProject.technologies;
 
     var getDescription = () => {
-        var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
-          return (<li key={index} >{technology}</li>);
-        });
-        var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
-          return (<li key={index} >{technology}</li>);
-        });
-        var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
-          return (<li key={index} >{technology}</li>);
-        });
+      var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
+        return (<li key={index} >{technology}</li>);
+      });
+      var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
+        return (<li key={index} >{technology}</li>);
+      });
+      var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
+        return (<li key={index} >{technology}</li>);
+      });
+
       return (
         <div className="projectModalContentWrapper">
           <div className="projectDescriptionContent">
