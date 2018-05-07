@@ -1,5 +1,5 @@
 
-export projectData = {
+var projectData = {
   leftColumnProjects: [
     {
       title: 'tableCRM',
@@ -115,3 +115,5 @@ export projectData = {
     }
   ]
 };
+
+export default projectData;
