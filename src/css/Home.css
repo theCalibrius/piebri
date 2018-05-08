@@ -1,7 +1,7 @@
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.homepageContent{
+.homepageContent {
   grid-area: contentArea;
   display: grid;
   grid-template-rows: 100px 420px 20px;
@@ -10,15 +10,13 @@
                        '......... bottomKeywords .........';
 }
 
-
-
-.homepageContent li{
+.homepageContent li {
   list-style-type: none;
   font-family: 'Print Char 21';
   font-size: 0.9em;
 }
 
-.title{
+.title {
   grid-area: title;
   display: flex;
   justify-content: space-around;
@@ -27,7 +25,7 @@
   font-size: 1.35em;
 }
 
-.mugShot{
+.mugShot {
   grid-area: mugShot;
   display: flex;
   justify-content: space-around;
@@ -39,7 +37,7 @@
   max-width: 360px;
 }
 
-.leftKeywords{
+.leftKeywords {
   grid-area: leftKeywords;
   display: flex;
   flex-direction: column;
@@ -48,7 +46,7 @@
   padding: 75px 30px 50px 0px;
 }
 
-.rightKeywords{
+.rightKeywords {
   grid-area: rightKeywords;
   display: flex;
   flex-direction: column;
@@ -57,7 +55,7 @@
 
 }
 
-.bottomKeywords{
+.bottomKeywords {
   grid-area: bottomKeywords;
   display: flex;
   flex-direction: row;
@@ -68,10 +66,10 @@
   padding-left: 20px;
 }
 
+/*---------------  Media Query Breakpoint  -------------------*/
 
 @media (max-width: 800px) {
-
-  .homepageContent{
+  .homepageContent {
     grid-area: contentArea;
     display: grid;
     grid-template-rows: 100px 420px 420px;
@@ -80,19 +78,19 @@
                          '........ leftKeywords bottomKeywords rightKeywords .........'
   }
 
-  .leftKeywords{
+  .leftKeywords {
     padding: 0px 0px 180px 100px;
     font-size: 0.9em;
     text-align: center;
   }
 
-  .rightKeywords{
+  .rightKeywords {
     font-size: 0.9em;
     padding: 0px 100px 180px 0px;
     text-align: center;
   }
 
-  .bottomKeywords{
+  .bottomKeywords {
     /*margin-top: -100px;*/
     padding-top: 0px;
     font-size: 0.9em;
@@ -103,43 +101,42 @@
     margin-bottom: 180px;
   }
 
-  .mugShot{
+  .mugShot {
     max-width: 600px;
     padding-top: 40px;
   }
 
-  .title{
+  .title {
     max-width: 600px;
     font-size: 1.35em;
   }
 }
 
+/*---------------  Media Query Breakpoint  -------------------*/
 
 @media (max-width: 600px) {
-
-  .homepageContent{
+  .homepageContent {
     grid-area: contentArea;
     display: grid;
     grid-template-rows: 100px 360px 420px;
     grid-template-areas: '................. title title title ...................'
                          '.............. mugShot mugShot mugShot ................'
                          '........ leftKeywords bottomKeywords rightKeywords .........'
-
   }
 
-  .leftKeywords{
+  .leftKeywords {
     padding: 40px 0px 180px 20px;
     font-size: 0.8em;
     text-align: center;
   }
 
-  .rightKeywords{
+  .rightKeywords {
     font-size: 0.8em;
     padding: 40px 20px 180px 0px;
     text-align: center;
   }
 
-  .bottomKeywords{
+  .bottomKeywords {
     /*margin-top: -100px;*/
     padding-top: 0px;
     font-size: 0.8em;
@@ -151,29 +148,29 @@
     padding-top: 40px;
   }
 
-  .mugShot{
+  .mugShot {
     max-width: 420px;
     padding-top: 40px;
   }
 
-  .title{
+  .title {
     max-width: 420px;
     font-size: 1.2em;
   }
 }
 
+/*---------------  Media Query Breakpoint  -------------------*/
 
 @media (max-width: 420px) {
-
-  .homepageContent{
+  .homepageContent {
     grid-template-rows: 60px 360px 420px;
   }
 
-  .rightKeywords{
+  .rightKeywords {
     padding: 40px 0px 180px 0px;
   }
 
-  .leftKeywords{
+  .leftKeywords {
     padding: 40px 0px 180px 0px;
   }
 }
