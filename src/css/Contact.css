@@ -1,7 +1,7 @@
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.contactContent{
+.contactContent {
   grid-area: contentArea;
   display: grid;
   grid-template-rows: 100px 500px;
@@ -9,7 +9,7 @@
                        ' contactForm ';
 }
 
-.contactForm{
+.contactForm {
   grid-area: contactForm;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,22 @@
   padding-right: 100px;
 }
 
-.contactFormFields{
+.contactForm form {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .contactContent {
+    grid-template-rows: 60px 500px;
+  }
+
+  .contactForm {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.contactFormFields {
   display: flex;
   min-height: 480px;
   flex-direction: column;
@@ -28,35 +43,22 @@
   padding-right: 100px;
 }
 
-.contactFormFields input, .contactFormFields textarea, .contactFormFields button{
+.contactFormFields input,
+.contactFormFields textarea,
+.contactFormFields button {
   font-family: "Source Code Pro", monospace;
   font-size: 0.9em;
-  color: white;
+  color: #FFFFFF;
   background-color: #232D2D;
   border: none;
 }
 
-.contactFormFields input, .contactFormFields textarea{
+.contactFormFields input,
+.contactFormFields textarea {
   padding-left: 5px;
 }
 
-.contactForm form{
-  display: none;
-}
-
-.Terminal{
+.Terminal {
   font-family: "Print Char 21", monospace;
   font-weight: 900;
-}
-
-
-@media (max-width: 420px) {  
-  .contactContent{
-    grid-template-rows: 60px 500px;
-  }
-
-  .contactForm{
-    padding-left: 10px;
-    padding-right: 10px;
-  }
 }
