@@ -34,7 +34,7 @@ class Header extends Component {
 
     return (
       <div className="navBarContent">
-        <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+        <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
           <div className="logo">
             <div className="logoContainer">
               <div className="logoText">piebri:~$</div>
@@ -43,8 +43,8 @@ class Header extends Component {
           </div>
         </Link>
         <div className="navLinks">
-          <Link to='/projects' style={{ textDecoration: 'none', color: 'white' }}>projects</Link>
-          <Link to='/contact' style={{ textDecoration: 'none', color: 'white' }}>contact</Link>
+          <Link to="/projects" style={{ textDecoration: 'none', color: 'white' }}>projects</Link>
+          <Link to="/contact" style={{ textDecoration: 'none', color: 'white' }}>contact</Link>
           <div className="socialLinks">
             <a href="https://www.linkedin.com/in/piercebrian/" target="_blank" rel="noopener noreferrer"><img className="linkedin" src={linkedin} alt={"linkedin"} /></a>
             <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer"><img className="github" src={github} alt={"github"} /></a>
@@ -55,8 +55,8 @@ class Header extends Component {
         </div>
        <Sidebar visible={this.state.visible} baseZIndex={1000000} onHide={this.onHide} position="top">
          <div className="modalSidebarContainer" onClick={this.onHide}>
-           <Link to='/projects' style={{ textDecoration: 'none', color: 'white' }}>projects</Link>
-           <Link to='/contact' style={{ textDecoration: 'none', color: 'white' }}>contact</Link>
+           <Link to="/projects" style={{ textDecoration: 'none', color: 'white' }}>projects</Link>
+           <Link to="/contact" style={{ textDecoration: 'none', color: 'white' }}>contact</Link>
            <a href="https://www.linkedin.com/in/piercebrian/" target="_blank" rel="noopener noreferrer"><img className="linkedin" src={linkedin} alt={"linkedin"} /></a>
            <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer"><img className="github" src={github} alt={"github"} /></a>
          </div>

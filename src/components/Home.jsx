@@ -6,7 +6,7 @@ import '../css/Home.css';
 
 var Home = (props) => (
   <div className="homepageContent">
-	  <div className='title'>Brian Pierce</div>
+	  <div className="title">Brian Pierce</div>
     <div className="leftKeywords">
         <li>node.js</li>
         <li>express.js</li>
@@ -14,7 +14,7 @@ var Home = (props) => (
         <li>sql</li>
     </div>
     <div className="mugShot">
-      <img className="piebri" src={piebri} alt={"portrait"} />
+      <img className="piebri" src={piebri} alt={"Photo of me"} />
     </div>
     <div className="rightKeywords">
         <li>html/css</li>
@@ -22,7 +22,7 @@ var Home = (props) => (
         <li>angular</li>
         <li>react</li>
     </div>
-    <div className="bottomKeywords">	  
+    <div className="bottomKeywords">
     		<li>docker</li>
     		<li>webpack</li>
     		<li>aws</li>
