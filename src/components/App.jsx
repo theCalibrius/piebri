@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 import Header from './Header.jsx';
 import Home from './Home.jsx';
 import Projects from './Projects.jsx';
@@ -11,10 +10,9 @@ import 'font-awesome/css/font-awesome.css';
 import '../css/App.css';
 
 
-
 class App extends Component {
   render() {
-    return (
+    return(
       <Router>
         <div className="appContainer">
           <div className="navBar">
@@ -31,5 +29,6 @@ class App extends Component {
   }
 
 }
+
 
 export default App;

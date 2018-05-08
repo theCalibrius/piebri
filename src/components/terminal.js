@@ -1,5 +1,9 @@
 /*! terminal.js v2.0 | (c) 2014 Erik Österberg | https://github.com/eosterberg/terminaljs */
 
+/* The above repository has been modified/adapted for this project.  The below
+ * code is not the original code found in the above open-source repo.
+ */
+
 var Terminal = (function () {
 	// PROMPT_TYPE
 	var PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3
@@ -69,21 +73,21 @@ var Terminal = (function () {
 					if (PROMPT_TYPE === PROMPT_CONFIRM) {
 						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
 					} else {
-					  callback(inputValue);	
+					  callback(inputValue);
 					}
 				}
       } else if ( e.which === 13 && shouldDisplayInput ) {
         terminalObj._input.style.display = 'none';
         inputValue = inputField.value
         terminalObj.print(inputValue);
-        callback(inputValue);	
+        callback(inputValue);
       }
       // ORIGINAL CODE THAT PRODUCED BUG WHEN USER HITS ENTER IN RESPONSE TO CONFIRMATION
 			// if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
 			// 	terminalObj._input.style.display = 'none'
 			// 	var inputValue = inputField.value
 			// 	if (shouldDisplayInput) {
-			// 	  terminalObj.print(inputValue);	
+			// 	  terminalObj.print(inputValue);
 			// 	}
 			// 	if ( (PROMPT_TYPE === PROMPT_CONFIRM) ) {
 			// 	  terminalObj.html.removeChild(inputField);
@@ -92,7 +96,7 @@ var Terminal = (function () {
 			// 		if (PROMPT_TYPE === PROMPT_CONFIRM) {
 			// 			callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
 			// 		} else {
-			// 		  callback(inputValue);	
+			// 		  callback(inputValue);
 			// 		}
 			// 	}
 			// }
