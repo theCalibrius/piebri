@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import ProjectModal from './ProjectModal.jsx';
 import { Dialog } from 'primereact/components/dialog/Dialog';
 import { Button } from 'primereact/components/button/Button';
 import projectData from '../data/projectData.js'
@@ -51,14 +50,15 @@ class Projects extends Component {
   }
 
   render() {
-/**-----------------------------------------------------------------------------
----------------------| Pre-Return Variables and Functions |---------------------
-------------------------------------------------------------------------------*/
+
+    /*--------------------------------------------------------------------------
+    -------------------| Pre-Return Variables and Functions |-------------------
+    --------------------------------------------------------------------------*/
     var projectTechnologies = this.state.selectedProject.technologies;
     var leftColumnProjects = this.state.leftColumnProjects;
     var rightColumnProjects = this.state.rightColumnProjects;
 
-    /**
+    /*
      * Below usage of index as key is appropriate for the situation:
      * https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
      */
@@ -71,7 +71,7 @@ class Projects extends Component {
                  {project.title}
                </span>
              </li>
-            );
+      );
     });
 
     var rightProjects = rightColumnProjects.map((project, index) => {
@@ -82,7 +82,7 @@ class Projects extends Component {
                  {project.title}
                </span>
              </li>
-            );
+      );
     });
 
     var getModalButtonLinkURL = (linkName) => {
@@ -159,7 +159,7 @@ class Projects extends Component {
     getModalButtonLinkURL = getModalButtonLinkURL.bind(this);
     getModalDescription = getModalDescription.bind(this);
 
-/**-----------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------
 --------------------------------| Render Return |-------------------------------
 ------------------------------------------------------------------------------*/
     return(
