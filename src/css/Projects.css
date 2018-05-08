@@ -1,7 +1,7 @@
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.projectsContent{
+.projectsContent {
   grid-area: contentArea;
   display: grid;
   grid-template-rows: 100px 500px;
@@ -9,13 +9,13 @@
                        '... leftProjects ... rightProjects ...';
 }
 
-.projectsContent li{
+.projectsContent li {
   list-style-type: none;
   font-family: 'Print Char 21';
   font-size: 0.9em;
 }
 
-.leftProjects{
+.leftProjects {
   grid-area: leftProjects;
   display: flex;
   flex-direction: column;
@@ -23,9 +23,9 @@
   text-align: right;
   padding-top: 30px;
   padding-bottom: 30px;
-} 
+}
 
-.rightProjects{
+.rightProjects {
   grid-area: rightProjects;
   display: flex;
   flex-direction: column;
@@ -47,6 +47,8 @@
   border: thin solid #232d2d;
 }
 
+/*---------------  Media Query Breakpoint  -------------------*/
+
 @media (max-width: 420px) {
   .projectsContent {
     grid-template-rows: 60px 500px;
@@ -60,5 +62,3 @@
     padding-right: 10px;
   }
 }
-
-

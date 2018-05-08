@@ -6,21 +6,21 @@ body {
 /*---------------  CUSTOM FONT  -------------------*/
 
 @font-face {
-    font-family: 'Print Char 21';
-    src: url('../fonts/Print Char 21.eot');
-    src: url('../fonts/Print Char 21.eot?#iefix') format('embedded-opentype'),
+  font-family: 'Print Char 21';
+  src: url('../fonts/Print Char 21.eot');
+  src: url('../fonts/Print Char 21.eot?#iefix') format('embedded-opentype'),
     url('../fonts/Print Char 21.woff2') format('woff2'),
     url('../fonts/Print Char 21.woff') format('woff'),
     url('../fonts/Print Char 21.svg#Print Char 21') format('svg');
-    font-weight: 500;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-00FE;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
 }
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.appContainer{
+.appContainer {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 20fr;
@@ -30,7 +30,7 @@ body {
   width: 100vw;
 }
 
-.navBar{
+.navBar {
   grid-area: navBar;
   display: grid;
   min-height: 40px;
@@ -41,55 +41,51 @@ body {
 }
 
 @media (max-width: 800px) {
-  .navBar{
+  .navBar {
     grid-template-columns: auto 600px auto;
   }
 }
 
 @media (max-width: 600px) {
-  .navBar{
+  .navBar {
     grid-template-columns: auto 360px auto;
   }
 }
 
-.contentAreaContainer{
+.contentAreaContainer {
   grid-area: contentAreaContainer;
   display: grid;
   max-height: 720px;
-  grid-template-columns: auto 810px auto; 
+  grid-template-columns: auto 810px auto;
   grid-template-areas: '... contentArea ...';
 }
 
 @media (max-width: 800px) {
-  .contentAreaContainer{
+  .contentAreaContainer {
     grid-area: contentAreaContainer;
     display: grid;
     max-height: 720px;
-    grid-template-columns: auto 600px auto; 
+    grid-template-columns: auto 600px auto;
     grid-template-areas: '... contentArea ...';
   }
 }
 
 @media (max-width: 600px) {
-  .contentAreaContainer{
+  .contentAreaContainer {
     grid-area: contentAreaContainer;
     display: grid;
     max-height: 720px;
-    grid-template-columns: auto 420px auto; 
+    grid-template-columns: auto 420px auto;
     grid-template-areas: '... contentArea ...';
   }
 }
 
 @media (max-width: 420px) {
-  .contentAreaContainer{
+  .contentAreaContainer {
     grid-area: contentAreaContainer;
     display: grid;
     max-height: 720px;
-    grid-template-columns: auto 360px auto; 
+    grid-template-columns: auto 360px auto;
     grid-template-areas: '... contentArea ...';
   }
 }
-
-
-
-

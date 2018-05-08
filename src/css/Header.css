@@ -1,7 +1,7 @@
 
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
-.navBarContent{
+.navBarContent {
   grid-area: navBarContent;
   display: flex;
   flex-direction: row;
@@ -9,23 +9,23 @@
   align-items: center;
 }
 
-.logoText{
+.logoText {
   font-family: "Source Code Pro", monospace;
   font-size: 0.9em;
 }
 
-.logoContainer{
+.logoContainer {
   display: flex;
   min-width: 94px;
   justify-content: space-between;
   align-items: center;
 }
 
-.logoCursor{
+.logoCursor {
   min-height: 22px;
 }
 
-.navLinks{
+.navLinks {
   min-width: 270px;
   max-height: 22px;
   display: flex;
@@ -34,50 +34,51 @@
   font-size: 0.9em;
 }
 
-.socialLinks{
+.socialLinks {
   display: flex;
   justify-content: space-between;
   min-width: 54px;
 }
 
-.socialLinks img{
+.socialLinks img {
   width: 18px;
 }
 
-.navMenuIcon.fa{
+.navMenuIcon.fa {
   display: none;
 }
 
-.navMenuIconContainer{
+.navMenuIconContainer {
   display: none;
 }
 
-@media (max-width: 600px){
+/*---------------  Media Query Breakpoint  -------------------*/
 
-  .logoContainer{
+@media (max-width: 600px) {
+  .logoContainer {
     margin-left: 6px;
   }
 
-  .navMenuIconContainer{
+  .navMenuIconContainer {
     display: flex;
   }
 
-  .navMenuIcon.fa{
+  .navMenuIcon.fa {
     display: inline;
     margin-right: 6px;
     color: #FFFFFF;
     height: 100%;
   }
 
-  .fa-bars::before{
+  .fa-bars::before {
     font-size: 1.3em;
   }
 
-  .navLinks{
+  .navLinks {
     display: none;
   }
 
-  .modalSidebarContainer{
+  .modalSidebarContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -85,12 +86,12 @@
     align-items: center;
   }
 
-  .ui-sidebar-top{
+  .ui-sidebar-top {
     background: #232d2d !important;
     color: #FFFFFF !important;
   }
 
-  .ui-sidebar-close{
+  .ui-sidebar-close {
     color: #FFFFFF !important;
   }
 
