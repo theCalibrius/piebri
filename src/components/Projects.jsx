@@ -85,22 +85,26 @@ class Projects extends Component {
             );
     });
 
-    var getFooter = () => {
+    var getModalButtonLinkURL = (linkName) => {
+        return(this.state.selectedProject[linkName]);
+    };
+
+    var getModalFooter = () => {
       return(
         <div className="buttonContainer">
           <Button
             label="GitHub Repo"
             onClick={() => {
-              if (getLinkURL('gitHubURL') !== '#') {
-                window.open(getLinkURL('gitHubURL'), "_blank");
+              if (getModalButtonLinkURL('gitHubURL') !== '#') {
+                window.open(getModalButtonLinkURL('gitHubURL'), "_blank");
               }
             }}
           />
           <Button
             label="Live Site"
             onClick={() => {
-              if (getLinkURL('liveURL') !== '#') {
-                window.open(getLinkURL('liveURL'), "_blank");
+              if (getModalButtonLinkURL('liveURL') !== '#') {
+                window.open(getModalButtonLinkURL('liveURL'), "_blank");
               }
             }}
           />
@@ -108,18 +112,30 @@ class Projects extends Component {
       );
     };
 
-    var getDescription = () => {
+    var getModalDescription = () => {
       var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
+        return(
+          <li key={index}>
+            {technology}
+          </li>
+        );
       });
       var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
+        return(
+          <li key={index}>
+            {technology}
+          </li>
+        );
       });
       var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
+        return(
+          <li key={index}>
+            {technology}
+          </li>
+        );
       });
 
-      return (
+      return(
         <div className="projectModalContentWrapper">
           <div className="projectDescriptionContent">
             {this.state.selectedProject.description}
@@ -128,8 +144,8 @@ class Projects extends Component {
             <div className="technologiesListLeftColumn">
               {technologiesListLeftColumn}
             </div>
-          <div className="technologiesListCenterColumn">
-            {technologiesListCenterColumn}
+            <div className="technologiesListCenterColumn">
+              {technologiesListCenterColumn}
             </div>
             <div className="technologiesListRightColumn">
               {technologiesListRightColumn}
@@ -139,12 +155,10 @@ class Projects extends Component {
       );
     };
 
-    var getLinkURL = (linkName) => {
-        return (this.state.selectedProject[linkName]);
-    };
+    getModalFooter = getModalFooter.bind(this);
+    getModalButtonLinkURL = getModalButtonLinkURL.bind(this);
+    getModalDescription = getModalDescription.bind(this);
 
-    getDescription = getDescription.bind(this);
-    getLinkURL = getLinkURL.bind(this);
 /**-----------------------------------------------------------------------------
 --------------------------------| Render Return |-------------------------------
 ------------------------------------------------------------------------------*/
@@ -161,14 +175,14 @@ class Projects extends Component {
           className={this.state.modalClass}
           header={this.state.selectedProject.title}
           description={this.state.selectedProject.description}
-          visible={this.state.visible} footer={getFooter()}
+          visible={this.state.visible} footer={getModalFooter()}
           width="450px"
           height="500px"
           dismissableMask={true}
           modal={true}
           onHide={this.onHide}
         >
-          {getDescription()}
+          {getModalDescription()}
         </Dialog>
       </div>
     )
