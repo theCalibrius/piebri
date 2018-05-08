@@ -1,9 +1,15 @@
+import dedent from 'dedent-js';
+// dedent removes indentation whitespace on multiline ES6 strings
 
 var projectData = {
   leftColumnProjects: [
     {
       title: 'tableCRM',
-      description: 'tableCRM is a CRM Application with an intuitive, table-based UI.  This project utilizes various technologies including those below.',
+      description: dedent`
+        tableCRM is a CRM Application with an intuitive,
+        table-based UI.  This project utilizes various technologies
+        including those below.
+      `,
       technologies: {
         left: ['node.js', 'express', 'webpack', 'aws', '-'],
         center: ['react', 'handsontable', 'highcharts', 'docker', 'REST api'],
@@ -14,7 +20,11 @@ var projectData = {
     },
     {
       title: 'noComments',
-      description: 'A minimalist social network application.  Mitigates the negatives of social networks by focusing on sharing of ideas and content.  No likes, no messaging, no comments.',
+      description: dedent`
+        A minimalist social network application.  Mitigates the
+        negatives of social networks by focusing on sharing of ideas
+        and content.  No likes, no messaging, no comments.
+      `,
       technologies: {
         left: ['node.js', 'REST api'],
         center: ['angular', 'typescript'],
@@ -25,7 +35,10 @@ var projectData = {
     },
     {
       title: 'pieBri',
-      description: 'Personal profile website with a retro UI.  This project utilizes various technologies including those below.',
+      description: dedent`
+        Personal profile website with a retro UI.  This project utilizes
+        various technologies including those below.
+      `,
       technologies: {
         left: ['node.js', 'cssGrid', '-'],
         center: ['react', 'ES6', 'flexBox'],
@@ -36,7 +49,10 @@ var projectData = {
     },
     {
       title: 'wanderFund',
-      description: 'A crowdfunding application for travel that matters.  This project utilizes various technologies including those below.',
+      description: dedent`
+        A crowdfunding application for travel that matters.  This project
+        utilizes various technologies including those below.
+      `,
       technologies: {
         left: ['PHP', '-'],
         center: ['jQuery', 'sql'],
@@ -47,7 +63,11 @@ var projectData = {
     },
     {
       title: 'dlmfIt',
-      description: 'A serverless reminder app that sends scheduled SMS notifications to your phone.  This project utilizes various technologies including those below.',
+      description: dedent`
+        A serverless reminder app that sends scheduled SMS notifications to
+        your phone.  This project utilizes various technologies including
+        those below.
+      `,
       technologies: {
         left: ['node.js', 'angular'],
         center: ['lambda', '-'],
@@ -60,7 +80,11 @@ var projectData = {
   rightColumnProjects: [
     {
       title: 'enGauge',
-      description: 'Relationship tracker application designed to help people have better relationships.  This project utilizes various technologies including those below.',
+      description: dedent`
+        Relationship tracker application designed to help people have better
+        relationships.  This project utilizes various technologies including
+        those below.
+      `,
       technologies: {
         left: ['node.js', 'REST api'],
         center: ['angular', 'typescript'],
@@ -71,7 +95,11 @@ var projectData = {
     },
     {
       title: 'marvelShake',
-      description: 'An interactive dance party starring characters from the Marvel universe.  This project utilizes various technologies including those below.',
+      description: dedent`
+        An interactive dance party starring characters from the Marvel
+        universe.  This project utilizes various technologies including
+        those below.
+      `,
       technologies: {
         left: ['jQuery'],
         center: ['javascript'],
@@ -82,7 +110,10 @@ var projectData = {
     },
     {
       title: 'fitStop',
-      description: 'A fitness application that guides users through timed workouts.  This project utilizes various technologies including those below.',
+      description: dedent`
+        A fitness application that guides users through timed workouts.
+        This project utilizes various technologies including those below.
+      `,
       technologies: {
         left: ['node.js', 'REST api'],
         center: ['react', 'ES6'],
@@ -93,7 +124,11 @@ var projectData = {
     },
     {
       title: 'talkRight',
-      description: 'A mobile application that makes it easy to check facts relating to common conversation topics.  This project utilizes various technologies including those below.',
+      description: dedent`
+        A mobile application that makes it easy to check facts relating to
+        common conversation topics.  This project utilizes various
+        technologies including those below.
+      `,
       technologies: {
         left: ['node.js', '-'],
         center: ['angular', 'lambda'],
@@ -104,7 +139,10 @@ var projectData = {
     },
     {
       title: 'docAdemy',
-      description: 'An innovative online learning platform focused on programming.  This project utilizes various technologies including those below.',
+      description: dedent`
+        An innovative online learning platform focused on programming.
+        This project utilizes various technologies including those below.
+      `,
       technologies: {
         left: ['-'],
         center: ['-'],
@@ -115,5 +153,6 @@ var projectData = {
     }
   ]
 };
+
 
 export default projectData;
