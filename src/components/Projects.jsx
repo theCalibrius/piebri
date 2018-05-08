@@ -110,16 +110,28 @@ class Projects extends Component {
 
     var getDescription = () => {
       var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
+        return(
+          <li key={index}>
+            {technology}
+          </li>
+        );
       });
       var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
+        return(
+          <li key={index}>
+            {technology}
+          </li>
+        );
       });
       var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
-        return (<li key={index} >{technology}</li>);
+        return(
+          <li key={index}>
+            {technology}
+          </li>
+        );
       });
 
-      return (
+      return(
         <div className="projectModalContentWrapper">
           <div className="projectDescriptionContent">
             {this.state.selectedProject.description}
@@ -140,7 +152,7 @@ class Projects extends Component {
     };
 
     var getLinkURL = (linkName) => {
-        return (this.state.selectedProject[linkName]);
+        return(this.state.selectedProject[linkName]);
     };
 
     getDescription = getDescription.bind(this);
