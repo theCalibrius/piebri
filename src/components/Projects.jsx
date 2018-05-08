@@ -140,8 +140,8 @@ class Projects extends Component {
             <div className="technologiesListLeftColumn">
               {technologiesListLeftColumn}
             </div>
-          <div className="technologiesListCenterColumn">
-            {technologiesListCenterColumn}
+            <div className="technologiesListCenterColumn">
+              {technologiesListCenterColumn}
             </div>
             <div className="technologiesListRightColumn">
               {technologiesListRightColumn}
