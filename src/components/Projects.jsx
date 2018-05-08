@@ -51,7 +51,62 @@ class Projects extends Component {
   }
 
   render() {
-    let projectTechnologies = this.state.selectedProject.technologies;
+/**-----------------------------------------------------------------------------
+---------------------| Pre-Return Variables and Functions |---------------------
+------------------------------------------------------------------------------*/
+    var projectTechnologies = this.state.selectedProject.technologies;
+    var leftColumnProjects = this.state.leftColumnProjects;
+    var rightColumnProjects = this.state.rightColumnProjects;
+
+    /**
+     * Below usage of index as key is appropriate for the situation:
+     * https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
+     */
+
+    var leftProjects = leftColumnProjects.map((project, index) => {
+      let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
+      return(
+             <li key={index} onClick={boundProjectClick}>
+               <span className="projectListItem">
+                 {project.title}
+               </span>
+             </li>
+            );
+    });
+
+    var rightProjects = rightColumnProjects.map((project, index) => {
+      let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
+      return(
+             <li key={index} onClick={boundProjectClick}>
+               <span className="projectListItem">
+                 {project.title}
+               </span>
+             </li>
+            );
+    });
+
+    var getFooter = () => {
+      return(
+        <div className="buttonContainer">
+          <Button
+            label="GitHub Repo"
+            onClick={() => {
+              if (getLinkURL('gitHubURL') !== '#') {
+                window.open(getLinkURL('gitHubURL'), "_blank");
+              }
+            }}
+          />
+          <Button
+            label="Live Site"
+            onClick={() => {
+              if (getLinkURL('liveURL') !== '#') {
+                window.open(getLinkURL('liveURL'), "_blank");
+              }
+            }}
+          />
+        </div>
+      );
+    };
 
     var getDescription = () => {
       var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
@@ -86,59 +141,13 @@ class Projects extends Component {
 
     var getLinkURL = (linkName) => {
         return (this.state.selectedProject[linkName]);
-    }
+    };
 
     getDescription = getDescription.bind(this);
     getLinkURL = getLinkURL.bind(this);
-
-    let footer = <div className="buttonContainer">
-                   <Button
-                     label="GitHub Repo"
-                     onClick={() => {
-                       if (getLinkURL('gitHubURL') !== '#') {
-                         window.open(getLinkURL('gitHubURL'), "_blank");
-                       }
-                     }}
-                   />
-                   <Button
-                     label="Live Site"
-                     onClick={() => {
-                       if (getLinkURL('liveURL') !== '#') {
-                         window.open(getLinkURL('liveURL'), "_blank");
-                       }
-                     }}
-                   />
-                 </div>
-    let leftColumnProjects = this.state.leftColumnProjects;
-    let rightColumnProjects = this.state.rightColumnProjects;
-
-    /**
-     * Below usage of index as key is appropriate for the situation:
-     * https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
-     */
-
-    var leftProjects = leftColumnProjects.map((project, index) => {
-      let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
-      return(
-             <li key={index} onClick={boundProjectClick}>
-               <span className="projectListItem">
-                 {project.title}
-               </span>
-             </li>
-            );
-    });
-
-    var rightProjects = rightColumnProjects.map((project, index) => {
-      let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
-      return(
-             <li key={index} onClick={boundProjectClick}>
-               <span className="projectListItem">
-                 {project.title}
-               </span>
-             </li>
-            );
-    });
-
+/**-----------------------------------------------------------------------------
+--------------------------------| Render Return |-------------------------------
+------------------------------------------------------------------------------*/
     return(
       <div className="projectsContent">
         <div className="title">Projects</div>
@@ -152,7 +161,7 @@ class Projects extends Component {
           className={this.state.modalClass}
           header={this.state.selectedProject.title}
           description={this.state.selectedProject.description}
-          visible={this.state.visible} footer={footer}
+          visible={this.state.visible} footer={getFooter()}
           width="450px"
           height="500px"
           dismissableMask={true}
@@ -162,7 +171,7 @@ class Projects extends Component {
           {getDescription()}
         </Dialog>
       </div>
-    );
+    )
   }
 }
 
