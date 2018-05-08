@@ -24,6 +24,8 @@
   -moz-background-clip: padding-box !important;
 }
 
+/*---------------  START Media Query Breakpoints  -------------------*/
+
 @media (max-width: 800px) {
   .modalWrapper {
     top: 50px !important;
@@ -77,6 +79,8 @@
     font-size: 0.7em !important;
   }
 }
+
+/*---------------  END Media Query Breakpoint  -------------------*/
 
 .ui-widget-header {
   grid-area: modalTitleBox !important;
@@ -214,6 +218,8 @@
 .ui-widget-content {
   border: none !important;
 }
+
+/*---------------  Media Query Breakpoint  -------------------*/
 
 @media (min-width: 421px) {
   .ui-dialog-content {
