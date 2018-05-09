@@ -30,7 +30,7 @@ var projectData = {
         center: ['angular', 'typescript'],
         right: ['mongodb', '-']
       },
-      gitHubURL: 'https://github.com/theCalibrius/nocomments',
+      gitHubURL: '#',
       liveURL: '#'
     },
     {
@@ -123,21 +123,6 @@ var projectData = {
       liveURL: 'http://fit-stop.herokuapp.com/'
     },
     {
-      title: 'talkRight',
-      description: dedent`
-        A mobile application that makes it easy to check facts relating to
-        common conversation topics.  This project utilizes various
-        technologies including those below.
-      `,
-      technologies: {
-        left: ['node.js', '-'],
-        center: ['angular', 'lambda'],
-        right: ['ionic', '-']
-      },
-      gitHubURL: '#',
-      liveURL: '#'
-    },
-    {
       title: 'docAdemy',
       description: dedent`
         An innovative online learning platform focused on programming.
@@ -147,6 +132,21 @@ var projectData = {
         left: ['-'],
         center: ['-'],
         right: ['-']
+      },
+      gitHubURL: '#',
+      liveURL: '#'
+    },
+    {
+      title: 'anyCase',
+      description: dedent`
+      PWA that makes it easy to see the supporting logic and evidence for any
+      assertion or belief.  The strongest case for any view is presented,
+      scrutinized, and graded.  Opposing views can be compared side-by-side.
+      `,
+      technologies: {
+        left: ['node.js', '-'],
+        center: ['angular', 'lambda'],
+        right: ['ionic', '-']
       },
       gitHubURL: '#',
       liveURL: '#'
