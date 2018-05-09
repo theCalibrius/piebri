@@ -90,22 +90,31 @@ class Projects extends Component {
     };
 
     var getModalFooter = () => {
+      var gitButtonID = '';
+      var liveButtonID = '';
+
+      if (getModalButtonLinkURL('gitHubURL') === '#') {
+        gitButtonID = 'hideButton';
+      }
+
+      if (getModalButtonLinkURL('liveURL') === '#') {
+        liveButtonID = 'hideButton';
+      }
+
       return(
         <div className="buttonContainer">
           <Button
             label="GitHub Repo"
+            id={gitButtonID}
             onClick={() => {
-              if (getModalButtonLinkURL('gitHubURL') !== '#') {
-                window.open(getModalButtonLinkURL('gitHubURL'), "_blank");
-              }
+              window.open(getModalButtonLinkURL('gitHubURL'), "_blank");
             }}
           />
           <Button
             label="Live Site"
+            id={liveButtonID}
             onClick={() => {
-              if (getModalButtonLinkURL('liveURL') !== '#') {
-                window.open(getModalButtonLinkURL('liveURL'), "_blank");
-              }
+              window.open(getModalButtonLinkURL('liveURL'), "_blank");
             }}
           />
         </div>

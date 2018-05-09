@@ -186,6 +186,10 @@
   font-family: 'Print Char 21' !important;
 }
 
+#hideButton.ui-button.ui-widget.ui-state-default.ui-corner-all {
+  visibility: hidden !important;
+}
+
 .ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button {
   border: 1px solid #737373 !important;
   border-radius: 4px !important;
