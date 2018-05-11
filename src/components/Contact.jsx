@@ -17,14 +17,14 @@ class Contact extends Component {
 
   componentDidMount() {
 
-    var configureTerminalWindow = () => {
+    const configureTerminalWindow = () => {
       myTerminal.setBackgroundColor('#FCFCFC');
       myTerminal.setHeight('400px');
       myTerminal.setTextSize('0.9em');
       myTerminal.setTextColor('#232D2D');
     };
 
-    var getUserName = () => {
+    let getUserName = () => {
       return new Promise((resolve) => {
         myTerminal.clear();
         myTerminal.input("Please enter your name: ", (userInput) => {
@@ -42,7 +42,7 @@ class Contact extends Component {
       });
     };
 
-    var isEmailValid = (addressToValidate) => {
+    let isEmailValid = (addressToValidate) => {
       return new Promise((resolve) => {
         axios.post('https://7ljv2tt4yl.execute-api.us-east-1.amazonaws.com/prod/ValidateEmailAddress', {
           address: addressToValidate
@@ -55,7 +55,7 @@ class Contact extends Component {
       });
     };
 
-    var getUserEmail = () => {
+    let getUserEmail = () => {
       return new Promise((resolve) => {
         myTerminal.input("Please enter your email: ", (userInput) => {
           isEmailValid(userInput).then((returnValue) => {
@@ -80,7 +80,7 @@ class Contact extends Component {
       });
     };
 
-    var getUserMessage = () => {
+    let getUserMessage = () => {
       return new Promise((resolve) => {
         myTerminal.input("Please enter your message: ", (userInput) => {
           myTerminal.confirm("Correct? ", (response) => {
@@ -97,7 +97,7 @@ class Contact extends Component {
       });
     };
 
-    var confirmAndSend = () => {
+    let confirmAndSend = () => {
       return new Promise((resolve, reject) => {
         myTerminal.print("Name: " + this.state.name);
         myTerminal.print("Email: " + this.state.email);
@@ -113,7 +113,7 @@ class Contact extends Component {
       });
     };
 
-    var sendMessage = () => {
+    let sendMessage = () => {
       myTerminal.print("Sending Your Message...");
       axios.post('https://u9udukv8j0.execute-api.us-east-1.amazonaws.com/prod/ContactFormLambda', {
         "name": this.state.name,
@@ -129,8 +129,12 @@ class Contact extends Component {
 
     };
 
-    var gatherDataAndSend = () => {
-      getUserName().then(getUserEmail).then(getUserMessage).then(confirmAndSend).then(sendMessage, gatherDataAndSend);
+    let gatherDataAndSend = () => {
+      getUserName()
+      .then(getUserEmail)
+      .then(getUserMessage)
+      .then(confirmAndSend)
+      .then(sendMessage, gatherDataAndSend);
     };
 
     getUserName = getUserName.bind(this);
@@ -140,7 +144,7 @@ class Contact extends Component {
     sendMessage = sendMessage.bind(this);
     gatherDataAndSend = gatherDataAndSend.bind(this);
 
-    var myTerminal = new Terminal();
+    let myTerminal = new Terminal();
     $(".terminalEmulator").append(myTerminal.html);
     configureTerminalWindow();
 

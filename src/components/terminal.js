@@ -4,53 +4,55 @@
  * code is not the original code found in the above open-source repo.
  */
 
-var Terminal = (function () {
+let Terminal = ( function () {
 	// PROMPT_TYPE
-	var PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3
+	const PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3;
 
-	var fireCursorInterval = function (inputField, terminalObj) {
-		var cursor = terminalObj._cursor
-		setTimeout(function () {
-			if (inputField.parentElement && terminalObj._shouldBlinkCursor) {
-				cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible'
-				fireCursorInterval(inputField, terminalObj)
+	const fireCursorInterval = (inputField, terminalObj) => {
+		let cursor = terminalObj._cursor;
+		setTimeout( () => {
+			if ( inputField.parentElement && terminalObj._shouldBlinkCursor ) {
+				cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible';
+				fireCursorInterval(inputField, terminalObj);
 			} else {
-				cursor.style.visibility = 'visible'
+				cursor.style.visibility = 'visible';
 			}
-		}, 500)
-	}
+		}, 500);
+	};
 
-	var firstPrompt = true;
-	var promptInput = function (terminalObj, message, PROMPT_TYPE, callback) {
-		var shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT)
-		var inputField = document.createElement('input')
+	let firstPrompt = true;
+	const promptInput = (terminalObj, message, PROMPT_TYPE, callback) => {
+		const shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT);
+		let inputField = document.createElement('input');
 
-		inputField.style.position = 'absolute'
-		inputField.style.zIndex = '-100'
-		inputField.style.outline = 'none'
-		inputField.style.border = 'none'
-		inputField.style.opacity = '0'
-		inputField.style.fontSize = '0.2em'
+		inputField.style.position = 'absolute';
+		inputField.style.zIndex = '-100';
+		inputField.style.outline = 'none';
+		inputField.style.border = 'none';
+		inputField.style.opacity = '0';
+		inputField.style.fontSize = '0.2em';
 
-		terminalObj._inputLine.textContent = ''
-		terminalObj._input.style.display = 'block'
-		terminalObj.html.appendChild(inputField)
-		fireCursorInterval(inputField, terminalObj)
+		terminalObj._inputLine.textContent = '';
+		terminalObj._input.style.display = 'block';
+		terminalObj.html.appendChild(inputField);
+		fireCursorInterval(inputField, terminalObj);
 
-		if (message.length) terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message)
-
-		inputField.onblur = function () {
-			terminalObj._cursor.style.display = 'none'
+		if ( message.length ) {
+		  terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message);
 		}
 
-		inputField.onfocus = function () {
-			inputField.value = terminalObj._inputLine.textContent
-			terminalObj._cursor.style.display = 'inline'
-		}
+		inputField.onblur = () => {
+			terminalObj._cursor.style.display = 'none';
+		};
 
-		terminalObj.html.onclick = function () {
-			inputField.focus()
-		}
+		inputField.onfocus = () => {
+			inputField.value = terminalObj._inputLine.textContent;
+			terminalObj._cursor.style.display = 'inline';
+		};
+
+		terminalObj.html.onclick = () => {
+			inputField.focus();
+		};
 
 		inputField.onkeydown = function (e) {
 			if (e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9) {
@@ -60,7 +62,7 @@ var Terminal = (function () {
 					terminalObj._inputLine.textContent = inputField.value
 				}, 1)
 			}
-		}
+		};
 
 		// I refactored this below function, because it was buggy, now users can't hit ENTER when asked to CONFIRM with y/n
 		inputField.onkeyup = function (e) {

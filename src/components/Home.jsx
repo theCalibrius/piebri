@@ -14,7 +14,7 @@ var Home = (props) => (
       <li>sql</li>
     </div>
     <div className="mugShot">
-      <img className="piebri" src={piebri} alt={"Photo of me"} />
+      <img className="piebri" src={piebri} alt={"my face"} />
     </div>
     <div className="rightKeywords">
       <li>html/css</li>

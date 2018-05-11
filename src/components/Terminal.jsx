@@ -1,1 +1,1 @@
-// TODO:  convert terminal.js to React Component Terminal.jsx
+// TODO:  develop terminal.js as React Component Terminal.jsx
