@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import Terminal from './terminal.js';
+import Terminal from './Terminal.js';
 import axios from 'axios';
 import '../css/Contact.css';
 
