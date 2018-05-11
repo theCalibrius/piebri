@@ -1,7 +1,10 @@
-/*! terminal.js v2.0 | (c) 2014 Erik Österberg | https://github.com/eosterberg/terminaljs */
-
-/* The above repository has been modified/adapted for this project.  The below
+/* This terminal emulator component is a revised version of the below repo:
+ * terminal.js v2.0 | (c) 2014 Erik Österberg | https://github.com/eosterberg/terminaljs
+ *
+ * The above repository has been modified/adapted for this application.  The below
  * code is not the original code found in the above open-source repo.
+ * I converted it to ES6, cleaned up the style to improve readability, added
+ * enhancements (ex. Promises), and refactored sections of it to resolve bugs.
  */
 
 let Terminal = ( function () {
@@ -54,25 +57,49 @@ let Terminal = ( function () {
 			inputField.focus();
 		};
 
-		inputField.onkeydown = function (e) {
-			if (e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9) {
-				e.preventDefault()
-			} else if (shouldDisplayInput && e.which !== 13) {
-				setTimeout(function () {
-					terminalObj._inputLine.textContent = inputField.value
-				}, 1)
+		inputField.onkeydown = (e) => {
+			if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
+				e.preventDefault();
+			} else if ( shouldDisplayInput && e.which !== 13 ) {
+				setTimeout( () => {
+					terminalObj._inputLine.textContent = inputField.value;
+				}, 1);
 			}
 		};
 
-		// I refactored this below function, because it was buggy, now users can't hit ENTER when asked to CONFIRM with y/n
-		inputField.onkeyup = function (e) {
-			var inputValue;
-      if (PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
-        terminalObj._input.style.display = 'none';
-        inputValue = inputField.value
-        terminalObj.html.removeChild(inputField);
-        if (typeof(callback) === 'function') {
+		/* I refactored the below 'onkeyup' function, because it was buggy, now users can't
+		 * incorrectly hit ENTER when asked to CONFIRM with y/n
+
+		 * ORIGINAL CODE THAT PRODUCED BUG WHEN USER HITS ENTER IN RESPONSE
+		 * TO Y/N CONFIRMATION PROMPT
+
+			if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
+				terminalObj._input.style.display = 'none'
+				var inputValue = inputField.value
+				if (shouldDisplayInput) {
+					terminalObj.print(inputValue);
+				}
+				if ( (PROMPT_TYPE === PROMPT_CONFIRM) ) {
+					terminalObj.html.removeChild(inputField);
+				}
+				if (typeof(callback) === 'function') {
 					if (PROMPT_TYPE === PROMPT_CONFIRM) {
+						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
+					} else {
+						callback(inputValue);
+					}
+				}
+			}
+	 */
+
+		inputField.onkeyup = (e) => {
+			let inputValue;
+      if ( PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
+        terminalObj._input.style.display = 'none';
+        inputValue = inputField.value;
+        terminalObj.html.removeChild(inputField);
+        if ( typeof(callback) === 'function' ) {
+					if ( PROMPT_TYPE === PROMPT_CONFIRM ) {
 						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
 					} else {
 					  callback(inputValue);
@@ -84,24 +111,6 @@ let Terminal = ( function () {
         terminalObj.print(inputValue);
         callback(inputValue);
       }
-      // ORIGINAL CODE THAT PRODUCED BUG WHEN USER HITS ENTER IN RESPONSE TO CONFIRMATION
-			// if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
-			// 	terminalObj._input.style.display = 'none'
-			// 	var inputValue = inputField.value
-			// 	if (shouldDisplayInput) {
-			// 	  terminalObj.print(inputValue);
-			// 	}
-			// 	if ( (PROMPT_TYPE === PROMPT_CONFIRM) ) {
-			// 	  terminalObj.html.removeChild(inputField);
-			// 	}
-			// 	if (typeof(callback) === 'function') {
-			// 		if (PROMPT_TYPE === PROMPT_CONFIRM) {
-			// 			callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
-			// 		} else {
-			// 		  callback(inputValue);
-			// 		}
-			// 	}
-			// }
 		}
 		if (firstPrompt) {
 			firstPrompt = false
