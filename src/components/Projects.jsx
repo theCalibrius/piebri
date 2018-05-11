@@ -54,17 +54,17 @@ class Projects extends Component {
     /*--------------------------------------------------------------------------
     -------------------| Pre-Return Variables and Functions |-------------------
     --------------------------------------------------------------------------*/
-    var projectTechnologies = this.state.selectedProject.technologies;
-    var leftColumnProjects = this.state.leftColumnProjects;
-    var rightColumnProjects = this.state.rightColumnProjects;
+    const projectTechnologies = this.state.selectedProject.technologies;
+    const leftColumnProjects = this.state.leftColumnProjects;
+    const rightColumnProjects = this.state.rightColumnProjects;
 
     /*
      * Below usage of index as key is appropriate for the situation:
      * https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
      */
 
-    var leftProjects = leftColumnProjects.map((project, index) => {
-      let boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
+    const leftProjects = leftColumnProjects.map((project, index) => {
+      const boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
       return(
              <li key={index} onClick={boundProjectClick}>
                <span className="projectListItem">
@@ -74,8 +74,8 @@ class Projects extends Component {
       );
     });
 
-    var rightProjects = rightColumnProjects.map((project, index) => {
-      let boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
+    const rightProjects = rightColumnProjects.map((project, index) => {
+      const boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
       return(
              <li key={index} onClick={boundProjectClick}>
                <span className="projectListItem">
@@ -85,13 +85,13 @@ class Projects extends Component {
       );
     });
 
-    var getModalButtonLinkURL = (linkName) => {
+    let getModalButtonLinkURL = (linkName) => {
         return(this.state.selectedProject[linkName]);
     };
 
-    var getModalFooter = () => {
-      var gitButtonID = '';
-      var liveButtonID = '';
+    let getModalFooter = () => {
+      let gitButtonID = '';
+      let liveButtonID = '';
 
       if (getModalButtonLinkURL('gitHubURL') === '#') {
         gitButtonID = 'hideButton';
@@ -121,22 +121,22 @@ class Projects extends Component {
       );
     };
 
-    var getModalDescription = () => {
-      var technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
+    let getModalDescription = () => {
+      const technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
         return(
           <li key={index}>
             {technology}
           </li>
         );
       });
-      var technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
+      const technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
         return(
           <li key={index}>
             {technology}
           </li>
         );
       });
-      var technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
+      const technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
         return(
           <li key={index}>
             {technology}

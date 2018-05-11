@@ -1,76 +1,108 @@
-/*! terminal.js v2.0 | (c) 2014 Erik Österberg | https://github.com/eosterberg/terminaljs */
-
-/* The above repository has been modified/adapted for this project.  The below
+/* This terminal emulator component is a revised version of the below repo:
+ * terminal.js v2.0 | (c) 2014 Erik Österberg | https://github.com/eosterberg/terminaljs
+ *
+ * The above repository has been modified/adapted for this application.  The below
  * code is not the original code found in the above open-source repo.
+ * I converted it to ES6, cleaned up the style to improve readability, added
+ * enhancements (ex. Promises), and refactored sections of it to resolve bugs.
  */
 
-var Terminal = (function () {
+// TODO:  Refactor this file into a React component Terminal.jsx
+
+let Terminal = ( function () {
+  let firstPrompt = true;
+
 	// PROMPT_TYPE
-	var PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3
+	const PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3;
 
-	var fireCursorInterval = function (inputField, terminalObj) {
-		var cursor = terminalObj._cursor
-		setTimeout(function () {
-			if (inputField.parentElement && terminalObj._shouldBlinkCursor) {
-				cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible'
-				fireCursorInterval(inputField, terminalObj)
+	const fireCursorInterval = (inputField, terminalObj) => {
+		let cursor = terminalObj._cursor;
+
+		setTimeout( () => {
+			if ( inputField.parentElement && terminalObj._shouldBlinkCursor ) {
+				cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible';
+				fireCursorInterval(inputField, terminalObj);
 			} else {
-				cursor.style.visibility = 'visible'
+				cursor.style.visibility = 'visible';
 			}
-		}, 500)
-	}
+		}, 500);
+	};
 
-	var firstPrompt = true;
-	var promptInput = function (terminalObj, message, PROMPT_TYPE, callback) {
-		var shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT)
-		var inputField = document.createElement('input')
+	const promptInput = (terminalObj, message, PROMPT_TYPE, callback) => {
+		const shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT);
+		let inputField = document.createElement('input');
 
-		inputField.style.position = 'absolute'
-		inputField.style.zIndex = '-100'
-		inputField.style.outline = 'none'
-		inputField.style.border = 'none'
-		inputField.style.opacity = '0'
-		inputField.style.fontSize = '0.2em'
+		inputField.style.position = 'absolute';
+		inputField.style.zIndex = '-100';
+		inputField.style.outline = 'none';
+		inputField.style.border = 'none';
+		inputField.style.opacity = '0';
+		inputField.style.fontSize = '0.2em';
 
-		terminalObj._inputLine.textContent = ''
-		terminalObj._input.style.display = 'block'
-		terminalObj.html.appendChild(inputField)
-		fireCursorInterval(inputField, terminalObj)
+		terminalObj._inputLine.textContent = '';
+		terminalObj._input.style.display = 'block';
+		terminalObj.html.appendChild(inputField);
+		fireCursorInterval(inputField, terminalObj);
 
-		if (message.length) terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message)
-
-		inputField.onblur = function () {
-			terminalObj._cursor.style.display = 'none'
+		if ( message.length ) {
+		  terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message);
 		}
 
-		inputField.onfocus = function () {
-			inputField.value = terminalObj._inputLine.textContent
-			terminalObj._cursor.style.display = 'inline'
-		}
+		inputField.onblur = () => {
+			terminalObj._cursor.style.display = 'none';
+		};
 
-		terminalObj.html.onclick = function () {
-			inputField.focus()
-		}
+		inputField.onfocus = () => {
+			inputField.value = terminalObj._inputLine.textContent;
+			terminalObj._cursor.style.display = 'inline';
+		};
 
-		inputField.onkeydown = function (e) {
-			if (e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9) {
-				e.preventDefault()
-			} else if (shouldDisplayInput && e.which !== 13) {
-				setTimeout(function () {
-					terminalObj._inputLine.textContent = inputField.value
-				}, 1)
+		terminalObj.html.onclick = () => {
+			inputField.focus();
+		};
+
+		inputField.onkeydown = (e) => {
+			if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
+				e.preventDefault();
+			} else if ( shouldDisplayInput && e.which !== 13 ) {
+				setTimeout( () => {
+					terminalObj._inputLine.textContent = inputField.value;
+				}, 1);
 			}
-		}
+		};
 
-		// I refactored this below function, because it was buggy, now users can't hit ENTER when asked to CONFIRM with y/n
-		inputField.onkeyup = function (e) {
-			var inputValue;
-      if (PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
-        terminalObj._input.style.display = 'none';
-        inputValue = inputField.value
-        terminalObj.html.removeChild(inputField);
-        if (typeof(callback) === 'function') {
+		/* I refactored the below 'onkeyup' function, because it was buggy, now users can't
+		 * incorrectly hit ENTER when asked to CONFIRM with y/n
+
+		 * ORIGINAL CODE THAT PRODUCED BUG WHEN USER HITS ENTER IN RESPONSE
+		 * TO Y/N CONFIRMATION PROMPT
+
+			if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
+				terminalObj._input.style.display = 'none'
+				var inputValue = inputField.value
+				if (shouldDisplayInput) {
+					terminalObj.print(inputValue);
+				}
+				if ( (PROMPT_TYPE === PROMPT_CONFIRM) ) {
+					terminalObj.html.removeChild(inputField);
+				}
+				if (typeof(callback) === 'function') {
 					if (PROMPT_TYPE === PROMPT_CONFIRM) {
+						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
+					} else {
+						callback(inputValue);
+					}
+				}
+			}
+	 */
+		inputField.onkeyup = (e) => {
+			let inputValue;
+      if ( PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
+        terminalObj._input.style.display = 'none';
+        inputValue = inputField.value;
+        terminalObj.html.removeChild(inputField);
+        if ( typeof(callback) === 'function' ) {
+					if ( PROMPT_TYPE === PROMPT_CONFIRM ) {
 						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
 					} else {
 					  callback(inputValue);
@@ -78,153 +110,128 @@ var Terminal = (function () {
 				}
       } else if ( e.which === 13 && shouldDisplayInput ) {
         terminalObj._input.style.display = 'none';
-        inputValue = inputField.value
+        inputValue = inputField.value;
         terminalObj.print(inputValue);
         callback(inputValue);
       }
-      // ORIGINAL CODE THAT PRODUCED BUG WHEN USER HITS ENTER IN RESPONSE TO CONFIRMATION
-			// if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
-			// 	terminalObj._input.style.display = 'none'
-			// 	var inputValue = inputField.value
-			// 	if (shouldDisplayInput) {
-			// 	  terminalObj.print(inputValue);
-			// 	}
-			// 	if ( (PROMPT_TYPE === PROMPT_CONFIRM) ) {
-			// 	  terminalObj.html.removeChild(inputField);
-			// 	}
-			// 	if (typeof(callback) === 'function') {
-			// 		if (PROMPT_TYPE === PROMPT_CONFIRM) {
-			// 			callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
-			// 		} else {
-			// 		  callback(inputValue);
-			// 		}
-			// 	}
-			// }
 		}
-		if (firstPrompt) {
-			firstPrompt = false
-			setTimeout(function () { inputField.focus()	}, 50)
+
+		if ( firstPrompt ) {
+			firstPrompt = false;
+			setTimeout( () => { inputField.focus();	}, 50)
 		} else {
-			inputField.focus()
+			inputField.focus();
 		}
-	}
+	};
 
-	var terminalBeep;
+  /*
+   * ES6 arrow functions are not used for the below constructor methods expressions
+   * as they do not have inherent 'this' bindings
+   */
+	class TerminalConstructor {
+    constructor(id) {
+			this.html = document.createElement('div');
+			this.html.className = 'Terminal';
 
-	var TerminalConstructor = function (id) {
-		if (!terminalBeep) {
-			terminalBeep = document.createElement('audio')
-			var source = '<source src="http://www.erikosterberg.com/terminaljs/beep.'
-			terminalBeep.innerHTML = source + 'mp3" type="audio/mpeg">' + source + 'ogg" type="audio/ogg">'
-			terminalBeep.volume = 0.05
+			if ( typeof(id) === 'string' ) { this.html.id = id };
+
+			this._innerWindow = document.createElement('div');
+			this._output = document.createElement('p');
+			this._inputLine = document.createElement('span'); //the span element where the users input is put
+			this._cursor = document.createElement('span');
+			this._input = document.createElement('p'); //the full element administering the user input, including cursor
+
+			this._shouldBlinkCursor = true;
+			this._input.appendChild(this._inputLine);
+			this._input.appendChild(this._cursor);
+			this._innerWindow.appendChild(this._output);
+			this._innerWindow.appendChild(this._input);
+			this.html.appendChild(this._innerWindow);
+
+			this.setBackgroundColor('black');
+			this.setTextColor('white');
+			this.setTextSize('1.4em');
+			this.setWidth('100%');
+			this.setHeight('100%');
+
+			// this.html.style.fontFamily = 'Source Code Pro, monospace';
+			this.html.style.margin = '0';
+
+			// below are my custom values, create functions for adjusting them via invocations during init
+			this.html.style.border = 'thin solid black';
+			this.html.style.lineHeight = '160%'
+			this.html.style.borderRadius = '4px';
+
+			this._innerWindow.style.padding = '10px';
+			this._input.style.margin = '0';
+			this._output.style.margin = '0';
+			this._cursor.style.background = 'white';
+			this._cursor.innerHTML = 'C'; //put something in the cursor..
+			this._cursor.style.display = 'none'; //then hide it
+			this._input.style.display = 'none';
 		}
 
-		this.html = document.createElement('div');
-		this.html.className = 'Terminal';
-		if (typeof(id) === 'string') { this.html.id = id };
-
-		this._innerWindow = document.createElement('div');
-		this._output = document.createElement('p');
-		this._inputLine = document.createElement('span'); //the span element where the users input is put
-		this._cursor = document.createElement('span');
-		this._input = document.createElement('p'); //the full element administering the user input, including cursor
-
-		this._shouldBlinkCursor = true;
-
-		this.beep = function() {
-			terminalBeep.load();
-			terminalBeep.play();
-		}
-
-		this.print = function(message) {
-			var newLine = document.createElement('div');
+		// Methods
+		print(message) {
+			const newLine = document.createElement('div');
 			newLine.textContent = message;
 			this._output.appendChild(newLine);
 		}
 
-		this.input = function(message, callback) {
+		input(message, callback) {
 			promptInput(this, message, PROMPT_INPUT, callback);
 		}
 
-		this.password = function(message, callback) {
+		password(message, callback) {
 			promptInput(this, message, PROMPT_PASSWORD, callback);
 		}
 
-		this.confirm = function(message, callback) {
+		confirm(message, callback) {
 			promptInput(this, message, PROMPT_CONFIRM, callback);
 		}
 
-		this.clear = function() {
+		clear() {
 			this._output.innerHTML = '';
 		}
 
-		this.sleep = function(milliseconds, callback) {
+		sleep(milliseconds, callback) {
 			setTimeout(callback, milliseconds);
 		}
 
-		this.setTextSize = function(size) {
+		setTextSize(size) {
 			this._output.style.fontSize = size;
 			this._input.style.fontSize = size;
 		}
 
-		this.setTextColor = function(col) {
+		setTextColor(col) {
 			this.html.style.color = col;
 			this._cursor.style.background = col;
 		}
 
-		this.setBackgroundColor = function(col) {
+		setBackgroundColor(col) {
 			this.html.style.background = col;
 		}
 
-		this.setWidth = function(width) {
+		setWidth(width) {
 			this.html.style.width = width;
 		}
 
-		this.setHeight = function(height) {
+		setHeight(height) {
 			this.html.style.height = height;
 		}
 
-		// These are my own custom functions
-
-		this.blinkingCursor = function (bool) {
-			bool = bool.toString().toUpperCase();
-			this._shouldBlinkCursor = (bool === 'TRUE' || bool === '1' || bool === 'YES');
+		// Below are my own custom methods
+		blinkingCursor(bool) {
+			const boolUpperCase = bool.toString().toUpperCase();
+			this._shouldBlinkCursor = (boolUpperCase === 'TRUE' || boolUpperCase === '1' || boolUpperCase === 'YES');
 		}
 
-		this.setBorder = function(sizeStyleColor) {
+		setBorder(sizeStyleColor) {
       this.html.style.height = sizeStyleColor;
 		}
-
-		this._input.appendChild(this._inputLine);
-		this._input.appendChild(this._cursor);
-		this._innerWindow.appendChild(this._output);
-		this._innerWindow.appendChild(this._input);
-		this.html.appendChild(this._innerWindow);
-
-		this.setBackgroundColor('black');
-		this.setTextColor('white');
-		this.setTextSize('1.4em');
-		this.setWidth('100%');;
-		this.setHeight('100%')
-
-		// this.html.style.fontFamily = 'Source Code Pro, monospace';
-		this.html.style.margin = '0';
-
-		// below are my custom values, create functions for adjusting them via invocations during init
-		this.html.style.border = 'thin solid black';
-		this.html.style.lineHeight = '160%'
-		this.html.style.borderRadius = '4px';
-
-		this._innerWindow.style.padding = '10px';
-		this._input.style.margin = '0';
-		this._output.style.margin = '0';
-		this._cursor.style.background = 'white';
-		this._cursor.innerHTML = 'C'; //put something in the cursor..
-		this._cursor.style.display = 'none'; //then hide it
-		this._input.style.display = 'none';
 	}
 
-	return TerminalConstructor
-}())
+	return TerminalConstructor;
+}());
 
 export default Terminal;

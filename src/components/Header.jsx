@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Sidebar } from 'primereact/components/sidebar/Sidebar';
 import linkedin from '../img/linkedin_logo.png'
 import github from '../img/github_logo.png'
