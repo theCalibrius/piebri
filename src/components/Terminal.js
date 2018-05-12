@@ -126,7 +126,9 @@ let Terminal = ( function () {
 
   /*
    * ES6 arrow functions are not used for the below constructor methods expressions
-   * as they do not have inherent 'this' bindings
+   * becuase the methods will receive a 'this' falue from its caller, ex.
+   * terminalObj.clear()
+   * ES6 arrow function inherit their 'this' value from the enclosing scope
    */
 	class TerminalConstructor {
     constructor(id) {

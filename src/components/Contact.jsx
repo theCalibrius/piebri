@@ -137,12 +137,12 @@ class Contact extends Component {
       .then(sendMessage, gatherDataAndSend);
     };
 
-    getUserName = getUserName.bind(this);
-    getUserEmail = getUserEmail.bind(this);
-    getUserMessage = getUserMessage.bind(this);
-    confirmAndSend = confirmAndSend.bind(this);
-    sendMessage = sendMessage.bind(this);
-    gatherDataAndSend = gatherDataAndSend.bind(this);
+    // getUserName = getUserName.bind(this);
+    // getUserEmail = getUserEmail.bind(this);
+    // getUserMessage = getUserMessage.bind(this);
+    // confirmAndSend = confirmAndSend.bind(this);
+    // sendMessage = sendMessage.bind(this);
+    // gatherDataAndSend = gatherDataAndSend.bind(this);
 
     let myTerminal = new Terminal();
     $(".terminalEmulator").append(myTerminal.html);
