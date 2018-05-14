@@ -48,20 +48,20 @@ let Terminal = ( function () {
 		  terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message);
 		}
 
-		inputField.onblur = () => {
+		inputField.onblur = function () {
 			terminalObj._cursor.style.display = 'none';
 		};
 
-		inputField.onfocus = () => {
+		inputField.onfocus = function () {
 			inputField.value = terminalObj._inputLine.textContent;
 			terminalObj._cursor.style.display = 'inline';
 		};
 
-		terminalObj.html.onclick = () => {
+		terminalObj.html.onclick = function () {
 			inputField.focus();
 		};
 
-		inputField.onkeydown = (e) => {
+		inputField.onkeydown = function (e) {
 			if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
 				e.preventDefault();
 			} else if ( shouldDisplayInput && e.which !== 13 ) {
@@ -95,7 +95,7 @@ let Terminal = ( function () {
 				}
 			}
 	 */
-		inputField.onkeyup = (e) => {
+		inputField.onkeyup = function (e) {
 			let inputValue;
       if ( PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) {
         terminalObj._input.style.display = 'none';
@@ -126,9 +126,10 @@ let Terminal = ( function () {
 
   /*
    * ES6 arrow functions are not used for the below constructor methods expressions
-   * becuase the methods will receive a 'this' falue from its caller, ex.
+   * becuase the methods will receive a 'this' falue from their caller, ex.
    * terminalObj.clear()
-   * ES6 arrow function inherit their 'this' value from the enclosing scope
+   * ES6 arrow function inherit their 'this' value from the enclosing
+   * scope in which they are created and are best used for non-method functions.
    */
 	class TerminalConstructor {
     constructor(id) {
