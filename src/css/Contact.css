@@ -18,10 +18,6 @@
   padding-right: 100px;
 }
 
-.contactForm form {
-  display: none;
-}
-
 @media (max-width: 420px) {
   .contactContent {
     grid-template-rows: 60px 500px;
@@ -33,7 +29,17 @@
   }
 }
 
-.contactFormFields {
+.terminalWrapper {
+  font-family: "Print Char 21", monospace;
+  font-weight: 900;
+}
+
+
+/* .contactForm form {
+  display: none;
+} */
+
+/* .contactFormFields {
   display: flex;
   min-height: 480px;
   flex-direction: column;
@@ -56,9 +62,4 @@
 .contactFormFields input,
 .contactFormFields textarea {
   padding-left: 5px;
-}
-
-.Terminal {
-  font-family: "Print Char 21", monospace;
-  font-weight: 900;
-}
+} */

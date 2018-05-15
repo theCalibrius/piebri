@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 
 class Terminal extends Component {
   constructor() {
@@ -7,23 +9,27 @@ class Terminal extends Component {
       name: '',
       email: '',
       message: '',
-      shouldDisplayInputText: ''
+      shouldDisplayInputText: '',
+      firstPrompt: true
     }
 
+
+    // this.showCursor = this.showCursor.bind(this);
+    // this.hideCursor = this.hideCursor.bind(this);
+    // this.triggerInputFocus = this.triggerInputFocus.bind(this);
+
+  }
+
+  componentDidMount() {
+    // this.gatherDataAndSend();
+    this.configureTerminalWindow();
+    console.log('this: ', this);
     this.getUserName = this.getUserName.bind(this);
     this.getUserEmail = this.getUserEmail.bind(this);
     this.getUserMessage = this.getUserMessage.bind(this);
     this.confirmAndSend = this.confirmAndSend.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
     this.gatherDataAndSend = this.gatherDataAndSend.bind(this);
-    this.showCursor = this.showCursor.bind(this);
-    this.hideCursor = this.hideCursor.bind(this);
-    this.triggerInputFocus = this.triggerInputFocus.bind(this);
-
-  }
-
-  componentDidMount() {
-    this.gatherDataAndSend();
   }
 
 
@@ -31,6 +37,44 @@ class Terminal extends Component {
 /*------------------------ TERMINAL CLASS METHODS ----------------------------*/
 /*----------------------------------------------------------------------------*/
 
+  configureTerminalWindow() {
+    this.setBackgroundColor('#FCFCFC');
+    this.setHeight('400px');
+    this.setTextSize('0.9em');
+    this.setTextColor('#232D2D');
+    this.setBorder('thin', 'solid', 'black', '4px');
+  }
+
+  setTextSize(size) {
+    this.refs.output.style.fontSize = size;
+    this.refs.input.style.fontSize = size;
+  }
+
+  setTextColor(col) {
+    this.refs.terminalWrapper.style.color = col;
+    this.refs.cursor.style.background = col;
+  }
+
+  setBackgroundColor(col) {
+    this.refs.terminalWrapper.style.background = col;
+  }
+
+  setWidth(width) {
+    this.refs.terminalWrapper.style.width = width;
+  }
+
+  setHeight(height) {
+    this.refs.terminalWrapper.style.height = height;
+  }
+
+  setLineHeight(lineHeight) {
+    this.refs.terminalWrapper.style.lineHeight = '160%';
+  }
+
+  setBorder(size, style, color, radius) {
+    this.refs.terminalWrapper.style.border = size + ' ' + style + ' ' + color;
+		this.refs.terminalWrapper.style.borderRadius = radius;
+  }
 
   print(message) {
     this.refs.terminalOutput.textContent = message;
@@ -60,67 +104,7 @@ class Terminal extends Component {
 
 
 /*----------------------------------------------------------------------------*/
-/*-------------------------- EVENT HANDLERS ----------------------------------*/
-/*----------------------------------------------------------------------------*/
-
-
-  showCursor() {
-    this.refs.hiddenInputField.value = this.refs.visibleUserInput.textContent;
-    this.refs.cursor.style.display = 'inline';
-  }
-
-  hideCursor() {
-    this.refs.cursor.style.display = 'none';
-  }
-
-  triggerInputFocus() {
-    this.refs.hiddenInputField.focus();
-  }
-
-  handleKeyDown(e) {
-    if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
-      e.preventDefault();
-    } else if ( shouldDisplayInput && e.which !== 13 ) {
-      setTimeout( () => {
-        this.refs.visibleUserInput.textContent = this.refs.hiddenInputField.value;
-      }, 1);
-    }
-  }
-
-  handleKeyUp(e) {
-    let inputValue;
-
-    if ( PROMPT_TYPE === 'PROMPT_CONFIRM' && e.which !== 13 ) {
-      this.refs.input.style.display = 'none';
-      inputValue = this.refs.hiddenInputField.value;
-      this.html.removeChild(inputField);
-      if ( typeof(callback) === 'function' ) {
-        if ( PROMPT_TYPE === 'PROMPT_CONFIRM' ) {
-          callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
-        } else {
-          callback(inputValue);
-        }
-      }
-    } else if ( e.which === 13 && this.state.shouldDisplayInputText ) {
-      this.refs.input.style.display = 'none';
-      inputValue = this.refrs.hiddenInputField.value;
-      this.print(inputValue);
-      callback(inputValue);
-    }
-  }
-
-    if ( firstPrompt ) {
-      firstPrompt = false;
-      setTimeout( () => { inputField.focus();	}, 50)
-    } else {
-      inputField.focus();
-    }
-  }
-
-
-
-/*----------------------------------------------------------------------------*/
-/*------------------------ HELPER FUNCTIONS ----------------------------------*/
+/*------------------------ HELPER METHODS ----------------------------------*/
 /*----------------------------------------------------------------------------*/
 
 
@@ -133,22 +117,23 @@ class Terminal extends Component {
 
   promptInput(message, PROMPT_TYPE, callback) {
     let isInputPrompt = (PROMPT_TYPE === 'PROMPT_INPUT');
+    let hiddenInputField = document.createElement('input');
+
+
     this.setState({
       shouldDisplayInputText: isInputPrompt
     });
 
-		let inputField = ;
+		hiddenInputField.style.position = 'absolute';
+		hiddenInputField.style.zIndex = '-100';
+		hiddenInputField.style.outline = 'none';
+		hiddenInputField.style.border = 'none';
+		hiddenInputField.style.opacity = '0';
+		hiddenInputField.style.fontSize = '0.2em';
 
-		// inputField.style.position = 'absolute';
-		// inputField.style.zIndex = '-100';
-		// inputField.style.outline = 'none';
-		// inputField.style.border = 'none';
-		// inputField.style.opacity = '0';
-		// inputField.style.fontSize = '0.2em';
-
-		// this._inputLine.textContent = '';
-		// this._input.style.display = 'block';
-		// this.html.appendChild(inputField);
+		this.refs.visibleUserInput.textContent = '';
+		this.refs.input.style.display = 'block';
+    this.refs.terminalWrapper.appendChild(hiddenInputField);
 
 		this.fireCursorInterval();
 
@@ -156,55 +141,57 @@ class Terminal extends Component {
 		  this.print(PROMPT_TYPE === 'PROMPT_CONFIRM' ? message + ' (y/n)' : message);
 		}
 
-		// inputField.onblur = function () {
-		// 	this._cursor.style.display = 'none';
-		// };
-    //
-		// inputField.onfocus = function () {
-		// 	inputField.value = this._inputLine.textContent;
-		// 	this._cursor.style.display = 'inline';
-		// };
-    //
-		// this.html.onclick = function () {
-		// 	inputField.focus();
-		// };
+		hiddenInputField.onblur = () => {
+			this.refs.cursor.style.display = 'none';
+		};
 
-		// inputField.onkeydown = function (e) {
-		// 	if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
-		// 		e.preventDefault();
-		// 	} else if ( shouldDisplayInput && e.which !== 13 ) {
-		// 		setTimeout( () => {
-		// 			this._inputLine.textContent = inputField.value;
-		// 		}, 1);
-		// 	}
-		// };
+		hiddenInputField.onfocus = () => {
+			hiddenInputField.value = this.refs.visibleUserInput.textContent;
+			this._cursor.style.display = 'inline';
+		};
 
-		inputField.onkeyup = function (e) {
+		this.refs.terminalWrapper.onclick = () => {
+			hiddenInputField.focus();
+		};
+
+		hiddenInputField.onkeydown = (e) => {
+			if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
+				e.preventDefault();
+			} else if ( this.state.shouldDisplayInputText && e.which !== 13 ) {
+				setTimeout( () => {
+					this.refs.visibleUserInput.textContent = hiddenInputField.value;
+				}, 1);
+			}
+		};
+
+		hiddenInputField.onkeyup = (e) => {
 			let inputValue;
-      if ( PROMPT_TYPE === PROMPT_CONFIRM && e.which !== 13 ) { // if pressed key is not 'ENTER'
-        this._input.style.display = 'none';
-        inputValue = inputField.value;
-        this.html.removeChild(inputField);
+      if ( PROMPT_TYPE === 'PROMPT_CONFIRM' && e.which !== 13 ) { // if pressed key is not 'ENTER'
+        this.refs.input.style.display = 'none';
+        inputValue = hiddenInputField.value;
+        this.refs.terminalWrapper.removeChild(hiddenInputField);
         if ( typeof(callback) === 'function' ) {
-					if ( PROMPT_TYPE === PROMPT_CONFIRM ) {
+					if ( PROMPT_TYPE === 'PROMPT_CONFIRM' ) {
 						callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
 					} else {
 					  callback(inputValue);
 					}
 				}
-      } else if ( e.which === 13 && shouldDisplayInput ) {  // if pressed key is 'ENTER'
-        this._input.style.display = 'none';
-        inputValue = inputField.value;
+      } else if ( e.which === 13 && this.state.shouldDisplayInputText ) {  // if pressed key is 'ENTER'
+        this.refs.input.style.display = 'none';
+        inputValue = hiddenInputField.value;
         this.print(inputValue);
         callback(inputValue);
       }
 		}
 
-		if ( firstPrompt ) {
-			firstPrompt = false;
-			setTimeout( () => { inputField.focus();	}, 50)
+		if ( this.state.firstPrompt ) {
+			this.setState({
+        firstPrompt: false
+      })
+			setTimeout( () => { hiddenInputField.focus();	}, 50)
 		} else {
-			inputField.focus();
+			hiddenInputField.focus();
 		}
 	};
 
@@ -225,7 +212,7 @@ getUserName() {
           resolve();
         } else {
           this.clear();
-          getUserName().then(resolve);
+          this.getUserName().then(resolve);
         }
       });
     });
@@ -248,7 +235,7 @@ isEmailValid(addressToValidate) {
 getUserEmail() {
   return new Promise((resolve) => {
     this.input("Please enter your email: ", (userInput) => {
-      isEmailValid(userInput).then((returnValue) => {
+      this.isEmailValid(userInput).then((returnValue) => {
         if (returnValue === true) {
           this.confirm("Correct? ", (response) => {
             if (response === true) {
@@ -257,13 +244,13 @@ getUserEmail() {
               resolve();
             } else {
               this.clear();
-              getUserEmail().then(resolve);
+              this.getUserEmail().then(resolve);
             }
           });
         } else {
           this.clear();
           this.print("Not a valid email address");
-          getUserEmail().then(resolve);
+          this.getUserEmail().then(resolve);
         }
       })
     });
@@ -280,7 +267,7 @@ getUserMessage() {
           resolve();
         } else {
           this.clear();
-          getUserMessage().then(resolve);
+          this.getUserMessage().then(resolve);
         }
       });
     });
@@ -319,13 +306,70 @@ sendMessage() {
 }
 
 gatherDataAndSend() {
-  getUserName()
-  .then(getUserEmail)
-  .then(getUserMessage)
-  .then(confirmAndSend)
-  .then(sendMessage, gatherDataAndSend);
+  this.getUserName()
+  .then(this.getUserEmail)
+  .then(this.getUserMessage)
+  .then(this.confirmAndSend)
+  .then(this.sendMessage, this.gatherDataAndSend);
 }
 
+/*----------------------------------------------------------------------------*/
+/*-------------------------- EVENT HANDLERS ----------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+
+  // showCursor() {
+  //   this.refs.hiddenInputField.value = this.refs.visibleUserInput.textContent;
+  //   this.refs.cursor.style.display = 'inline';
+  // }
+  //
+  // hideCursor() {
+  //   this.refs.cursor.style.display = 'none';
+  // }
+  //
+  // triggerInputFocus() {
+  //   this.refs.hiddenInputField.focus();
+  // }
+  //
+  // handleKeyDown(e) {
+  //   if ( e.which === 37 || e.which === 39 || e.which === 38 || e.which === 40 || e.which === 9 ) {
+  //     e.preventDefault();
+  //   } else if ( shouldDisplayInput && e.which !== 13 ) {
+  //     setTimeout( () => {
+  //       this.refs.visibleUserInput.textContent = this.refs.hiddenInputField.value;
+  //     }, 1);
+  //   }
+  // }
+  //
+  // handleKeyUp(e) {
+  //   let inputValue;
+  //
+  //   if ( PROMPT_TYPE === 'PROMPT_CONFIRM' && e.which !== 13 ) {
+  //     this.refs.input.style.display = 'none';
+  //     inputValue = this.refs.hiddenInputField.value;
+  //     this.html.removeChild(inputField);
+  //     if ( typeof(callback) === 'function' ) {
+  //       if ( PROMPT_TYPE === 'PROMPT_CONFIRM' ) {
+  //         callback(inputValue.toUpperCase()[0] === 'Y' ? true : false);
+  //       } else {
+  //         callback(inputValue);
+  //       }
+  //     }
+  //   } else if ( e.which === 13 && this.state.shouldDisplayInputText ) {
+  //     this.refs.input.style.display = 'none';
+  //     inputValue = this.refrs.hiddenInputField.value;
+  //     this.print(inputValue);
+  //     callback(inputValue);
+  //   }
+  // }
+  //
+  //   if ( firstPrompt ) {
+  //     firstPrompt = false;
+  //     setTimeout( () => { inputField.focus();	}, 50)
+  //   } else {
+  //     inputField.focus();
+  //   }
+  // }
 
 /* HOW THE TERMINAL CLASS WORKS
  *  Contact Page instantiates the Terminal class
@@ -346,29 +390,21 @@ gatherDataAndSend() {
  *
 */
 
-  render() {
 
+  render() {
     return(
-      <div className="terminalWrapper" onClick={this.triggerInputFocus}>
+      <div className="terminalWrapper" ref="terminalWrapper">
         <div>
-          <p className="output">
-            <div ref="terminalOutput"></div>
+          <p className="output" ref="output">
+            <span ref="terminalOutput"></span>
           </p>
           <p ref="input">
             <span className="visibleUserInput" ref="visibleUserInput"></span>
             <span className="cursor" ref="cursor" >C</span>
           </p>
         </div>
-        <input
-          ref="hiddenInputField"
-          onBlur={this.hideCursor}
-          onFocus={this.showCursor}
-          onKeyDown={this.handleKeyDown}
-          onKeyUp={this.handleKeyUp}
-        />
       </div>
     )
-
   }
 
 

@@ -133,17 +133,28 @@ let Terminal = ( function () {
    */
 	class TerminalConstructor {
     constructor(id) {
+        // div element is created with class Terminal and contains the
+        // Terminal instance, it's assigned as value of html property
 			this.html = document.createElement('div');
 			this.html.className = 'Terminal';
 
 			if ( typeof(id) === 'string' ) { this.html.id = id };
 
+        // div is creaed and assigned to innerWindow property
+        // p is created and assigned to output property
+        // span is created and assigned to inputLine property
+        // span is created and assigned to cursor property
+        // p is created and assigned to input property
+        //
 			this._innerWindow = document.createElement('div');
 			this._output = document.createElement('p');
 			this._inputLine = document.createElement('span'); //the span element where the users input is put
 			this._cursor = document.createElement('span');
 			this._input = document.createElement('p'); //the full element administering the user input, including cursor
 
+        // inputLine (span) and cursor (span) are attached as children of input (p)
+        // output (p) and input (p) are attached as children of innerWindow (div)
+        // innerWindow (div) is attached as a child of html (div w/ Terminal class)
 			this._shouldBlinkCursor = true;
 			this._input.appendChild(this._inputLine);
 			this._input.appendChild(this._cursor);
