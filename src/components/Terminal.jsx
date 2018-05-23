@@ -46,7 +46,7 @@ class Terminal extends Component {
     this.setHeight('400px');
     this.setTextSize('0.9em');
     this.setTextColor('#232D2D');
-    this.setBorder('thin', 'solid', 'black', '4px');
+    // this.setBorder('thin', 'solid', 'black', '4px');
     this.setLineHeight('160%');
   }
 
@@ -119,8 +119,10 @@ class Terminal extends Component {
 
   fireCursorBlinkInterval() {
 		setTimeout( () => {
-				this.refs.cursor.style.visibility = this.refs.cursor.style.visibility === 'visible' ? 'hidden' : 'visible';
+      if (this.refs.cursor) {
+        this.refs.cursor.style.visibility = this.refs.cursor.style.visibility === 'visible' ? 'hidden' : 'visible';
 				this.fireCursorBlinkInterval();
+      }
 		}, 500);
 	}
 

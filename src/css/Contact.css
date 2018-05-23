@@ -11,27 +11,43 @@
 
 .contactForm {
   grid-area: contactForm;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 610px auto;
+  grid-template-areas: '... terminalWindow ...';
   padding-top: 70px;
-  padding-left: 100px;
-  padding-right: 100px;
+
+}
+
+@media (max-width: 800px) {
+  .contactForm {
+    width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactForm {
+    width: 420px;
+  }
 }
 
 @media (max-width: 420px) {
-  .contactContent {
-    grid-template-rows: 60px 500px;
+  .contactForm {
+    width: 360px;
   }
 
-  .contactForm {
-    padding-left: 10px;
-    padding-right: 10px;
+  .contactContent {
+    grid-template-rows: 60px 500px;
   }
 }
 
 .terminalWrapper {
+  grid-area: terminalWindow;
   font-family: "Print Char 21", monospace;
   font-weight: 900;
+  border: thin solid black;
+  border-radius: 4px;
+  width: inherit;
+  overflow-wrap: break-word;
 }
 
 .innerWrapper {
@@ -41,6 +57,10 @@
 p.output,
 p.input {
   margin: 0px;
+}
+
+.visibleUserInput {
+  overflow-wrap: inherit;
 }
 
 .contactForm form {

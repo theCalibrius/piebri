@@ -17,9 +17,7 @@ class Contact extends Component {
       <div className="contactContent">
         <div className="title">Contact</div>
         <div className="contactForm">
-          <div className="terminalEmulator">
-            <Terminal />
-          </div>
+          <Terminal />
         </div>
       </div>
     );
