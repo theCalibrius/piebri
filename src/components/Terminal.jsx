@@ -21,15 +21,19 @@ class Terminal extends Component {
   }
 
   componentDidMount() {
-    // this.gatherDataAndSend();
-    this.configureTerminalWindow();
-    console.log('this: ', this);
+
+    // this.input("Hello", function() {console.log('here it is');})
+    // console.log('this: ', this);
     this.getUserName = this.getUserName.bind(this);
     this.getUserEmail = this.getUserEmail.bind(this);
     this.getUserMessage = this.getUserMessage.bind(this);
     this.confirmAndSend = this.confirmAndSend.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
     this.gatherDataAndSend = this.gatherDataAndSend.bind(this);
+
+    this.configureTerminalWindow();
+    this.gatherDataAndSend();
+    this.fireCursorBlinkInterval();
   }
 
 
@@ -43,6 +47,7 @@ class Terminal extends Component {
     this.setTextSize('0.9em');
     this.setTextColor('#232D2D');
     this.setBorder('thin', 'solid', 'black', '4px');
+    this.setLineHeight('160%');
   }
 
   setTextSize(size) {
@@ -68,7 +73,7 @@ class Terminal extends Component {
   }
 
   setLineHeight(lineHeight) {
-    this.refs.terminalWrapper.style.lineHeight = '160%';
+    this.refs.terminalWrapper.style.lineHeight = lineHeight;
   }
 
   setBorder(size, style, color, radius) {
@@ -77,7 +82,11 @@ class Terminal extends Component {
   }
 
   print(message) {
-    this.refs.terminalOutput.textContent = message;
+    const newLine = document.createElement('span');
+    const lineBreak = document.createElement('br');
+    newLine.textContent = message;
+    this.refs.output.appendChild(newLine);
+    this.refs.output.appendChild(lineBreak);
   }
 
   input(message, callback) {
@@ -89,7 +98,7 @@ class Terminal extends Component {
   }
 
   clear() {
-    this.refs.terminalOutput.textContent = '';
+    this.refs.output.innerHTML = '';
   }
 
   sleep(milliseconds, callback) {
@@ -135,7 +144,7 @@ class Terminal extends Component {
 		this.refs.input.style.display = 'block';
     this.refs.terminalWrapper.appendChild(hiddenInputField);
 
-		this.fireCursorInterval();
+		// this.fireCursorBlinkInterval();
 
 		if ( message.length ) {
 		  this.print(PROMPT_TYPE === 'PROMPT_CONFIRM' ? message + ' (y/n)' : message);
@@ -147,7 +156,7 @@ class Terminal extends Component {
 
 		hiddenInputField.onfocus = () => {
 			hiddenInputField.value = this.refs.visibleUserInput.textContent;
-			this._cursor.style.display = 'inline';
+			this.refs.cursor.style.display = 'inline';
 		};
 
 		this.refs.terminalWrapper.onclick = () => {
@@ -235,7 +244,11 @@ isEmailValid(addressToValidate) {
 getUserEmail() {
   return new Promise((resolve) => {
     this.input("Please enter your email: ", (userInput) => {
+      const alertValidating = document.createElement('span');
+      alertValidating.textContent = 'validating...'
+      this.refs.output.appendChild(alertValidating);
       this.isEmailValid(userInput).then((returnValue) => {
+        this.refs.output.removeChild(alertValidating);
         if (returnValue === true) {
           this.confirm("Correct? ", (response) => {
             if (response === true) {
@@ -279,6 +292,7 @@ confirmAndSend() {
     this.print("Name: " + this.state.name);
     this.print("Email: " + this.state.email);
     this.print("Message: " + this.state.message);
+    this.print("--------------------");
     this.confirm("Send your message?", (response) => {
       if (response === true) {
         this.clear();
@@ -394,11 +408,9 @@ gatherDataAndSend() {
   render() {
     return(
       <div className="terminalWrapper" ref="terminalWrapper">
-        <div>
-          <p className="output" ref="output">
-            <span ref="terminalOutput"></span>
-          </p>
-          <p ref="input">
+        <div className="innerWrapper">
+          <p className="output" ref="output"></p>
+          <p className="input" ref="input">
             <span className="visibleUserInput" ref="visibleUserInput"></span>
             <span className="cursor" ref="cursor" >C</span>
           </p>
