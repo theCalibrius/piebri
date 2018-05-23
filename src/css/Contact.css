@@ -63,35 +63,6 @@ p.input {
   overflow-wrap: inherit;
 }
 
-.contactForm form {
-  display: none;
-}
-
-.contactFormFields {
-  display: flex;
-  min-height: 480px;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
-.contactFormFields input,
-.contactFormFields textarea,
-.contactFormFields button {
-  font-family: "Source Code Pro", monospace;
-  font-size: 0.9em;
-  color: #FFFFFF;
-  background-color: #232D2D;
-  border: none;
-}
-
-.contactFormFields input,
-.contactFormFields textarea {
-  padding-left: 5px;
-}
-
 .Terminal {
   font-family: "Print Char 21", monospace;
   font-weight: 900;
