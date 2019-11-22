@@ -19,7 +19,7 @@ var Home = (props) => (
     <div className="rightKeywords">
       <li>html/css</li>
       <li>javascript</li>
-      <li>angular</li>
+      <li>graphql</li>
       <li>react</li>
     </div>
     <div className="bottomKeywords">
