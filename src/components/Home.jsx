@@ -25,7 +25,7 @@ var Home = (props) => (
     <div className="bottomKeywords">
     	<li>docker</li>
     	<li>webpack</li>
-    	<li>aws</li>
+    	<li>es6</li>
     	<li>git</li>
     </div>
   </div>
