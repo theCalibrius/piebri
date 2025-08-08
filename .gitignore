@@ -43,8 +43,8 @@ node_modules/
 jspm_packages/
 
 # Package Lock Files
-yarn.lock
-package-lock.json
+# yarn.lock
+# package-lock.json
 
 # Typescript v1 declaration files
 typings/
