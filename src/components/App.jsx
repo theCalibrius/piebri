@@ -9,10 +9,9 @@ import 'primereact/resources/themes/omega/theme.css';
 import 'font-awesome/css/font-awesome.css';
 import '../css/App.css';
 
-
 class App extends Component {
   render() {
-    return(
+    return (
       <Router>
         <div className="appContainer">
           <div className="navBar">
@@ -27,8 +26,6 @@ class App extends Component {
       </Router>
     );
   }
-
 }
-
 
 export default App;

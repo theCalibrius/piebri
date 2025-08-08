@@ -1,12 +1,12 @@
-
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
 .contactContent {
   grid-area: contentArea;
   display: grid;
   grid-template-rows: 100px 500px;
-  grid-template-areas:    ' title '
-                       ' contactForm ';
+  grid-template-areas:
+    ' title '
+    ' contactForm ';
 }
 
 .contactForm {
@@ -15,7 +15,6 @@
   grid-template-columns: auto 610px auto;
   grid-template-areas: '... terminalWindow ...';
   padding-top: 70px;
-
 }
 
 @media (max-width: 800px) {
@@ -42,7 +41,7 @@
 
 .terminalWrapper {
   grid-area: terminalWindow;
-  font-family: "Print Char 21", monospace;
+  font-family: 'Print Char 21', monospace;
   font-weight: 900;
   border: thin solid black;
   border-radius: 4px;
@@ -64,6 +63,6 @@ p.input {
 }
 
 .Terminal {
-  font-family: "Print Char 21", monospace;
+  font-family: 'Print Char 21', monospace;
   font-weight: 900;
 }
