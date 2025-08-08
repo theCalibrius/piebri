@@ -13,10 +13,10 @@ var projectData = {
       technologies: {
         left: ['node.js', 'express', 'webpack', 'aws', '-'],
         center: ['react', 'handsontable', 'highcharts', 'docker', 'REST api'],
-        right: ['redux', 'jest/enzyme', 'mysql', 'travisCI', 'ES6']
+        right: ['redux', 'jest/enzyme', 'mysql', 'travisCI', 'ES6'],
       },
       gitHubURL: 'https://github.com/theCalibrius/TableCRM',
-      liveURL: 'https://intense-tundra-17858.herokuapp.com/dashboard'
+      liveURL: 'https://intense-tundra-17858.herokuapp.com/dashboard',
     },
     {
       title: 'noComments',
@@ -28,10 +28,10 @@ var projectData = {
       technologies: {
         left: ['node.js', 'REST api'],
         center: ['angular', 'typescript'],
-        right: ['mongodb', '-']
+        right: ['mongodb', '-'],
       },
       gitHubURL: '#',
-      liveURL: '#'
+      liveURL: '#',
     },
     {
       title: 'pieBri',
@@ -42,10 +42,10 @@ var projectData = {
       technologies: {
         left: ['node.js', 'cssGrid', '-'],
         center: ['react', 'ES6', 'flexBox'],
-        right: ['lambda', 'aws ses', '-']
+        right: ['lambda', 'aws ses', '-'],
       },
       gitHubURL: 'https://github.com/theCalibrius/piebri',
-      liveURL: 'http://www.piebri.com'
+      liveURL: 'http://www.piebri.com',
     },
     {
       title: 'wanderFund',
@@ -56,10 +56,10 @@ var projectData = {
       technologies: {
         left: ['PHP', '-'],
         center: ['jQuery', 'sql'],
-        right: ['javascript', '-']
+        right: ['javascript', '-'],
       },
       gitHubURL: '#',
-      liveURL: 'http://www.wanderfund.com'
+      liveURL: 'http://www.wanderfund.com',
     },
     {
       title: 'dlmfIt',
@@ -71,11 +71,11 @@ var projectData = {
       technologies: {
         left: ['node.js', 'angular'],
         center: ['lambda', '-'],
-        right: ['aws sns', '-']
+        right: ['aws sns', '-'],
       },
       gitHubURL: '#',
-      liveURL: '#'
-    }
+      liveURL: '#',
+    },
   ],
   rightColumnProjects: [
     {
@@ -88,10 +88,10 @@ var projectData = {
       technologies: {
         left: ['node.js', 'REST api'],
         center: ['angular', 'typescript'],
-        right: ['mongodb', '-']
+        right: ['mongodb', '-'],
       },
       gitHubURL: 'https://github.com/theCalibrius/enGauged',
-      liveURL: '#'
+      liveURL: '#',
     },
     {
       title: 'marvelShake',
@@ -103,10 +103,10 @@ var projectData = {
       technologies: {
         left: ['jQuery'],
         center: ['javascript'],
-        right: ['chai/mocha']
+        right: ['chai/mocha'],
       },
       gitHubURL: '#',
-      liveURL: '#'
+      liveURL: '#',
     },
     {
       title: 'fitStop',
@@ -117,10 +117,10 @@ var projectData = {
       technologies: {
         left: ['node.js', 'REST api'],
         center: ['react', 'ES6'],
-        right: ['mongodb', '-']
+        right: ['mongodb', '-'],
       },
       gitHubURL: 'https://github.com/theCalibrius/fit-stop',
-      liveURL: 'http://fit-stop.herokuapp.com/'
+      liveURL: 'http://fit-stop.herokuapp.com/',
     },
     {
       title: 'docAdemy',
@@ -131,10 +131,10 @@ var projectData = {
       technologies: {
         left: ['-'],
         center: ['-'],
-        right: ['-']
+        right: ['-'],
       },
       gitHubURL: '#',
-      liveURL: '#'
+      liveURL: '#',
     },
     {
       title: 'anyCase',
@@ -146,13 +146,12 @@ var projectData = {
       technologies: {
         left: ['node.js', '-'],
         center: ['angular', 'lambda'],
-        right: ['ionic', '-']
+        right: ['ionic', '-'],
       },
       gitHubURL: '#',
-      liveURL: '#'
-    }
-  ]
+      liveURL: '#',
+    },
+  ],
 };
-
 
 export default projectData;

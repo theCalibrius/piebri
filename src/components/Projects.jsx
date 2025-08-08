@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Dialog } from 'primereact/components/dialog/Dialog';
 import { Button } from 'primereact/components/button/Button';
-import projectData from '../data/projectData.js'
-import '../css/ProjectModal.css'
+import projectData from '../data/projectData.js';
+import '../css/ProjectModal.css';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 import '../css/Projects.css';
 
-
 class Projects extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -21,13 +19,13 @@ class Projects extends Component {
         technologies: {
           left: [],
           center: [],
-          right: []
+          right: [],
         },
         gitHubURL: '',
-        liveURL: '#'
+        liveURL: '#',
       },
       leftColumnProjects: projectData.leftColumnProjects,
-      rightColumnProjects: projectData.rightColumnProjects
+      rightColumnProjects: projectData.rightColumnProjects,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -38,19 +36,18 @@ class Projects extends Component {
     this.setState({
       visible: true,
       modalClass: 'modalWrapper',
-      selectedProject: this.state[projectsColumn][projectIndex]
+      selectedProject: this.state[projectsColumn][projectIndex],
     });
-  }
+  };
 
   onHide = (e) => {
     this.setState({
       visible: false,
-      modalClass: null
+      modalClass: null,
     });
-  }
+  };
 
   render() {
-
     /*--------------------------------------------------------------------------
     -------------------| Pre-Return Variables and Functions |-------------------
     --------------------------------------------------------------------------*/
@@ -64,29 +61,25 @@ class Projects extends Component {
      */
 
     const leftProjects = leftColumnProjects.map((project, index) => {
-      const boundProjectClick = this.onClick.bind(this, "leftColumnProjects", index);
-      return(
-             <li key={index} onClick={boundProjectClick}>
-               <span className="projectListItem">
-                 {project.title}
-               </span>
-             </li>
+      const boundProjectClick = this.onClick.bind(this, 'leftColumnProjects', index);
+      return (
+        <li key={index} onClick={boundProjectClick}>
+          <span className="projectListItem">{project.title}</span>
+        </li>
       );
     });
 
     const rightProjects = rightColumnProjects.map((project, index) => {
-      const boundProjectClick = this.onClick.bind(this, "rightColumnProjects", index);
-      return(
-             <li key={index} onClick={boundProjectClick}>
-               <span className="projectListItem">
-                 {project.title}
-               </span>
-             </li>
+      const boundProjectClick = this.onClick.bind(this, 'rightColumnProjects', index);
+      return (
+        <li key={index} onClick={boundProjectClick}>
+          <span className="projectListItem">{project.title}</span>
+        </li>
       );
     });
 
     let getModalButtonLinkURL = (linkName) => {
-        return(this.state.selectedProject[linkName]);
+      return this.state.selectedProject[linkName];
     };
 
     let getModalFooter = () => {
@@ -101,20 +94,20 @@ class Projects extends Component {
         liveButtonID = 'hideButton';
       }
 
-      return(
+      return (
         <div className="buttonContainer">
           <Button
             label="GitHub Repo"
             id={gitButtonID}
             onClick={() => {
-              window.open(getModalButtonLinkURL('gitHubURL'), "_blank");
+              window.open(getModalButtonLinkURL('gitHubURL'), '_blank');
             }}
           />
           <Button
             label="Live Site"
             id={liveButtonID}
             onClick={() => {
-              window.open(getModalButtonLinkURL('liveURL'), "_blank");
+              window.open(getModalButtonLinkURL('liveURL'), '_blank');
             }}
           />
         </div>
@@ -123,42 +116,22 @@ class Projects extends Component {
 
     let getModalDescription = () => {
       const technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
-        return(
-          <li key={index}>
-            {technology}
-          </li>
-        );
+        return <li key={index}>{technology}</li>;
       });
       const technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
-        return(
-          <li key={index}>
-            {technology}
-          </li>
-        );
+        return <li key={index}>{technology}</li>;
       });
       const technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
-        return(
-          <li key={index}>
-            {technology}
-          </li>
-        );
+        return <li key={index}>{technology}</li>;
       });
 
-      return(
+      return (
         <div className="projectModalContentWrapper">
-          <div className="projectDescriptionContent">
-            {this.state.selectedProject.description}
-          </div>
+          <div className="projectDescriptionContent">{this.state.selectedProject.description}</div>
           <div className="projectTechnologiesList">
-            <div className="technologiesListLeftColumn">
-              {technologiesListLeftColumn}
-            </div>
-            <div className="technologiesListCenterColumn">
-              {technologiesListCenterColumn}
-            </div>
-            <div className="technologiesListRightColumn">
-              {technologiesListRightColumn}
-            </div>
+            <div className="technologiesListLeftColumn">{technologiesListLeftColumn}</div>
+            <div className="technologiesListCenterColumn">{technologiesListCenterColumn}</div>
+            <div className="technologiesListRightColumn">{technologiesListRightColumn}</div>
           </div>
         </div>
       );
@@ -168,23 +141,20 @@ class Projects extends Component {
     getModalButtonLinkURL = getModalButtonLinkURL.bind(this);
     getModalDescription = getModalDescription.bind(this);
 
-/*-----------------------------------------------------------------------------
+    /*-----------------------------------------------------------------------------
 --------------------------------| Render Return |-------------------------------
 ------------------------------------------------------------------------------*/
-    return(
+    return (
       <div className="projectsContent">
         <div className="title">Projects</div>
-        <div className="leftProjects">
-          {leftProjects}
-        </div>
-        <div className="rightProjects">
-          {rightProjects}
-        </div>
+        <div className="leftProjects">{leftProjects}</div>
+        <div className="rightProjects">{rightProjects}</div>
         <Dialog
           className={this.state.modalClass}
           header={this.state.selectedProject.title}
           description={this.state.selectedProject.description}
-          visible={this.state.visible} footer={getModalFooter()}
+          visible={this.state.visible}
+          footer={getModalFooter()}
           width="450px"
           height="500px"
           dismissableMask={true}
@@ -194,9 +164,8 @@ class Projects extends Component {
           {getModalDescription()}
         </Dialog>
       </div>
-    )
+    );
   }
 }
-
 
 export default Projects;

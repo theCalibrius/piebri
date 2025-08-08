@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Sidebar } from 'primereact/components/sidebar/Sidebar';
-import linkedin from '../img/linkedin_logo.png'
-import github from '../img/github_logo.png'
+import linkedin from '../img/linkedin_logo.png';
+import github from '../img/github_logo.png';
 import '../css/Header.css';
 
-
 class Header extends Component {
-
   constructor() {
     super();
     this.state = {
-      visible: false
+      visible: false,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -20,19 +18,18 @@ class Header extends Component {
 
   onClick = (e) => {
     this.setState({
-      visible: true
+      visible: true,
     });
-  }
+  };
 
   onHide = (e) => {
     this.setState({
-      visible: false
+      visible: false,
     });
-  }
+  };
 
   render() {
-
-    return(
+    return (
       <div className="navBarContent">
         <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
           <div className="logo">
@@ -52,37 +49,49 @@ class Header extends Component {
             contact
           </Link>
           <div className="socialLinks">
-            <a href="https://www.linkedin.com/in/piercebrian/" target="_blank" rel="noopener noreferrer">
-              <img className="linkedin" src={linkedin} alt={"linkedin"} />
+            <a
+              href="https://www.linkedin.com/in/piercebrian/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="linkedin" src={linkedin} alt={'linkedin'} />
             </a>
             <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer">
-              <img className="github" src={github} alt={"github"} />
+              <img className="github" src={github} alt={'github'} />
             </a>
           </div>
         </div>
         <div className="navMenuIconContainer">
-          <span className="navMenuIcon fa fa-bars" onClick={this.onClick}/>
+          <span className="navMenuIcon fa fa-bars" onClick={this.onClick} />
         </div>
-       <Sidebar visible={this.state.visible} baseZIndex={1000000} onHide={this.onHide} position="top">
-         <div className="modalSidebarContainer" onClick={this.onHide}>
-           <Link to="/projects" style={{ textDecoration: 'none', color: 'white' }}>
-             projects
-           </Link>
-           <Link to="/contact" style={{ textDecoration: 'none', color: 'white' }}>
-             contact
-           </Link>
-           <a href="https://www.linkedin.com/in/piercebrian/" target="_blank" rel="noopener noreferrer">
-             <img className="linkedin" src={linkedin} alt={"linkedin"} />
-           </a>
-           <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer">
-             <img className="github" src={github} alt={"github"} />
-           </a>
-         </div>
-       </Sidebar>
+        <Sidebar
+          visible={this.state.visible}
+          baseZIndex={1000000}
+          onHide={this.onHide}
+          position="top"
+        >
+          <div className="modalSidebarContainer" onClick={this.onHide}>
+            <Link to="/projects" style={{ textDecoration: 'none', color: 'white' }}>
+              projects
+            </Link>
+            <Link to="/contact" style={{ textDecoration: 'none', color: 'white' }}>
+              contact
+            </Link>
+            <a
+              href="https://www.linkedin.com/in/piercebrian/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="linkedin" src={linkedin} alt={'linkedin'} />
+            </a>
+            <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer">
+              <img className="github" src={github} alt={'github'} />
+            </a>
+          </div>
+        </Sidebar>
       </div>
-    )
+    );
   }
 }
-
 
 export default Header;

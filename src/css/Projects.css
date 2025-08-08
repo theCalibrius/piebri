@@ -1,12 +1,12 @@
-
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
 .projectsContent {
   grid-area: contentArea;
   display: grid;
   grid-template-rows: 100px 500px;
-  grid-template-areas: '......... title title title ..........'
-                       '... leftProjects ... rightProjects ...';
+  grid-template-areas:
+    '......... title title title ..........'
+    '... leftProjects ... rightProjects ...';
 }
 
 .projectsContent li {
@@ -38,7 +38,7 @@
 .projectListItem {
   display: inline;
   padding: 4px;
-  border: thin solid #FFFFFF;
+  border: thin solid #ffffff;
   border-radius: 4px;
   cursor: pointer;
 }

@@ -1,13 +1,13 @@
-
 /*---------------  CSS GRID LAYOUT  -------------------*/
 
 .homepageContent {
   grid-area: contentArea;
   display: grid;
   grid-template-rows: 100px 420px 20px;
-  grid-template-areas: '............. title ..............'
-                       'leftKeywords mugShot rightKeywords'
-                       '......... bottomKeywords .........';
+  grid-template-areas:
+    '............. title ..............'
+    'leftKeywords mugShot rightKeywords'
+    '......... bottomKeywords .........';
 }
 
 .homepageContent li {
@@ -52,7 +52,6 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 75px 0px 50px 30px;
-
 }
 
 .bottomKeywords {
@@ -73,9 +72,10 @@
     grid-area: contentArea;
     display: grid;
     grid-template-rows: 100px 420px 420px;
-    grid-template-areas: '................. title title title ...................'
-                         '.............. mugShot mugShot mugShot ................'
-                         '........ leftKeywords bottomKeywords rightKeywords .........'
+    grid-template-areas:
+      '................. title title title ...................'
+      '.............. mugShot mugShot mugShot ................'
+      '........ leftKeywords bottomKeywords rightKeywords .........';
   }
 
   .leftKeywords {
@@ -119,9 +119,10 @@
     grid-area: contentArea;
     display: grid;
     grid-template-rows: 100px 360px 420px;
-    grid-template-areas: '................. title title title ...................'
-                         '.............. mugShot mugShot mugShot ................'
-                         '........ leftKeywords bottomKeywords rightKeywords .........'
+    grid-template-areas:
+      '................. title title title ...................'
+      '.............. mugShot mugShot mugShot ................'
+      '........ leftKeywords bottomKeywords rightKeywords .........';
   }
 
   .leftKeywords {

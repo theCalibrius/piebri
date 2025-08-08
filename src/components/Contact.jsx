@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import Terminal from './Terminal.jsx';
 import '../css/Contact.css';
 
-
 class Contact extends Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {};
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
-    return(
+    return (
       <div className="contactContent">
         <div className="title">Contact</div>
         <div className="contactForm">
@@ -23,6 +21,5 @@ class Contact extends Component {
     );
   }
 }
-
 
 export default Contact;
