@@ -1,0 +1,12 @@
+# Ignore build artifacts and non-source assets for formatting
+node_modules
+dist
+buildpublic/*
+!public/index.html
+
+# Images & fonts
+src/img
+src/fonts
+
+# Don't reformat deprecated/legacy dependency source code
+src/terminaljs/terminal.js
