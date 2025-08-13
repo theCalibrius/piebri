@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Dialog } from 'primereact/components/dialog/Dialog';
 import { Button } from 'primereact/components/button/Button';
 import projectData from '../data/projectData.js';
@@ -6,6 +6,15 @@ import '../css/ProjectModal.css';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 import '../css/Projects.css';
+
+const HeaderWithClose = ({ title, onHide }) => (
+  <Fragment>
+    <span id="pr_id_1_label" className="custom-dialog-title">
+      {title}
+    </span>
+    <button type="button" className="s7-close" onClick={onHide} aria-label="Close" title="Close" />
+  </Fragment>
+);
 
 class Projects extends Component {
   constructor() {
@@ -48,9 +57,6 @@ class Projects extends Component {
   };
 
   render() {
-    /*--------------------------------------------------------------------------
-    -------------------| Pre-Return Variables and Functions |-------------------
-    --------------------------------------------------------------------------*/
     const projectTechnologies = this.state.selectedProject.technologies;
     const leftColumnProjects = this.state.leftColumnProjects;
     const rightColumnProjects = this.state.rightColumnProjects;
@@ -141,9 +147,6 @@ class Projects extends Component {
     getModalButtonLinkURL = getModalButtonLinkURL.bind(this);
     getModalDescription = getModalDescription.bind(this);
 
-    /*-----------------------------------------------------------------------------
---------------------------------| Render Return |-------------------------------
-------------------------------------------------------------------------------*/
     return (
       <div className="projectsContent">
         <div className="title">Projects</div>
@@ -151,12 +154,13 @@ class Projects extends Component {
         <div className="rightProjects">{rightProjects}</div>
         <Dialog
           className={this.state.modalClass}
-          header={this.state.selectedProject.title}
+          header={<HeaderWithClose title={this.state.selectedProject.title} onHide={this.onHide} />}
           description={this.state.selectedProject.description}
           visible={this.state.visible}
           footer={getModalFooter()}
           width="450px"
           height="500px"
+          icons="pi-stop"
           dismissableMask={true}
           modal={true}
           onHide={this.onHide}
