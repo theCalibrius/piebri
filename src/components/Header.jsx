@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Sidebar } from 'primereact/components/sidebar/Sidebar';
 import linkedin from '../img/linkedin_logo.png';
 import github from '../img/github_logo.png';
+import Backdrop from './Backdrop';
 import '../css/Header.css';
 
 class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      visible: false,
-    };
-
-    this.onClick = this.onClick.bind(this);
-    this.onHide = this.onHide.bind(this);
-  }
-
-  onClick = (e) => {
-    this.setState({
-      visible: true,
-    });
+  onHide = () => {
+    this.props.onCloseDrawer();
   };
 
-  onHide = (e) => {
-    this.setState({
-      visible: false,
-    });
+  onShow = () => {
+    this.props.onOpenDrawer();
   };
 
   render() {
@@ -62,13 +48,17 @@ class Header extends Component {
           </div>
         </div>
         <div className="navMenuIconContainer">
-          <span className="navMenuIcon fa fa-bars" onClick={this.onClick} />
+          <span className="navMenuIcon fa fa-bars" onClick={this.onShow} />
         </div>
-        <Sidebar
-          visible={this.state.visible}
-          baseZIndex={1000000}
-          onHide={this.onHide}
-          position="top"
+        {this.props.drawerOpen && (
+          <Backdrop onClick={this.props.onCloseDrawer} zIndex={1000000} opacity={0.5} />
+        )}
+
+        <div
+          className={`custom-drawer ${this.props.drawerOpen ? 'open' : ''}`}
+          role="dialog"
+          aria-modal="true"
+          onClick={(e) => e.stopPropagation()}
         >
           <div className="modalSidebarContainer" onClick={this.onHide}>
             <Link to="/projects" style={{ textDecoration: 'none', color: 'white' }}>
@@ -88,7 +78,7 @@ class Header extends Component {
               <img className="github" src={github} alt={'github'} />
             </a>
           </div>
-        </Sidebar>
+        </div>
       </div>
     );
   }
