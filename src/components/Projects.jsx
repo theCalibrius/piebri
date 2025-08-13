@@ -160,7 +160,6 @@ class Projects extends Component {
           footer={getModalFooter()}
           width="450px"
           height="500px"
-          icons="pi-stop"
           dismissableMask={true}
           modal={true}
           onHide={this.onHide}
