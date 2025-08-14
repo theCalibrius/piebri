@@ -12,11 +12,14 @@ jobs:
 
       - uses: actions/setup-node@4
         with:
-          node-version: '20'
-          cache: 'yarn'
+          node-version: "20"
+          cache: "yarn"
 
       - name: Install deps
         run: yarn --frozen-lockfile
 
-      - name: Build site
+      - name: Build
         run: yarn build
+
+      - name: Lighthouse CI
+        run: npx lhci autorun
