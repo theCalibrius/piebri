@@ -1,0 +1,22 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install deps
+        run: yarn --frozen-lockfile
+
+      - name: Build site
+        run: yarn build

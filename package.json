@@ -21,9 +21,12 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "lhci": "lhci autorun"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "@lhci/cli": "^0.15.1",
+    "prettier": "^3.6.2",
+    "serve": "^14.2.4"
   }
 }
