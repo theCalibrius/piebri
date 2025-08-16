@@ -2,7 +2,7 @@ import React from 'react';
 import piebri from '../img/piebri.png';
 import '../css/Home.css';
 
-var Home = (props) => (
+const Home = () => (
   <div className="homepageContent">
     <div className="title">Brian Pierce</div>
     <div className="leftKeywords">
@@ -12,7 +12,7 @@ var Home = (props) => (
       <li>genAI</li>
     </div>
     <div className="mugShot">
-      <img className="piebri" src={piebri} alt={'my face'} />
+      <img className="piebri" src={piebri} alt={'piebri profile'} />
     </div>
     <div className="rightKeywords">
       <li>javascript</li>

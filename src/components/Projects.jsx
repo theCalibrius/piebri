@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Dialog } from 'primereact/components/dialog/Dialog';
 import { Button } from 'primereact/components/button/Button';
 import projectData from '../data/projectData.js';
@@ -16,159 +16,125 @@ const HeaderWithClose = ({ title, onHide }) => (
   </Fragment>
 );
 
-class Projects extends Component {
-  constructor() {
-    super();
-    this.state = {
-      visible: false,
-      class: null,
-      selectedProject: {
-        title: '',
-        description: '',
-        technologies: {
-          left: [],
-          center: [],
-          right: [],
-        },
-        gitHubURL: '',
-        liveURL: '#',
-      },
-      leftColumnProjects: projectData.leftColumnProjects,
-      rightColumnProjects: projectData.rightColumnProjects,
-    };
+const Projects = () => {
+  const [visible, setVisible] = useState(false);
+  const [modalClass, setModalClass] = useState(null);
+  const [selectedProject, setSelectedProject] = useState({
+    title: '',
+    description: '',
+    technologies: { left: [], center: [], right: [] },
+    gitHubURL: '',
+    liveURL: '#',
+  });
 
-    this.onClick = this.onClick.bind(this);
-    this.onHide = this.onHide.bind(this);
-  }
+  const [leftColumnProjects] = useState(projectData.leftColumnProjects);
+  const [rightColumnProjects] = useState(projectData.rightColumnProjects);
 
-  onClick = (projectsColumn, projectIndex, e) => {
-    this.setState({
-      visible: true,
-      modalClass: 'modalWrapper',
-      selectedProject: this.state[projectsColumn][projectIndex],
-    });
+  const onClick = (projectsColumn, projectIndex) => {
+    setVisible(true);
+    setModalClass('modalWraper');
+    const list = projectsColumn === 'leftColumnProjects' ? leftColumnProjects : rightColumnProjects;
+    setSelectedProject(list[projectIndex]);
   };
 
-  onHide = (e) => {
-    this.setState({
-      visible: false,
-      modalClass: null,
-    });
+  const onHide = () => {
+    setVisible(false);
+    setModalClass(null);
   };
 
-  render() {
-    const projectTechnologies = this.state.selectedProject.technologies;
-    const leftColumnProjects = this.state.leftColumnProjects;
-    const rightColumnProjects = this.state.rightColumnProjects;
+  const renderList = (columnProjects, columnName) =>
+    columnProjects.map((project, index) => (
+      <li key={index} onClick={() => onClick(columnName, index)}>
+        <span className="projectListItem">{project.title}</span>
+      </li>
+    ));
 
-    /*
-     * Below usage of index as key is appropriate for the situation:
-     * https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
-     */
+  const leftProjects = renderList(leftColumnProjects, 'leftColumnProjects');
+  const rightProjects = renderList(rightColumnProjects, 'rightColumnProjects');
 
-    const leftProjects = leftColumnProjects.map((project, index) => {
-      const boundProjectClick = this.onClick.bind(this, 'leftColumnProjects', index);
-      return (
-        <li key={index} onClick={boundProjectClick}>
-          <span className="projectListItem">{project.title}</span>
-        </li>
-      );
-    });
+  const getModalButtonLinkURL = (linkName) => selectedProject[linkName];
+  const getModalFooter = () => {
+    let gitButtonID = '';
+    let liveButtonID = '';
 
-    const rightProjects = rightColumnProjects.map((project, index) => {
-      const boundProjectClick = this.onClick.bind(this, 'rightColumnProjects', index);
-      return (
-        <li key={index} onClick={boundProjectClick}>
-          <span className="projectListItem">{project.title}</span>
-        </li>
-      );
-    });
+    if (getModalButtonLinkURL('gitHubURL') === '#') {
+      gitButtonID = 'hideButton';
+    }
 
-    let getModalButtonLinkURL = (linkName) => {
-      return this.state.selectedProject[linkName];
-    };
-
-    let getModalFooter = () => {
-      let gitButtonID = '';
-      let liveButtonID = '';
-
-      if (getModalButtonLinkURL('gitHubURL') === '#') {
-        gitButtonID = 'hideButton';
-      }
-
-      if (getModalButtonLinkURL('liveURL') === '#') {
-        liveButtonID = 'hideButton';
-      }
-
-      return (
-        <div className="buttonContainer">
-          <Button
-            label="GitHub Repo"
-            id={gitButtonID}
-            onClick={() => {
-              window.open(getModalButtonLinkURL('gitHubURL'), '_blank');
-            }}
-          />
-          <Button
-            label="Live Site"
-            id={liveButtonID}
-            onClick={() => {
-              window.open(getModalButtonLinkURL('liveURL'), '_blank');
-            }}
-          />
-        </div>
-      );
-    };
-
-    let getModalDescription = () => {
-      const technologiesListLeftColumn = projectTechnologies.left.map((technology, index) => {
-        return <li key={index}>{technology}</li>;
-      });
-      const technologiesListCenterColumn = projectTechnologies.center.map((technology, index) => {
-        return <li key={index}>{technology}</li>;
-      });
-      const technologiesListRightColumn = projectTechnologies.right.map((technology, index) => {
-        return <li key={index}>{technology}</li>;
-      });
-
-      return (
-        <div className="projectModalContentWrapper">
-          <div className="projectDescriptionContent">{this.state.selectedProject.description}</div>
-          <div className="projectTechnologiesList">
-            <div className="technologiesListLeftColumn">{technologiesListLeftColumn}</div>
-            <div className="technologiesListCenterColumn">{technologiesListCenterColumn}</div>
-            <div className="technologiesListRightColumn">{technologiesListRightColumn}</div>
-          </div>
-        </div>
-      );
-    };
-
-    getModalFooter = getModalFooter.bind(this);
-    getModalButtonLinkURL = getModalButtonLinkURL.bind(this);
-    getModalDescription = getModalDescription.bind(this);
+    if (getModalButtonLinkURL('liveURL') === '#') {
+      liveButtonID = 'hideButton';
+    }
 
     return (
-      <div className="projectsContent">
-        <div className="title">Projects</div>
-        <div className="leftProjects">{leftProjects}</div>
-        <div className="rightProjects">{rightProjects}</div>
-        <Dialog
-          className={this.state.modalClass}
-          header={<HeaderWithClose title={this.state.selectedProject.title} onHide={this.onHide} />}
-          description={this.state.selectedProject.description}
-          visible={this.state.visible}
-          footer={getModalFooter()}
-          width="450px"
-          height="500px"
-          dismissableMask={true}
-          modal={true}
-          onHide={this.onHide}
-        >
-          {getModalDescription()}
-        </Dialog>
+      <div className="buttonContainer">
+        <Button
+          label="GitHub Repo"
+          id={gitButtonID}
+          onClick={() => {
+            window.open(getModalButtonLinkURL('gitHubURL'), '_blank');
+          }}
+        />
+        <Button
+          label="Live Site"
+          id={liveButtonID}
+          onClick={() => {
+            window.open(getModalButtonLinkURL('liveURL'), '_blank');
+          }}
+        />
       </div>
     );
-  }
-}
+  };
+
+  const getModalDescription = () => {
+    const technologiesListLeftColumn = selectedProject.technologies.left.map(
+      (technology, index) => {
+        return <li key={index}>{technology}</li>;
+      }
+    );
+    const technologiesListCenterColumn = selectedProject.technologies.center.map(
+      (technology, index) => {
+        return <li key={index}>{technology}</li>;
+      }
+    );
+    const technologiesListRightColumn = selectedProject.technologies.right.map(
+      (technology, index) => {
+        return <li key={index}>{technology}</li>;
+      }
+    );
+
+    return (
+      <div className="projectModalContentWrapper">
+        <div className="projectDescriptionContent">{selectedProject.description}</div>
+        <div className="projectTechnologiesList">
+          <div className="technologiesListLeftColumn">{technologiesListLeftColumn}</div>
+          <div className="technologiesListCenterColumn">{technologiesListCenterColumn}</div>
+          <div className="technologiesListRightColumn">{technologiesListRightColumn}</div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="projectsContent">
+      <div className="title">Projects</div>
+      <div className="leftProjects">{leftProjects}</div>
+      <div className="rightProjects">{rightProjects}</div>
+      <Dialog
+        className={modalClass}
+        header={<HeaderWithClose title={selectedProject.title} onHide={onHide} />}
+        description={selectedProject.description}
+        visible={visible}
+        footer={getModalFooter()}
+        width="450px"
+        height="500px"
+        dismissableMask={true}
+        modal={true}
+        onHide={onHide}
+      >
+        {getModalDescription()}
+      </Dialog>
+    </div>
+  );
+};
 
 export default Projects;
