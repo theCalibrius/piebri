@@ -22,11 +22,16 @@
     "eject": "react-scripts eject",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "dev": "vite",
+    "build:vite": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
+    "@vitejs/plugin-react": "^5.0.0",
     "prettier": "^3.6.2",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "vite": "^7.1.2"
   }
 }
