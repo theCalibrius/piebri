@@ -19,7 +19,7 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: yarn build:vite
 
       - name: Lighthouse CI
         run: npx lhci autorun
