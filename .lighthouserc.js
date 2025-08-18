@@ -3,8 +3,8 @@ module.exports = {
   ci: {
     collect: {
       // For CRA for now; change 'build' to "dist" after switch to Vite
-      startServerCommand: 'serve -s build:vite -l 4173',
-      startServerReadyPattern: 'http://localhost:4173',
+      startServerCommand: 'yarn preview --port=4173',
+      startServerReadyPattern: 'Local:\\s*http://localhost:4173',
       startServerReadyTimeout: 60000,
       numberOfRuns: 3,
       url: [
@@ -26,7 +26,7 @@ module.exports = {
         'total-blocking-time': ['error', { maxNumericValue: 200 }],
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
       },
-      budgets: ['error', { budgetPath: 'lighthouse-budgets.json ' }],
+      budgets: ['error', { budgetPath: 'lighthouse-budgets.json' }],
     },
     preset: 'lighthouse:recommended',
     upload: {
