@@ -3,7 +3,7 @@ module.exports = {
   ci: {
     collect: {
       // For CRA for now; change 'build' to "dist" after switch to Vite
-      startServerCommand: 'serve -s build -l 4173',
+      startServerCommand: 'serve -s build:vite -l 4173',
       startServerReadyPattern: 'http://localhost:4173',
       startServerReadyTimeout: 60000,
       numberOfRuns: 3,
