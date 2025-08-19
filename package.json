@@ -15,6 +15,7 @@
     "react-transition-group": "^2.3.0"
   },
   "scripts": {
+    "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lhci": "lhci autorun",
@@ -23,10 +24,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
     "@lhci/cli": "^0.15.1",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
     "prettier": "^3.6.2",
     "serve": "^14.2.4",
+    "typescript": "^5.9.2",
     "vite": "^7.1.2"
   }
 }

@@ -2,7 +2,6 @@
 module.exports = {
   ci: {
     collect: {
-      // For CRA for now; change 'build' to "dist" after switch to Vite
       startServerCommand: 'yarn preview --port=4173',
       startServerReadyPattern: 'Local:\\s*http://localhost:4173',
       startServerReadyTimeout: 60000,
