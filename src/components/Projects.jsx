@@ -115,7 +115,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="projectsContent">
+    <div id="projectsWrap" className="projectsContent">
       <div className="title">Projects</div>
       <div className="leftProjects">{leftProjects}</div>
       <div className="rightProjects">{rightProjects}</div>

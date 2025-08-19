@@ -87,6 +87,11 @@
   display: none;
 }
 
+#projectsWrap .ui-dialog-titlebar-icon:hover {
+  border: none;
+  background: none;
+}
+
 .ui-widget-header::before,
 .ui-helper-clearfix::before {
   content: '' !important;
