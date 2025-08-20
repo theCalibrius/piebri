@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import 'font-awesome/css/font-awesome.css';
 import '../css/App.css';
@@ -32,18 +32,20 @@ class App extends Component {
           </div>
           <Suspense fallback={<div />}>
             <div className="contentAreaContainer">
-              <Route exact path="/" component={Home} />
-              <Route
-                path="/projects"
-                render={() => (
-                  <Projects
-                    modalOpen={this.state.modalOpen}
-                    onOpenModal={this.openModal}
-                    onCloseModal={this.closeModal}
-                  />
-                )}
-              />
-              <Route path="/contact" component={Contact} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="/projects"
+                  element={
+                    <Projects
+                      modalOpen={this.state.modalOpen}
+                      onOpenModal={this.openModal}
+                      onCloseModal={this.closeModal}
+                    />
+                  }
+                />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
             </div>
           </Suspense>
         </div>
