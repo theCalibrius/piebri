@@ -9,8 +9,8 @@
     "font-awesome": "^4.7.0",
     "jquery.terminal": "^1.12.1",
     "primereact": "^1.5.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "18",
+    "react-dom": "18",
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.3.0"
   },
