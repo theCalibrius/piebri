@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import 'font-awesome/css/font-awesome.css';
 import '../css/App.css';
+import '../css/tailwind.css';
 
 const Home = React.lazy(() => import('./Home.jsx'));
 const Projects = React.lazy(() => import('./Projects.jsx'));
