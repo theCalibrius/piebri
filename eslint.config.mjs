@@ -6,7 +6,7 @@ import globals from 'globals';
 export default [
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['dist/**', 'build/**', 'review-bundle/**', '.lighthouseci/**'],
+    ignores: ['dist/**', '**/*.css', 'build/**', 'review-bundle/**', '.lighthouseci/**'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

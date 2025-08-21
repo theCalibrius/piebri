@@ -39,11 +39,18 @@
   min-width: 54px;
 }
 
-.socialLinks img {
-  width: 18px;
+.socialLinks svg {
+  stroke: white;
+  fill: white;
+  height: 22px;
+  width: 16px;
 }
 
-.navMenuIcon.fa {
+.socialLinks a.linkedin svg {
+  border-radius: 4px ;
+}
+
+.navMenuIcon {
   display: none;
 }
 
@@ -62,15 +69,11 @@
     display: flex;
   }
 
-  .navMenuIcon.fa {
+  .navMenuIcon {
     display: inline;
     margin-right: 6px;
     color: #ffffff;
     height: 100%;
-  }
-
-  .fa-bars::before {
-    font-size: 1.3em;
   }
 
   .navLinks {

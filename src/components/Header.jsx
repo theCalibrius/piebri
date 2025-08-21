@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import linkedin from '../img/linkedin_logo.png';
-import github from '../img/github_logo.png';
 import Backdrop from './Backdrop';
+import { FaGithub, FaLinkedin, FaBars } from 'react-icons/fa';
 import '../css/Header.css';
 
 const Header = ({ onCloseDrawer, onOpenDrawer, drawerOpen }) => (
@@ -29,16 +28,24 @@ const Header = ({ onCloseDrawer, onOpenDrawer, drawerOpen }) => (
           href="https://www.linkedin.com/in/piercebrian/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+          className="linkedin"
         >
-          <img className="linkedin" src={linkedin} alt={'linkedin'} />
+          <FaLinkedin className="linkedin text-[20px] text-white" aria-hidden="true" />
         </a>
-        <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer">
-          <img className="github" src={github} alt={'github'} />
+        <a
+          href="https://github.com/theCalibrius"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Github profile"
+          className="github"
+        >
+          <FaGithub className="github text-[20px] text-white" aria-hidden="true" />
         </a>
       </div>
     </div>
     <div className="navMenuIconContainer">
-      <span className="navMenuIcon fa fa-bars" onClick={onOpenDrawer} />
+      <FaBars className="navMenuIcon" onClick={onOpenDrawer} />
     </div>
     {drawerOpen && <Backdrop onClick={onCloseDrawer} zIndex={1000000} opacity={0.5} />}
 
@@ -59,11 +66,19 @@ const Header = ({ onCloseDrawer, onOpenDrawer, drawerOpen }) => (
           href="https://www.linkedin.com/in/piercebrian/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+          className="text-white hover:opacity-80"
         >
-          <img className="linkedin" src={linkedin} alt={'linkedin'} />
+          <FaLinkedin className="linkedin text-[20px] text-white" aria-hidden="true" />
         </a>
-        <a href="https://github.com/theCalibrius" target="_blank" rel="noopener noreferrer">
-          <img className="github" src={github} alt={'github'} />
+        <a
+          href="https://github.com/theCalibrius"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Github profile"
+          className="text-white hover:opacity-80"
+        >
+          <FaGithub className="github text-[20px] text-white" aria-hidden="true" />
         </a>
       </div>
     </div>
